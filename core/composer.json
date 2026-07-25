@@ -1,0 +1,16 @@
+{
+    "name": "sabedoria/core",
+    "description": "Biblioteca compartilhada do ecossistema Sabedoria de Coracao",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require": {
+        "php": ">=8.0"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "sabedoria/caminho-saberes",
+    "description": "Plataforma de aprendizado SPA - Saberes Ancestrais",
+    "require": {
+        "php": ">=8.0",
+        "sabedoria/core": "@dev"
+    },
+    "autoload": {
+        "files": [
+            "includes/functions.php"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../core"
+        }
+    ]
+}

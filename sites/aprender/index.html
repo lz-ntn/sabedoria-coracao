@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saberes de Coração</title>
+  <meta name="description" content="Conhecimento que une ciência e sabedoria ancestral.">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖤</text></svg>">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon"><i class="bi bi-heart-fill"></i></div>
+      <div>
+        <span class="logo-text">Saberes de Coração</span>
+        <span class="logo-sub">O Caminho do Conhecimento</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-icon" id="search-toggle" title="Buscar"><i class="bi bi-search"></i></button>
+      <button class="btn-icon" id="theme-toggle" title="Tema"><i class="bi bi-moon-stars" id="theme-icon"></i></button>
+    </div>
+  </div>
+</header>
+
+<nav id="main-nav">
+  <div class="nav-scroll">
+    <ul class="nav-list">
+      <li><a href="#inicio" class="nav-link active"><i class="bi bi-house"></i> Início</a></li>
+      <li><a href="#cronograma" class="nav-link"><i class="bi bi-calendar3"></i> Cronograma</a></li>
+      <li><a href="#conhecimento" class="nav-link"><i class="bi bi-book"></i> Saberes</a></li>
+      <li><a href="#praticas" class="nav-link"><i class="bi bi-person-bounding-box"></i> Práticas</a></li>
+      <li><a href="#jornada" class="nav-link"><i class="bi bi-stars"></i> Jornada</a></li>
+      <li><a href="#quiz" class="nav-link"><i class="bi bi-question-circle"></i> Quiz</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div id="search-modal" class="modal-overlay" role="dialog">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3><i class="bi bi-search"></i> Buscar</h3>
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" id="search-input" class="search-field" placeholder="Digite para buscar..." aria-label="Busca">
+      <div id="search-results" style="margin-top:1rem;"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <h1>O Caminho do Conhecimento</h1>
+    <p>Uma jornada através dos saberes que unem ciência, espiritualidade e sabedoria prática. Conhecimento que transforma, não apenas informa.</p>
+    <div class="highlight-box" style="max-width:650px;margin:0 auto 1.5rem;text-align:left;">
+      <p style="font-style:italic;color:var(--cor-texto);">"O conhecimento sem prática é vazio. A prática sem conhecimento é cega."</p>
+    </div>
+    <div class="hero-actions">
+      <a href="#conhecimento" class="btn btn-primary"><i class="bi bi-arrow-down-circle"></i> Explorar Saberes</a>
+      <a href="#fio-ser" class="btn btn-sec"><i class="bi bi-infinity"></i> O Fio do Ser</a>
+    </div>
+  </section>
+
+  <!-- FIO DO SER -->
+  <section id="fio-ser">
+    <span class="section-tag">O Eixo</span>
+    <h2>O Fio do Ser</h2>
+    <p class="section-subtitle">Todas as tradições aqui reunidas apontam para a mesma pergunta — <strong>Quem sou eu?</strong> O Ser é o centro do qual tudo parte e para onde tudo retorna.</p>
+    <div class="cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+      <div class="card-item">
+        <h4>🔍 Autoinvestigação</h4>
+        <p>Gnose, Teosofia, Cristianismo Primitivo — todas perguntam: <em>qual a natureza do ser humano?</em> A resposta gnóstica: uma centelha divina aprisionada. A teosófica: um espírito em evolução. A cristã: um filho de Deus.</p>
+        <div class="highlight-box info" style="margin-top:0.75rem;font-size:0.85rem;"><p>🔗 <strong>Relação:</strong> Gnose → Cristianismo → Teosofia</p></div>
+      </div>
+      <div class="card-item">
+        <h4>⚡ Transformação</h4>
+        <p>Kundalini, Pneuma, Coração — o Ser não é estático. Ele desperta, respira, ama. O caminho não é teorizar sobre o Ser, mas <strong>transformá-lo</strong> através da prática.</p>
+        <div class="highlight-box info" style="margin-top:0.75rem;font-size:0.85rem;"><p>🔗 <strong>Relação:</strong> Kundalini → Pneuma → Coração → Meditação</p></div>
+      </div>
+      <div class="card-item">
+        <h4>🔬 Verificação</h4>
+        <p>Epigenética, Física Espiritual, Ignorância Humana — a ciência moderna está validando o que os sábios sempre disseram: <strong>a consciência molda a realidade.</strong> O Ser não é apenas filosofia — é biologia, é física.</p>
+        <div class="highlight-box info" style="margin-top:0.75rem;font-size:0.85rem;"><p>🔗 <strong>Relação:</strong> Epigenética → Física Espiritual → Ignorância Humana</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <p style="font-size:1.1rem;font-style:italic;">O conhecimento dos saberes não é o destino — <strong>você</strong> é o destino.</p>
+    </div>
+  </section>
+
+  <!-- CRONOGRAMA -->
+  <section id="cronograma">
+    <span class="section-tag">Roteiro</span>
+    <h2>Cronograma de Estudos</h2>
+    <p class="section-subtitle">Um caminho progressivo — do fundamento à integração.</p>
+    <div class="tabs-wrapper">
+      <div class="tabs-bar">
+        <button class="tab-trigger active" data-tab="iniciante"><i class="bi bi-star"></i> Iniciante</button>
+        <button class="tab-trigger" data-tab="intermediario"><i class="bi bi-star-half"></i> Intermediário</button>
+        <button class="tab-trigger" data-tab="avancado"><i class="bi bi-star-fill"></i> Avançado</button>
+      </div>
+      <div class="tab-pane active" data-pane="iniciante">
+        <div class="cards-grid">
+          <div class="card-item"><h4>🧘 Gnose</h4><p>O que é Gnose, os Três Mundos. 30 min/dia</p></div>
+          <div class="card-item"><h4>🧬 Epigenética</h4><p>O que é, o que influencia. 30 min/dia</p></div>
+          <div class="card-item"><h4>💎 Hermetismo</h4><p>Os 7 Princípios. 30 min/dia</p></div>
+        </div>
+      </div>
+      <div class="tab-pane" data-pane="intermediario">
+        <div class="cards-grid">
+          <div class="card-item"><h4>⚡ Kundalini</h4><p>O despertar, chakras. 40 min/dia</p></div>
+          <div class="card-item"><h4>👁️ Teosofia</h4><p>Blavatsky, Doutrina Secreta. 40 min/dia</p></div>
+          <div class="card-item"><h4>❤️ Coração</h4><p>Coerência cardíaca. 40 min/dia</p></div>
+        </div>
+      </div>
+      <div class="tab-pane" data-pane="avancado">
+        <div class="cards-grid">
+          <div class="card-item"><h4>✝️ Cristianismo Primitivo</h4><p>Nag Hammadi, gnose vs ortodoxia. 45 min/dia</p></div>
+          <div class="card-item"><h4>🔬 Ignorância Humana</h4><p>Ciência validando saberes ancestrais. 45 min/dia</p></div>
+          <div class="card-item"><h4>🔄 Integração</h4><p>Prática diária completa. 60 min/dia</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONHECIMENTO -->
+  <section id="conhecimento">
+    <span class="section-tag">Saberes</span>
+    <h2>Tradições de Conhecimento</h2>
+    <p class="section-subtitle">Oito áreas que transformam a compreensão de si mesmo e do mundo.</p>
+
+    <div class="progress-bar-group">
+      <div class="progress-cell" data-cat="gnose"><span>Gnose</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="epigenetica"><span>Epigenética</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="hermetismo"><span>Hermetismo</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="kundalini"><span>Kundalini</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="teosofia"><span>Teosofia</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="coracao"><span>Coração</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="ignorancia"><span>Ignorância</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+      <div class="progress-cell" data-cat="cristianismo"><span>Cristianismo</span><div class="progress-track"><div class="progress-track-fill" style="width:0%"></div></div></div>
+    </div>
+
+    <div class="tabs-wrapper">
+      <div class="tabs-bar">
+        <button class="tab-trigger active" data-tab="gnose"><i class="bi bi-fire"></i> Gnose <span class="tab-status" id="s-gnose">0%</span></button>
+        <button class="tab-trigger" data-tab="epigenetica"><i class="bi bi-dna"></i> Epigenética <span class="tab-status" id="s-epigenetica">0%</span></button>
+        <button class="tab-trigger" data-tab="hermetismo"><i class="bi bi-gem"></i> Hermetismo <span class="tab-status" id="s-hermetismo">0%</span></button>
+        <button class="tab-trigger" data-tab="kundalini"><i class="bi bi-lightning-charge"></i> Kundalini <span class="tab-status" id="s-kundalini">0%</span></button>
+        <button class="tab-trigger" data-tab="teosofia"><i class="bi bi-eye"></i> Teosofia <span class="tab-status" id="s-teosofia">0%</span></button>
+        <button class="tab-trigger" data-tab="coracao"><i class="bi bi-heart-pulse"></i> Coração <span class="tab-status" id="s-coracao">0%</span></button>
+        <button class="tab-trigger" data-tab="ignorancia"><i class="bi bi-search"></i> Ignorância <span class="tab-status" id="s-ignorancia">0%</span></button>
+        <button class="tab-trigger" data-tab="cristianismo"><i class="bi bi-cross"></i> Cristianismo <span class="tab-status" id="s-cristianismo">0%</span></button>
+      </div>
+
+      <!-- GNOSE -->
+      <div class="tab-pane active" data-pane="gnose">
+        <p class="tab-header">Conhecimento direto e experiencial da natureza divina — não crença, mas experiência.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="gnose-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-fire"></i> O Que é Gnose?</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Gnose (γνῶσις)</strong> — conhecimento direto e experiencial do divino.</p>
+              <div class="highlight-box"><p>A centelha divina dentro do ser humano desperta através do autoconhecimento.</p></div>
+              <ul style="padding-left:1.2rem;line-height:2;">
+                <li><strong>Gnose não é acreditar</strong> — é conhecer por experiência direta</li>
+                <li><strong>Hyle</strong> — a matéria como prisão espiritual</li>
+                <li><strong>Salvação</strong> — pelo conhecimento de si mesmo</li>
+              </ul>
+              <div class="highlight-box">"Conhece-te a ti mesmo e conhecerás o universo."</div>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Por 5 minutos, observe seus pensamentos sem julgá-los. Quem é o observador? Esse é o primeiro passo da gnose — não acreditar, mas testemunhar.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=cristianismo]').click()" style="color:var(--cor-destaque)">Cristianismo Primitivo</a> (Nag Hammadi) • <a href="#conhecimento" onclick="document.querySelector('[data-tab=teosofia]').click()" style="color:var(--cor-destaque)">Teosofia</a> (Blavatsky)</p>
+              <button class="btn-mark" data-lesson="gnose-1" data-cat="gnose"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="gnose-2">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-layers"></i> Os Três Mundos</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="mini-grid">
+                <div class="mini-card"><span class="icon">🔥</span><h4>Plerooma</h4><p>Mundo da plenitude divina</p></div>
+                <div class="mini-card"><span class="icon">🌫️</span><h4>Kenoma</h4><p>Vazio, matéria como prisão</p></div>
+                <div class="mini-card"><span class="icon">🌱</span><h4>Sarak</h4><p>Centelha divina desperta</p></div>
+              </div>
+              <div class="highlight-box info"><p><strong>🧪 Exercício:</strong> Identifique em sua vida: o que pertence ao "Kenoma" (o que te prende)? O que pertence ao "Plerooma" (o que te liberta)? O que é a centelha em você?</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=hermetismo]').click()" style="color:var(--cor-destaque)">Hermetismo</a> (Correspondência) • <a href="#praticas" style="color:var(--cor-destaque)">Caminho Prático</a></p>
+              <button class="btn-mark" data-lesson="gnose-2" data-cat="gnose"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EPIGENÉTICA -->
+      <div class="tab-pane" data-pane="epigenetica">
+        <p class="tab-header">A ciência que prova: você não é vítima dos seus genes. Seus hábitos moldam sua expressão gênica.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="epigenetica-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-dna"></i> O Que é Epigenética?</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Mudanças na atividade dos genes sem alterar o DNA. Seus hábitos decidem quais genes são ativados.</p>
+              <div class="highlight-box info"><p>Você pode ter genes "de risco" que nunca se expressam com bons hábitos. Isto é: <strong>seu Ser não é definido pela herança — é definido pelas suas escolhas.</strong></p></div>
+              <div class="highlight-box" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Escolha UM hábito hoje (alimentação, respiração, exercício). Comprometa-se por 7 dias. A epigenética começa na escolha consciente.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=coracao]').click()" style="color:var(--cor-destaque)">Coração</a> (estresse e coerência) • <a href="#conhecimento" onclick="document.querySelector('[data-tab=ignorancia]').click()" style="color:var(--cor-destaque)">Ignorância Humana</a></p>
+              <button class="btn-mark" data-lesson="epigenetica-1" data-cat="epigenetica"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="epigenetica-2">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-gear"></i> O Que Influencia?</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="mini-grid">
+                <div class="mini-card"><span class="icon">🍎</span><h4>Alimentação</h4><p>Dieta regula inflamação</p></div>
+                <div class="mini-card"><span class="icon">😰</span><h4>Estresse</h4><p>Cortisol acelera — meditação reverte</p></div>
+                <div class="mini-card"><span class="icon">🏃</span><h4>Exercício</h4><p>Regula metabolismo</p></div>
+                <div class="mini-card"><span class="icon">😴</span><h4>Sono</h4><p>Regeneração celular</p></div>
+              </div>
+              <div class="highlight-box info"><p><strong>🧪 Exercício:</strong> Avalie seu estilo de vida: qual destes 4 fatores é seu ponto fraco? Comprometa-se com uma micro-mudança hoje.</p></div>
+              <button class="btn-mark" data-lesson="epigenetica-2" data-cat="epigenetica"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERMETISMO -->
+      <div class="tab-pane" data-pane="hermetismo">
+        <p class="tab-header">Os sete princípios do Kybalion — a chave universal para compreender a realidade.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="hermetismo-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-gem"></i> Os Sete Princípios</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <ol style="padding-left:1.2rem;line-height:2.2;">
+                <li><strong>Mentalismo</strong> — O Todo é Mente</li>
+                <li><strong>Correspondência</strong> — Como acima, assim abaixo</li>
+                <li><strong>Vibração</strong> — Nada está parado</li>
+                <li><strong>Polaridade</strong> — Tudo tem dois polos</li>
+                <li><strong>Ritmo</strong> — Tudo flui e reflui</li>
+                <li><strong>Causa e Efeito</strong> — Toda causa tem seu efeito</li>
+                <li><strong>Gênero</strong> — Tudo tem masculino e feminino</li>
+              </ol>
+              <div class="highlight-box">"O que está em cima é como o que está embaixo." — Tábua de Esmeralda</div>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Aplique o Princípio da Correspondência hoje: se há conflito no trabalho, olhe para dentro — o que está "embaixo" reflete o que está "em cima". O micro reflete o macro.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=gnose]').click()" style="color:var(--cor-destaque)">Gnose</a> (Três Mundos) • <a href="#conhecimento" onclick="document.querySelector('[data-tab=tao]').click()" style="color:var(--cor-destaque)">Tao</a> (Ritmo e Fluxo)</p>
+              <button class="btn-mark" data-lesson="hermetismo-1" data-cat="hermetismo"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KUNDALINI -->
+      <div class="tab-pane" data-pane="kundalini">
+        <p class="tab-header">A energia serpentina que ascende pela coluna, despertando centros de consciência.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="kundalini-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-lightning-charge"></i> O Que é Kundalini?</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Energia criadora adormecida na base da coluna. Fogo do Espírito Santo na tradição gnóstica.</p>
+              <div class="highlight-box warning"><p>O despertar deve ser gradual. Comece com práticas suaves. Respeite seu corpo e seu tempo.</p></div>
+              <h4 style="margin:1rem 0 0.5rem;color:var(--cor-destaque);">Os 3 Fatores</h4>
+              <ul style="padding-left:1.2rem;line-height:2;">
+                <li><strong>Morrer</strong> — eliminar o ego</li>
+                <li><strong>Nascer</strong> — transmutação sexual</li>
+                <li><strong>Sacrifício</strong> — serviço à humanidade</li>
+              </ul>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Por hoje, apenas <strong>observe</strong> sua energia. Em que parte do corpo você sente vitalidade? Onde sente bloqueio? A consciência do corpo é o primeiro passo.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=pneuma]').click()" style="color:var(--cor-destaque)">Pneuma</a> (sopro vital) • <a href="#praticas" style="color:var(--cor-destaque)">Caminho Prático</a> (passo 2)</p>
+              <button class="btn-mark" data-lesson="kundalini-1" data-cat="kundalini"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEOSOFIA -->
+      <div class="tab-pane" data-pane="teosofia">
+        <p class="tab-header">Sabedoria Divina — síntese de ciência, religião e filosofia através de Helena Blavatsky.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="teosofia-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-eye"></i> O Que é Teosofia?</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Síntese de religiões orientais, filosofia ocidental, ciência moderna e práticas contemplativas. Fundada por Helena Blavatsky em 1875.</p>
+              <div class="highlight-box">"Não existe religião maior que a verdade." — H. Blavatsky</div>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Pegue um conceito que você considera "verdade absoluta" e questione: <em>e se o oposto também for verdade?</em> A teosofia ensina que a verdade é multifacetada.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=gnose]').click()" style="color:var(--cor-destaque)">Gnose</a> • <a href="#jornada" style="color:var(--cor-destaque)">Jornada da Consciência</a></p>
+              <button class="btn-mark" data-lesson="teosofia-1" data-cat="teosofia"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORAÇÃO -->
+      <div class="tab-pane" data-pane="coracao">
+        <p class="tab-header">O coração como centro de inteligência — campo eletromagnético 60x maior que o do cérebro.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="coracao-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-heart"></i> Campo Eletromagnético</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>HeartMath mostra que a coerência cardíaca sincroniza coração, mente e emoções, conectando-se com as ressonâncias de Schumann (~7.8 Hz).</p>
+              <div class="highlight-box info"><p><strong>🧪 Prática diária:</strong> 5 min de respiração pelo coração. Coloque a mão no peito. Inspire contando 5, expire contando 5. Enquanto respira, lembre de algo que te dá gratidão. Faça 2x ao dia.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=tao]').click()" style="color:var(--cor-destaque)">Tao</a> (HeartMath e Schumann) • <a href="#conhecimento" onclick="document.querySelector('[data-tab=epigenetica]').click()" style="color:var(--cor-destaque)">Epigenética</a> (estresse)</p>
+              <button class="btn-mark" data-lesson="coracao-1" data-cat="coracao"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IGNORÂNCIA HUMANA -->
+      <div class="tab-pane" data-pane="ignorancia">
+        <p class="tab-header">O conhecimento ancestral que a ciência moderna está validando — e por que foi ignorado.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="ignorancia-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-binoculars"></i> O Fenômeno</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Sabedoria indígena, Ayurveda, ioga — validados pela ciência após séculos de descrédito.</p>
+              <div class="highlight-box warning"><p><strong>A arrogância ocidental descartou saberes milenares até que a ciência reconsiderasse.</strong></p></div>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Exercício:</strong> Reflita: em que áreas da sua vida você descarta algo antes de experimentar? A Ignorância Humana não é só sobre o passado — é sobre seu preconceito hoje.</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=epigenetica]').click()" style="color:var(--cor-destaque)">Epigenética</a> (ciência validando) • <a href="#fio-ser" style="color:var(--cor-destaque)">Fio do Ser</a></p>
+              <button class="btn-mark" data-lesson="ignorancia-1" data-cat="ignorancia"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="ignorancia-2">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-hammer"></i> Göbekli Tepe e Antikythera</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="mini-grid">
+                <div class="mini-card"><h4>🏛️ Göbekli Tepe</h4><p>~9600 a.C. Megálitos antes da agricultura. Reestrutura nossa narrativa de "progresso".</p></div>
+                <div class="mini-card"><h4>⚙️ Antikythera</h4><p>Primeiro computador analógico. Engrenagens de precisão no século II a.C.</p></div>
+              </div>
+              <div class="highlight-box" style="margin-top:0.75rem;"><p><strong>🧪 Reflexão:</strong> Se os antigos eram tão "primitivos", como explicar Göbekli Tepe e Antikythera? Talvez nossa definição de progresso esteja errada.</p></div>
+              <button class="btn-mark" data-lesson="ignorancia-2" data-cat="ignorancia"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRISTIANISMO PRIMITIVO -->
+      <div class="tab-pane" data-pane="cristianismo">
+        <p class="tab-header">As origens diversas do cristianismo, os manuscritos de Nag Hammadi e a relação entre gnose e ortodoxia.</p>
+        <div class="accordion">
+          <div class="accordion-item open" data-lesson="cristianismo-1">
+            <button class="accordion-trigger"><span class="lesson-dot completed"><i class="bi bi-check-circle-fill"></i></span><h3><i class="bi bi-cross"></i> O Cristianismo Primitivo</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Movimento inicial da fé cristã (século I), forte senso de comunidade, partilha de bens, reuniões em casas. Estrutura fluida: apóstolos → presbíteros → diáconos.</p>
+              <ul style="padding-left:1.2rem;line-height:2;">
+                <li><strong>Batismo</strong> — iniciação e renascimento</li>
+                <li><strong>Ceia do Senhor</strong> — memorial do sacrifício</li>
+                <li><strong>Caridade</strong> — cuidado com pobres e viúvas</li>
+                <li><strong>Perseguição</strong> — fortalecia a fé</li>
+              </ul>
+              <div class="highlight-box">"Viviam unidos, tendo tudo em comum." — Atos 2:44</div>
+              <div class="highlight-box info" style="margin-top:0.75rem;"><p><strong>🧪 Reflexão:</strong> O que o cristianismo primitivo pode nos ensinar hoje sobre comunidade, partilha e propósito? Sem a estrutura da igreja institucional, o que restaria?</p></div>
+              <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">🔗 <strong>Continue em:</strong> <a href="#conhecimento" onclick="document.querySelector('[data-tab=gnose]').click()" style="color:var(--cor-destaque)">Gnose</a> (Evangelho de Tomé) • <a href="#praticas" style="color:var(--cor-destaque)">Caminho Prático</a> (Serviço)</p>
+              <button class="btn-mark" data-lesson="cristianismo-1" data-cat="cristianismo"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="cristianismo-2">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-journal"></i> Nag Hammadi</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Em 1945, 13 códices gnósticos descobertos no Egito revelam a diversidade do cristianismo primitivo.</p>
+              <div class="mini-grid">
+                <div class="mini-card"><h4>Evangelho de Tomé</h4><p>Ditos de Jesus sem narrativa</p></div>
+                <div class="mini-card"><h4>Evangelho de Filipe</h4><p>Relação Jesus-Maria Madalena</p></div>
+                <div class="mini-card"><h4>Apócrifo de João</h4><p>Cosmologia gnóstica</p></div>
+              </div>
+              <button class="btn-mark" data-lesson="cristianismo-2" data-cat="cristianismo"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="cristianismo-3">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-diagram-3"></i> Gnose vs Ortodoxia</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="mini-grid">
+                <div class="mini-card"><h4>Ortodoxia</h4><p>Jesus encarnado. Salvação pela fé. Matéria boa.</p></div>
+                <div class="mini-card"><h4>Gnosticismo</h4><p>Jesus revelador. Salvação pelo conhecimento. Matéria má.</p></div>
+              </div>
+              <div class="highlight-box info"><p>O cristianismo primitivo era diverso. A ortodoxia venceu e estabeleceu o cânon. Nag Hammadi mostra o que <strong>poderia ter sido</strong>.</p></div>
+              <div class="highlight-box" style="margin-top:0.75rem;"><p><strong>🧪 Reflexão:</strong> E se a história tivesse seguido outro caminho? Como seria o mundo se a visão gnóstica tivesse prevalecido? Esta pergunta nos ajuda a ver que a "verdade" também é moldada por quem vence.</p></div>
+              <button class="btn-mark" data-lesson="cristianismo-3" data-cat="cristianismo"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+          <div class="accordion-item" data-lesson="cristianismo-4">
+            <button class="accordion-trigger"><span class="lesson-dot pending"><i class="bi bi-circle"></i></span><h3><i class="bi bi-people"></i> Papel das Mulheres</h3><span class="accordion-indicator">+</span></button>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Papel ativo: testemunhas da ressurreição, líderes de igrejas em casa (Lídia, Priscila).</p>
+              <div class="highlight-box">"Não há judeu nem grego, escravo nem livre, homem nem mulher." — Gálatas 3:28</div>
+              <button class="btn-mark" data-lesson="cristianismo-4" data-cat="cristianismo"><i class="bi bi-check2-square"></i> Marcar como estudado</button>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRÁTICAS -->
+  <section id="praticas">
+    <span class="section-tag">Caminho</span>
+    <h2>O Caminho Prático</h2>
+    <p class="section-subtitle">A transformação não acontece pelo conhecimento isolado, mas pela prática constante.</p>
+    <div class="timeline-wrap">
+      <div class="timeline-step"><h4>Autoconhecimento</h4><p>Conhecer a si mesmo é o primeiro passo. Sem honestidade não há evolução.</p></div>
+      <div class="timeline-step"><h4>Observação</h4><p>Observar sem julgamento pensamentos, emoções e ações.</p></div>
+      <div class="timeline-step"><h4>Transformação</h4><p>A mudança vem de dentro. Transforme sua percepção.</p></div>
+      <div class="timeline-step"><h4>Prática Diária</h4><p>Meditação, respiração, estudos. Disciplina é o motor.</p></div>
+      <div class="timeline-step"><h4>Serviço</h4><p>Servir sem esperar retorno. O sacrifício pelo outro é a síntese.</p></div>
+      <div class="timeline-step"><h4>União</h4><p>Somos parte do Todo. A separação é ilusão.</p></div>
+    </div>
+  </section>
+
+  <!-- JORNADA -->
+  <section id="jornada">
+    <span class="section-tag">Filosofia</span>
+    <h2>A Jornada da Consciência</h2>
+    <p class="section-subtitle">Três visões sobre a consciência e sua ligação com o Todo.</p>
+    <div class="tabs-wrapper">
+      <div class="tabs-bar">
+        <button class="tab-trigger active" data-tab="materialista"><i class="bi bi-atom"></i> Materialista</button>
+        <button class="tab-trigger" data-tab="nao-dual"><i class="bi bi-infinity"></i> Não-Dual</button>
+        <button class="tab-trigger" data-tab="experiencial"><i class="bi bi-lightbulb"></i> Experiencial</button>
+      </div>
+      <div class="tab-pane active" data-pane="materialista">
+        <div class="card-item" style="max-width:800px;margin:0 auto;">
+          <p>Você é o universo se autoconhecendo. A consciência surge como propriedade emergente da matéria organizada.</p>
+          <div class="highlight-box" style="margin-top:1rem;">"Você é o universo se autoconhecendo." — Carl Sagan</div>
+        </div>
+      </div>
+      <div class="tab-pane" data-pane="nao-dual">
+        <div class="card-item" style="max-width:800px;margin:0 auto;">
+          <p>A consciência é fundamental — como espaço e tempo. Tudo tem um grão de experiência. O Todo é consciente em si mesmo.</p>
+        </div>
+      </div>
+      <div class="tab-pane" data-pane="experiencial">
+        <div class="card-item" style="max-width:800px;margin:0 auto;">
+          <p>Místicos, psicodélicos e meditação profunda sentem o "eu" dissolver. Você vira o universo experimentando a si mesmo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <span class="section-tag">Teste</span>
+    <h2>Teste Seu Conhecimento</h2>
+    <p class="section-subtitle">5 perguntas para verificar o que aprendeu.</p>
+    <div id="quiz-root" style="max-width:700px;margin:0 auto;"></div>
+  </section>
+
+  <!-- VENDAS -->
+  <section class="sales-section" id="vendas">
+    <div class="sales-inner">
+      <div class="sales-header">🖤 Projeto de Coração</div>
+      <h2 class="sales-title">Conhecimento livre, ferramentas sustentáveis</h2>
+      <p class="sales-desc">Todo o conhecimento deste site é gratuito. As ferramentas ajudam quem quer organizar sua jornada.</p>
+
+      <h3 style="color:var(--cor-destaque);font-size:1.1rem;margin-bottom:1.5rem;">📋 Sistemas de Gestão (PHP/MySQL)</h3>
+      <div class="sales-grid">
+        <div class="plano">
+          <h3>Ordem de Serviço</h3>
+          <div class="plano-price"><span class="value">R$ 147</span></div>
+          <ul><li>Clientes + serviços + status</li><li>Histórico por cliente</li><li>PHP + MySQL</li></ul>
+          <button class="btn btn-primary btn-sm" onclick="comprarTemplate(3,'Ordem de Servico',147)">Quero</button>
+        </div>
+        <div class="plano">
+          <h3>Controle de Estoque</h3>
+          <div class="plano-price"><span class="value">R$ 147</span></div>
+          <ul><li>Entrada/saída de produtos</li><li>Fornecedores</li><li>PHP + MySQL</li></ul>
+          <button class="btn btn-primary btn-sm" onclick="comprarTemplate(4,'Controle de Estoque',147)">Quero</button>
+        </div>
+        <div class="plano featured">
+          <div class="plano-badge">Mais Vendido</div>
+          <h3>Pacote Premium</h3>
+          <div class="plano-price"><span class="value">R$ 597</span><span class="small">ou 12x R$ 59,70</span></div>
+          <ul><li>Escolha 3 sistemas</li><li>Instalação guiada</li><li>30 dias de suporte</li></ul>
+          <button class="btn btn-primary btn-sm" onclick="comprarTemplate(6,'Pacote Premium',597)">Quero</button>
+        </div>
+      </div>
+
+      <h3 style="color:var(--cor-destaque);font-size:1.1rem;margin:3rem 0 1.5rem;">🌐 Templates de Site</h3>
+      <div class="sales-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <div class="plano">
+          <div class="plano-badge">Recomendado</div>
+          <h3>Template Completo</h3>
+          <div class="plano-price"><span class="value">R$ 197</span><span class="small">ou 12x R$ 19,70</span></div>
+          <ul><li>Site completo (código fonte)</li><li>Fácil personalização</li><li>Licença vitalícia</li></ul>
+          <button class="btn btn-primary btn-sm" onclick="comprarTemplate(1,'Template Completo',197)">Quero</button>
+        </div>
+        <div class="plano featured">
+          <h3>White Label</h3>
+          <div class="plano-price"><span class="value">R$ 697</span><span class="small">ou 12x R$ 69,70</span></div>
+          <ul><li>Tudo do Template</li><li>Instalação + domínio</li><li>30 dias de suporte</li></ul>
+          <button class="btn btn-primary btn-sm" onclick="comprarTemplate(2,'White Label',697)">Quero</button>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--cor-borda);">
+        <p><strong>Garantia de 7 dias</strong> — Se não gostar, devolvo 100%.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Saberes de Coração — Conhecimento Livre</p>
+  <p>Conhecimento sem prática é vazio. Prática sem conhecimento é cega.</p>
+  <p style="font-size:0.8rem;opacity:0.5;">
+    <a href="#inicio" style="color:var(--cor-texto-claro);text-decoration:none;">Início</a> •
+    <a href="#conhecimento" style="color:var(--cor-texto-claro);text-decoration:none;">Saberes</a> •
+    <a href="#praticas" style="color:var(--cor-texto-claro);text-decoration:none;">Práticas</a> •
+    <a href="#vendas" style="color:var(--cor-texto-claro);text-decoration:none;">Produtos</a>
+  </p>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('quiz-root');
+  if (!container) return;
+  var q = [
+    { p: "O que significa Gnose em grego?", o: ["Fé", "Conhecimento direto", "Meditação"], r: 1 },
+    { p: "Qual o primeiro princípio hermético?", o: ["Correspondência", "Mentalismo", "Polaridade"], r: 1 },
+    { p: "O que é epigenética?", o: ["Estudo do DNA", "Mudanças na expressão gênica", "Genética"], r: 1 },
+    { p: "Onde foram descobertos os manuscritos gnósticos?", o: ["Qumran", "Nag Hammadi", "Jerusalém"], r: 1 },
+    { p: "Quantos códices em Nag Hammadi?", o: ["7", "13", "22"], r: 1 }
+  ];
+  var h = '<div style="background:var(--cor-fundo-card);border:1px solid var(--cor-borda);border-radius:12px;padding:1.5rem;">';
+  q.forEach(function(qi, i) {
+    h += '<div style="margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--cor-borda);">';
+    h += '<p style="font-weight:600;font-size:0.95rem;margin-bottom:0.5rem;">' + (i+1) + '. ' + qi.p + '</p>';
+    qi.o.forEach(function(op, j) {
+      h += '<label class="quiz-option"><input type="radio" name="qz' + i + '" value="' + j + '">' + op + '</label>';
+    });
+    h += '<p class="quiz-result-text" id="qr' + i + '"></p></div>';
+  });
+  h += '<button class="btn btn-primary" onclick="checkQuiz()" style="width:100%;justify-content:center;">Corrigir</button>';
+  h += '<p id="quiz-score" style="text-align:center;margin-top:1rem;font-size:1.2rem;font-weight:bold;"></p></div>';
+  container.innerHTML = h;
+});
+
+window.checkQuiz = function() {
+  var correct = [1,1,1,1,1], hits = 0;
+  correct.forEach(function(c, i) {
+    var sel = document.querySelector('input[name="qz' + i + '"]:checked');
+    var el = document.getElementById('qr' + i);
+    if (!sel) { el.innerHTML = '⚠️ Selecione'; el.style.color = '#f39c12'; return; }
+    if (parseInt(sel.value) === c) { hits++; el.innerHTML = '✅ Correto'; el.style.color = 'var(--cor-destaque)'; }
+    else { el.innerHTML = '❌ Incorreto'; el.style.color = '#ff6b6b'; }
+  });
+  document.getElementById('quiz-score').textContent = hits + '/5 — ' +
+    (hits === 5 ? 'Parabéns! 🎉' : hits >= 3 ? 'Bom trabalho! 👍' : 'Continue estudando! 📚');
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "name": "sabedoria/portal-saberes",
+    "description": "CMS Wiki - Portal Saberes Ancestrais",
+    "require": {
+        "php": ">=8.0",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/src/"
+        },
+        "files": [
+            "core/src/functions.php",
+            "includes/functions.php"
+        ]
+    }
+}

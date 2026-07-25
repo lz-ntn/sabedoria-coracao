@@ -1,0 +1,498 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    background: linear-gradient(
+        180deg,
+        #0f0f1a 0%,
+        #1a1a2e 50%,
+        #16213e 100%
+    );
+    color: #ffffff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+nav {
+    background: rgba(15, 15, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-pills .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-pills .nav-link.active {
+    color: rgba(15, 15, 26, 0.95);
+    background: linear-gradient(
+        135deg,
+        #c084fc 0%,
+        #60a5fa 100%
+    );
+    font-weight: 600;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(
+        180deg,
+        rgba(192, 132, 252, 0.15) 0%,
+        transparent 100%
+    );
+}
+
+.titulo h1 {
+    font-family: "Outfit", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(
+        135deg,
+        #c084fc 0%,
+        #60a5fa 50%,
+        #4ade80 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.titulo p {
+    font-size: 1.25rem;
+    color: #d1d5db;
+    font-weight: 300;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2,
+h3 {
+    font-weight: 600;
+}
+main section#coronario .container {
+    background-image: linear-gradient(darkviolet, rgba(0, 0, 0, 0.888));
+    border-radius: 0.5rem;
+}
+main .container-fluid h2 {
+    font-size: 1.75rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid;
+    border-image: linear-gradient(180deg, #c084fc, #4ade80) 1;
+    padding-left: 1rem;
+}
+
+main section .container h3 {
+    font-size: 1.4rem;
+    color: #e5e5e5;
+    margin-bottom: 1rem;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+main section#coronario .container p {
+    color: #ffffff;
+}
+main section#coronario .container ul .list-item {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    border-radius: 12px !important;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+}
+
+.list-group-item strong {
+    color: #ffffff;
+}
+
+.list-group-item em {
+    color: #a0a0a0;
+}
+
+.list-group-item p {
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+}
+
+.list-group-item ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;    
+}
+
+ul {
+    list-style-type: none;    
+}
+
+.list-group-item li {
+    color: #c0c0c0;
+    margin-bottom: 0.25rem;
+}
+
+#btnMudar {
+    background: linear-gradient(
+        135deg,
+        #c084fc 0%,
+        #60a5fa 100%
+    );
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(192, 132, 252, 0.3);
+}
+
+#btnMudar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(192, 132, 252, 0.5);
+}
+
+#btnMudar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition:
+        max-height 400ms ease,
+        opacity 300ms ease;
+}
+
+.content.open {
+    max-height: 3000px;
+    opacity: 1;
+}
+
+.content.animando {
+    pointer-events: none;
+}
+
+#painel {
+    margin-top: 1.5rem;
+}
+
+.alert {
+    border-radius: 15px;
+    padding: 1.25rem;
+}
+
+.alert-info {
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    color: #ffffff;
+}
+
+.alert-info strong {
+    color: #60a5fa;
+}
+
+.timer-container {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    padding: 2.5rem;
+    text-align: center;
+    border: 2px solid #c084fc;
+    transition: border-color 0.5s ease;
+}
+
+.timer-display {
+    margin-bottom: 1.5rem;
+}
+
+#timer-numero {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #c084fc;
+    text-shadow: 0 0 40px rgba(192, 132, 252, 0.6);
+    display: block;
+    font-variant-numeric: tabular-nums;
+}
+
+#timer-label {
+    font-size: 1.5rem;
+    color: #ffffff;
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+#timer-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #c084fc, #60a5fa);
+    width: 100%;
+    transition: width 1s linear;
+    border-radius: 5px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-timer {
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#btnTimer {
+    background: linear-gradient(
+        135deg,
+        #c084fc 0%,
+        #60a5fa 100%
+    );
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(192, 132, 252, 0.3);
+}
+
+#btnTimer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(192, 132, 252, 0.5);
+}
+
+.btn-reset {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-reset:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.timer-instrucao {
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.timer-instrucao em {
+    color: #c084fc;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.progress-chakras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.chakra-dots {
+    display: flex;
+    gap: 14px;
+}
+
+.chakra-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.chakra-dot.past {
+    background: var(--dot-color);
+    border-color: var(--dot-color);
+    opacity: 0.5;
+}
+
+.chakra-dot.active {
+    background: var(--dot-color);
+    border-color: var(--dot-color);
+    transform: scale(1.4);
+    box-shadow: 0 0 20px var(--dot-color);
+}
+
+#chakras-cards {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+main section#chakras-cards .container h3 {
+    background: linear-gradient(
+        135deg,
+        #c084fc 0%,
+        #60a5fa 50%,
+        #4ade80 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+main section#chakras-cards .container p {
+    color: #a0a0a0 !important;
+}
+.chakra-card {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    border: 2px solid var(--chakra-color);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.chakra-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px
+            color-mix(
+                in srgb,
+                var(--chakra-color) 40%,
+                transparent
+            );
+}
+
+.chakra-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--chakra-color);
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 30px
+        color-mix(
+            in srgb,
+            var(--chakra-color) 60%,
+            transparent
+        );
+}
+
+.chakra-card h4 {
+    color: var(--chakra-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.chakra-silaba {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.chakra-focus {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.text-muted {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card p {
+    color: #ffffff;
+}
+main section#excc-vocal .container h2 {
+    font-size: 1.7rem;
+    color: lightskyblue;
+    text-align: center;
+}
+main section#excc-vocal .container .card .list-group li p {
+    color: darkslategray;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+}
+
+main section#akash .container h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: lightskyblue;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .titulo h1 {
+        font-size: 2.5rem;
+    }
+
+    #timer-numero {
+        font-size: 3.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .nav-pills .nav-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

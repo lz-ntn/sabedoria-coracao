@@ -1,0 +1,28 @@
+# render.yaml — Portal Saberes Ancestrais (CMS Wiki)
+# Este arquivo é referenciado pelo Blueprint principal.
+# Use o render.yaml na raiz do repositório para deploy completo.
+
+services:
+  - type: web
+    name: portal-saberes
+    runtime: php
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php database/migrate.php && php -S 0.0.0.0:10000 -t .
+    healthCheckPath: /healthcheck
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_NAME
+        value: portal_saberes
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_CHARSET
+        value: utf8mb4
+      - key: APP_URL
+        sync: false

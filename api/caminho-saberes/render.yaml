@@ -1,0 +1,28 @@
+# render.yaml — Caminho Saberes (Plataforma SPA)
+# Configuração para deploy individual no Render.
+# Pode ser usado standalone ou via Blueprint principal.
+
+services:
+  - type: web
+    name: caminho-saberes
+    runtime: php
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php -S 0.0.0.0:10000 -t .
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_NAME
+        value: caminho_saberes
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_CHARSET
+        value: utf8mb4
+      - key: APP_URL
+        sync: false
