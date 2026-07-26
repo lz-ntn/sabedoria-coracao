@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd667d6bb71a596dfca033f5534314e1",
+    "content-hash": "2bfe62f7c1e73cce3e8a7cd56ed446e1",
     "packages": [
         {
             "name": "sabedoria/core",
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "../core",
+                "url": "core",
                 "reference": "1fd29d4cdd6c52bb35580a3a8bd47ceff9333b52"
             },
             "require": {
