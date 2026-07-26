@@ -1,4 +1,4 @@
-name: sabedoria-prod
+version: "3.8"
 
 services:
   # Portal Saberes - PHP-FPM
