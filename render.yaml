@@ -1,59 +1,49 @@
-# render.yaml — Blueprint do Ecossistema Sabedoria de Coração
-# Render Blueprint: https://render.com/docs/blueprint-spec
-# Versão: 1.0
-#
-# Este arquivo define serviços + variáveis de ambiente.
-# Conecte este repositório ao Render como Blueprint.
-
-services:
-  # ─── CMS Wiki (Portal Saberes) ───────────────────────────────
-  - type: web
-    name: portal-saberes
-    env: php
-    rootDir: api/portal-saberes
-    buildCommand: composer install --no-dev --optimize-autoloader
-    startCommand: php -S 0.0.0.0:10000 -t .
-    healthCheckPath: /healthcheck
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: DB_HOST
-        sync: false
-      - key: DB_PORT
-        value: "4000"
-      - key: DB_NAME
-        value: portal_saberes
-      - key: DB_USER
-        sync: false
-      - key: DB_PASS
-        sync: false
-      - key: DB_CHARSET
-        value: utf8mb4
-      - key: APP_URL
-        sync: false
-
-  # ─── Plataforma SPA (Caminho Saberes) ────────────────────────
-  - type: web
-    name: caminho-saberes
-    env: php
-    rootDir: api/caminho-saberes
-    buildCommand: composer install --no-dev --optimize-autoloader
-    startCommand: php -S 0.0.0.0:10000 -t .
-    healthCheckPath: /api/health
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: DB_HOST
-        sync: false
-      - key: DB_PORT
-        value: "4000"
-      - key: DB_NAME
-        value: caminho_saberes
-      - key: DB_USER
-        sync: false
-      - key: DB_PASS
-        sync: false
-      - key: DB_CHARSET
-        value: utf8mb4
-      - key: APP_URL
-        sync: false
+# Exported from Render on 2026-07-26T01:33:21Z
+version: "1"
+projects:
+- name: Luz
+  environments:
+  - name: Produção
+    services:
+    - type: web
+      name: sabedoria-aprender
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/aprender
+    - type: web
+      name: sabedoria-viver
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/viver
+    - type: web
+      name: sabedoria-meditacao
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/meditacao
+    - type: web
+      name: sabedoria-portal
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/portal
+    - type: web
+      name: sabedoria-cristianismo
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/cristianismo
+    - type: web
+      name: sabedoria-curso
+      runtime: static
+      repo: https://github.com/lz-ntn/sabedoria-coracao
+      staticPublishPath: .
+      autoDeployTrigger: commit
+      rootDir: sites/curso
