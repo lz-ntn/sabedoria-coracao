@@ -30,15 +30,17 @@ class Database
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
 
-        $caCandidates = [
-            '/etc/ssl/certs/ca-certificates.crt',
-            '/etc/pki/tls/certs/ca-bundle.crt',
-            '/etc/ssl/ca-bundle.pem',
-        ];
-        foreach ($caCandidates as $caPath) {
-            if (file_exists($caPath)) {
-                $options[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
-                break;
+        if (!Config::isDevelopment()) {
+            $caCandidates = [
+                '/etc/ssl/certs/ca-certificates.crt',
+                '/etc/pki/tls/certs/ca-bundle.crt',
+                '/etc/ssl/ca-bundle.pem',
+            ];
+            foreach ($caCandidates as $caPath) {
+                if (file_exists($caPath)) {
+                    $options[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
+                    break;
+                }
             }
         }
 
