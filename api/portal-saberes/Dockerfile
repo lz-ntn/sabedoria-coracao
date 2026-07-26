@@ -4,8 +4,6 @@ RUN apt-get update && apt-get install -y libonig-dev libpng-dev libjpeg-dev git 
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring
 
-RUN curl -fsSL https://truststore.pki.pingcap.com/cis-2025.pem -o /etc/ssl/certs/tidb-ca.pem && chmod 644 /etc/ssl/certs/tidb-ca.pem
-
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
