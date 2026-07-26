@@ -12,8 +12,8 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-RUN chmod -R 755 /app
+RUN chmod -R 755 /app && mkdir -p /app/logs
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php -v 2>&1; echo EXIT CODE: $?"]
+CMD ["sh", "-c", "php database/migrate.php 2>&1 && echo '=== MIGRATION OK ===' && exec php -S 0.0.0.0:${PORT:-10000} -t . 2>&1"]
