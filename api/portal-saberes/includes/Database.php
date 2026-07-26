@@ -16,12 +16,20 @@ class Database {
         $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s',
             $host, $port, $name);
 
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+
+        $caPath = '/etc/ssl/certs/tidb-ca.pem';
+        if (file_exists($caPath)) {
+            $options[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
+            $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+        }
+
         try {
-            $this->pdo = new PDO($dsn, $user, $pass, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-            ]);
+            $this->pdo = new PDO($dsn, $user, $pass, $options);
             $this->pdo->exec("SET NAMES utf8mb4");
         } catch (PDOException $e) {
             if (APP_ENV === 'development') {
