@@ -9,7 +9,7 @@ services:
   # ─── CMS Wiki (Portal Saberes) ───────────────────────────────
   - type: web
     name: portal-saberes
-    runtime: php
+    env: php
     rootDir: api/portal-saberes
     buildCommand: composer install --no-dev --optimize-autoloader
     startCommand: php -S 0.0.0.0:10000 -t .
@@ -35,7 +35,7 @@ services:
   # ─── Plataforma SPA (Caminho Saberes) ────────────────────────
   - type: web
     name: caminho-saberes
-    runtime: php
+    env: php
     rootDir: api/caminho-saberes
     buildCommand: composer install --no-dev --optimize-autoloader
     startCommand: php -S 0.0.0.0:10000 -t .
