@@ -1,0 +1,38 @@
+name: sabedoria
+
+services:
+  # Portal Saberes - CMS Wiki
+  portal-saberes:
+    build: ./api/portal-saberes
+    ports:
+      - "8080:10000"
+    volumes:
+      - ./api/portal-saberes:/app
+      - ./core:/app/core
+    env_file: .env.portal
+    environment:
+      - APP_ENV=development
+    restart: unless-stopped
+
+  # Caminho Saberes - Plataforma SPA
+  caminho-saberes:
+    build: ./api/caminho-saberes
+    ports:
+      - "8081:10000"
+    volumes:
+      - ./api/caminho-saberes:/app
+      - ./core:/app/core
+    env_file: .env.caminho
+    environment:
+      - APP_ENV=development
+    restart: unless-stopped
+
+  # Sites Estáticos
+  static:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./sites:/usr/share/nginx/html:ro
+      - ./docker/nginx/static.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped

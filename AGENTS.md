@@ -205,6 +205,9 @@ SOURCE api/caminho-saberes/database/schema.sql;
 | 2026-07-26 | **core/composer.json:** Adicionadas dependências `ext-pdo`, `ext-pdo_mysql`, `ext-json`, `ext-mbstring` | AGENTS |
 | 2026-07-26 | **SSL fix Render:** URL `truststore.pki.pingcap.com` não resolvia no build; removido curl CA custom e passou a usar CA bundle do sistema (`ca-certificates.crt`) | AGENTS |
 | 2026-07-26 | **migrate.php:** Adicionado SSL com CA bundle do sistema para conexão com TiDB Serverless (exigência do TiDB) | AGENTS |
+| 2026-07-26 | **Infra:** `docker-compose.yml` (dev), `docker-compose.prod.yml` (Nginx+FPM), `Makefile`, `.github/workflows/ci.yml`, `.env.*.example` | AGENTS |
+| 2026-07-26 | **Dockerfile.fpm:** Criados para ambas APIs usando `php:8.3-fpm` com OPcache + php.ini production | AGENTS |
+| 2026-07-26 | **Nginx:** Configuração com virtual hosts pra portal e caminho, static sites, bloqueio de arquivos sensíveis | AGENTS |
 
 ---
 
@@ -215,11 +218,44 @@ SOURCE api/caminho-saberes/database/schema.sql;
 mysql -h <DB_HOST> -P 4000 -u <DB_USER> -p --ssl-mode=VERIFY_IDENTITY \
   --ssl-ca=/etc/ssl/certs/tidb-ca.pem -e "SHOW DATABASES;"
 
-# Rodar localmente com Docker
-cd api/portal-saberes && docker build -t portal-saberes . && docker run -p 10000:10000 portal-saberes
+# Rodar localmente com Docker (dev)
+docker compose up -d
+# Acessar: http://localhost:8080 (portal), http://localhost:8081 (caminho)
+
+# Rodar localmente com Nginx + PHP-FPM (prod-like)
+docker compose -f docker-compose.prod.yml up -d
+
+# Makefile
+make up        # docker compose up -d
+make logs      # logs em tempo real
+make lint      # verificar sintaxe PHP
+make deploy    # git push
 
 # Instalar dependências Composer local
 cd api/portal-saberes && composer install
+```
+
+---
+
+## Estrutura de Deploy
+
+```
+sabedoria-deploy/
+├── docker-compose.yml              # Ambiente de desenvolvimento
+├── docker-compose.prod.yml         # Ambiente produção-like (Nginx + PHP-FPM)
+├── Makefile                        # Comandos facilitados
+├── .github/workflows/ci.yml        # CI: PHP lint + Composer validate
+├── .env.portal.example             # Env vars para portal-saberes
+├── .env.caminho.example            # Env vars para caminho-saberes
+└── docker/
+    ├── nginx/
+    │   ├── nginx.conf              # Config principal do Nginx
+    │   ├── static.conf             # Para servir sites estáticos
+    │   └── sites-enabled/
+    │       ├── portal.conf         # VHost para portal-saberes
+    │       └── caminho.conf        # VHost para caminho-saberes
+    └── php/
+        └── opcache.ini             # Otimização OPcache
 ```
 
 ---

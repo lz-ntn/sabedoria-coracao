@@ -1,0 +1,23 @@
+FROM php:8.3-fpm
+
+RUN apt-get update && apt-get install -y git unzip ca-certificates && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install pdo pdo_mysql opcache
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+COPY . .
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN chmod -R 755 /app
+
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+EXPOSE 9000
+
+CMD ["php-fpm"]

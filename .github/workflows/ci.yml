@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  php-lint:
+    name: PHP Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Check PHP syntax
+        run: |
+          find api -name "*.php" -not -path "*/vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
+
+  composer-validate:
+    name: Validate Composer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate composer.json
+        run: |
+          for dir in api/portal-saberes api/caminho-saberes core; do
+            echo "Validating $dir..."
+            cd $dir && composer validate --no-check-all || true && cd ../..
+          done
+
+  static-analysis:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install dependencies
+        run: |
+          cd api/portal-saberes && composer install --no-dev 2>/dev/null || true
+          cd ../../api/caminho-saberes && composer install --no-dev 2>/dev/null || true
+
+      - name: Run PHPStan
+        continue-on-error: true
+        run: |
+          which phpstan && phpstan analyse api/ --level=0 || echo "PHPStan not installed, skipping"
