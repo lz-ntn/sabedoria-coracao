@@ -12,8 +12,8 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-RUN chmod -R 755 /app
+RUN chmod -R 755 /app && cp docker-entrypoint.sh /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php -v 2>&1; echo EXIT CODE: $?"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
