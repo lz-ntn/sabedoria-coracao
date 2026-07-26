@@ -6,7 +6,11 @@
         "sabedoria/core": "@dev"
     },
     "autoload": {
+        "psr-4": {
+            "Core\\": "core/src/"
+        },
         "files": [
+            "core/src/functions.php",
             "includes/functions.php"
         ]
     },
