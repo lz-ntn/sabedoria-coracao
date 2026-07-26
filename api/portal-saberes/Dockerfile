@@ -22,4 +22,4 @@ EXPOSE 10000
 
 USER app
 
-CMD ["sh", "-c", "php database/migrate.php && php -S 0.0.0.0:10000 -t ."]
+CMD ["sh", "-c", "php database/migrate.php 2>&1 && php -S 0.0.0.0:${PORT:-10000} -t . 2>&1"]
