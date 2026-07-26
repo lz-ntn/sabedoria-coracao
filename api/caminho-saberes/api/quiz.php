@@ -205,6 +205,9 @@ if ($method === 'GET') {
 // POST - Salvar resultado do quiz
 // ══════════════════════════════════════════
 if ($method === 'POST') {
+    if ($usuario_id === null) {
+        json_error('Consentimento necessário para salvar resultados.', 403);
+    }
     validar_csrf_api();
     $data = ler_corpo();
 

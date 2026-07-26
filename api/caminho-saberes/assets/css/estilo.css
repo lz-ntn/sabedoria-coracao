@@ -1164,3 +1164,47 @@ footer {
     .quiz-pergunta { font-size: 1rem; }
     .quiz-opcao { padding: 12px; font-size: 0.9rem; }
 }
+
+.lgpd-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--fundo-card);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--borda);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+.lgpd-banner.visible {
+    transform: translateY(0);
+}
+.lgpd-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.lgpd-icon {
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+    flex-shrink: 0;
+}
+.lgpd-content > div {
+    flex: 1;
+    min-width: 200px;
+}
+.lgpd-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+.lgpd-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}

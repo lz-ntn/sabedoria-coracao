@@ -6,7 +6,7 @@ use Core\Migration;
 
 $host    = env('DB_HOST', getenv('MYSQLHOST') ?: '127.0.0.1');
 $port    = env('DB_PORT', getenv('MYSQLPORT') ?: '3306');
-$name    = env('DB_NAME', getenv('MYSQLDATABASE') ?: 'portal_saberes');
+$name    = env('DB_NAME', getenv('MYSQLDATABASE') ?: 'caminho_saberes');
 $user    = env('DB_USER', getenv('MYSQLUSER') ?: 'root');
 $pass    = env('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
 

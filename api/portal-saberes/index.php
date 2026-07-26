@@ -235,12 +235,33 @@ require_once __DIR__ . '/includes/header-novo.php';
             <p>Receba artigos selecionados diretamente no seu email. Sem spam, apenas sabedoria.</p>
           </div>
           <div class="col-lg-6">
-            <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Inscrito com sucesso!');">
+            <form class="newsletter-form" id="newsletter-form">
               <div class="input-group">
-                <input type="email" class="form-control" placeholder="Seu melhor email" required>
+                <input type="email" id="newsletter-email" class="form-control" placeholder="Seu melhor email" required>
                 <button type="submit" class="btn btn-gold">Inscrever</button>
               </div>
+              <div id="newsletter-msg" class="mt-2 small"></div>
             </form>
+            <script>
+            document.getElementById('newsletter-form')?.addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const email = document.getElementById('newsletter-email').value;
+              const msg = document.getElementById('newsletter-msg');
+              try {
+                const res = await fetch('<?= APP_URL ?>/api/newsletter.php', {
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify({email})
+                });
+                const data = await res.json();
+                msg.innerHTML = data.success
+                  ? '<span style="color:var(--gold)">✓ ' + data.message + '</span>'
+                  : '<span style="color:var(--danger)">✗ ' + (data.error || 'Erro') + '</span>';
+              } catch {
+                msg.innerHTML = '<span style="color:var(--danger)">✗ Erro de conexão.</span>';
+              }
+            });
+            </script>
           </div>
         </div>
       </div>

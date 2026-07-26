@@ -18,6 +18,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 // GET - Listar favoritos do usuário
 // ══════════════════════════════════════════
 if ($method === 'GET') {
+    if ($usuario_id === null) {
+        json_response(['total' => 0, 'favoritos' => []]);
+    }
     $favoritos = $db->select(
         'SELECT l.id, l.titulo, l.slug, c.nome AS categoria, 
                 f.adicionado_em
@@ -39,6 +42,9 @@ if ($method === 'GET') {
 // POST - Adicionar favorito
 // ══════════════════════════════════════════
 if ($method === 'POST') {
+    if ($usuario_id === null) {
+        json_error('Consentimento necessário para salvar favoritos.', 403);
+    }
     validar_csrf_api();
     $data = ler_corpo();
 
@@ -81,6 +87,9 @@ if ($method === 'POST') {
 // DELETE - Remover favorito
 // ══════════════════════════════════════════
 if ($method === 'DELETE') {
+    if ($usuario_id === null) {
+        json_error('Consentimento necessário.', 403);
+    }
     validar_csrf_api();
     if (!isset($_GET['licao_id'])) {
         json_error('Informe licao_id.');

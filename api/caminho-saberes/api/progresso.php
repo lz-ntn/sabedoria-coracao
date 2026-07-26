@@ -18,13 +18,15 @@ require_once __DIR__ . '/../config/app.php';
 
 $db = Database::getInstance();
 $usuario_id = obter_usuario_id($db);
-
 $method = $_SERVER['REQUEST_METHOD'];
 
 // ══════════════════════════════════════════
 // GET - Buscar progresso
 // ══════════════════════════════════════════
 if ($method === 'GET') {
+    if ($usuario_id === null) {
+        json_response(['categorias' => [], 'total_licoes' => 0, 'total_concluidas' => 0]);
+    }
     $progresso = $db->select(
         'SELECT l.id, l.slug, l.titulo, l.categoria_id, p.concluida, p.concluida_em
          FROM licoes l
@@ -74,6 +76,9 @@ if ($method === 'GET') {
 // POST - Marcar lição como concluída
 // ══════════════════════════════════════════
 if ($method === 'POST') {
+    if ($usuario_id === null) {
+        json_error('Consentimento necessário para salvar progresso.', 403);
+    }
     validar_csrf_api();
     $data = ler_corpo();
 
@@ -116,6 +121,9 @@ if ($method === 'POST') {
 // DELETE - Remover progresso
 // ══════════════════════════════════════════
 if ($method === 'DELETE') {
+    if ($usuario_id === null) {
+        json_error('Consentimento necessário.', 403);
+    }
     validar_csrf_api();
     // Resetar tudo
     if (isset($_GET['reset'])) {

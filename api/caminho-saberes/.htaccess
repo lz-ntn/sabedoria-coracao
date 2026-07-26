@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # HTTPS redirect
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # Security: block access to sensitive files
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^vendor/ - [F,L]
+    RewriteRule ^core/ - [F,L]
+    RewriteRule ^database/ - [F,L]
+    RewriteRule \.env - [F,L]
+    RewriteRule composer\.(json|lock) - [F,L]
+
+    # API routing
+    RewriteRule ^api/([a-zA-Z0-9_-]+)/?$ api/$1.php [L,QSA]
+
+    # Block directory listing
+    Options -Indexes
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Deny access to hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+php_value max_execution_time 300

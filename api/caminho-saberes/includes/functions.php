@@ -168,6 +168,7 @@ function validar_csrf_api() {
 
 /**
  * Obtém ou cria UUID do usuário (via cookie)
+ * Respeita consentimento LGPD: só cria cookie se usuário aceitou
  */
 function obter_uuid_usuario() {
     $cookieName = 'caminho_uuid';
@@ -176,31 +177,42 @@ function obter_uuid_usuario() {
         return $_COOKIE[$cookieName];
     }
 
+    if (obter_consentimento_lgpd() !== 'accepted') {
+        return null;
+    }
+
     $uuid = gerar_uuid();
-    setcookie($cookieName, $uuid, time() + 86400 * 365, '/', '', false, true); // 1 ano
+    setcookie($cookieName, $uuid, time() + 86400 * 365, '/', '', false, true);
     $_COOKIE[$cookieName] = $uuid;
 
     return $uuid;
 }
 
+function obter_consentimento_lgpd(): ?string {
+    if (isset($_COOKIE['lgpd_consent'])) {
+        return $_COOKIE['lgpd_consent'];
+    }
+    return null;
+}
+
 /**
  * Obtém ID do usuário no banco (cria se não existir)
+ * Retorna null se o usuário não consentiu com o tracking
  */
 function obter_usuario_id($db) {
     $uuid = obter_uuid_usuario();
 
-    $usuario = $db->fetch(
-        'SELECT id FROM usuarios WHERE uuid = ?',
-        [$uuid]
-    );
+    if ($uuid === null) {
+        return null;
+    }
+
+    $usuario = $db->fetch('SELECT id FROM usuarios WHERE uuid = ?', [$uuid]);
 
     if ($usuario) {
-        // Atualiza último acesso
         $db->update('usuarios', ['ultimo_acesso' => date('Y-m-d H:i:s')], 'id = ?', [$usuario['id']]);
         return $usuario['id'];
     }
 
-    // Cria novo usuário
     return $db->insert('usuarios', [
         'uuid' => $uuid,
         'criado_em' => date('Y-m-d H:i:s'),

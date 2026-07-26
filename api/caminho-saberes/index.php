@@ -63,6 +63,21 @@ foreach ($licoes as $l) {
     <link rel="stylesheet" href="assets/css/estilo.css?v=<?= APP_VERSION ?>" />
 </head>
 <body>
+    <!-- LGPD Consent Banner -->
+    <div id="lgpd-banner" class="lgpd-banner" role="alert" aria-hidden="true">
+        <div class="lgpd-content">
+            <i class="bi bi-shield-check lgpd-icon"></i>
+            <div>
+                <strong>Privacidade</strong>
+                <p>Usamos um identificador anônimo para salvar seu progresso e favoritos. Nenhum dado pessoal é coletado sem seu consentimento.</p>
+            </div>
+            <div class="lgpd-actions">
+                <button type="button" id="lgpd-accept" class="btn btn-primary btn-sm">Aceitar</button>
+                <button type="button" id="lgpd-decline" class="btn btn-secondary btn-sm">Recusar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================
          HEADER
          ============================================ -->
@@ -526,5 +541,25 @@ foreach ($licoes as $l) {
     </script>
     <script src="assets/js/api.js?v=<?= APP_VERSION ?>"></script>
     <script src="assets/js/app.js?v=<?= APP_VERSION ?>"></script>
+    <script>
+    (function() {
+        var banner = document.getElementById('lgpd-banner');
+        var accepted = localStorage.getItem('lgpd_consent');
+        if (accepted) { return; }
+        banner.classList.add('visible');
+        banner.setAttribute('aria-hidden', 'false');
+        document.getElementById('lgpd-accept').addEventListener('click', function() {
+            localStorage.setItem('lgpd_consent', 'accepted');
+            banner.classList.remove('visible');
+            banner.setAttribute('aria-hidden', 'true');
+        });
+        document.getElementById('lgpd-decline').addEventListener('click', function() {
+            localStorage.setItem('lgpd_consent', 'declined');
+            document.cookie = 'caminho_uuid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            banner.classList.remove('visible');
+            banner.setAttribute('aria-hidden', 'true');
+        });
+    })();
+    </script>
 </body>
 </html>

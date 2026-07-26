@@ -7,7 +7,7 @@ services:
     name: caminho-saberes
     runtime: php
     buildCommand: composer install --no-dev --optimize-autoloader
-    startCommand: php -S 0.0.0.0:10000 -t .
+    startCommand: php database/migrate.php && php -S 0.0.0.0:10000 -t .
     healthCheckPath: /api/health
     envVars:
       - key: APP_ENV
