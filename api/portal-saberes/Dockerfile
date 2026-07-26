@@ -1,8 +1,10 @@
 FROM php:8.3-cli
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y libonig-dev libpng-dev libjpeg-dev && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring
+
+WORKDIR /app
 
 COPY . .
 
