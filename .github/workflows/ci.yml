@@ -20,7 +20,14 @@ jobs:
 
       - name: Check PHP syntax
         run: |
-          find api -name "*.php" -not -path "*/vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
+          erros="$(
+            find api -name "*.php" -not -path "*/vendor/*" -exec php -l {} \; 2>&1 \
+              | grep -v "No syntax errors"
+          )"
+          if [ -n "$erros" ]; then
+            printf '%s\n' "$erros"
+            exit 1
+          fi
 
   composer-validate:
     name: Validate Composer
