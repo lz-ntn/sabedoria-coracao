@@ -31,3 +31,33 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+if (!function_exists('db_ssl_options')) {
+    function db_ssl_options(bool $development = false): array
+    {
+        if ($development) {
+            return [];
+        }
+
+        $candidates = [];
+
+        $envCa = (string)\Core\Config::get('DB_SSL_CA', '');
+        if ($envCa !== '' && file_exists($envCa)) {
+            $candidates[] = $envCa;
+        }
+
+        $candidates[] = __DIR__ . '/../ssl/ca-certificates.crt';
+
+        $candidates[] = '/etc/ssl/certs/ca-certificates.crt';
+        $candidates[] = '/etc/pki/tls/certs/ca-bundle.crt';
+        $candidates[] = '/etc/ssl/ca-bundle.pem';
+
+        foreach ($candidates as $caPath) {
+            if (file_exists($caPath) && is_readable($caPath)) {
+                return [PDO::MYSQL_ATTR_SSL_CA => $caPath];
+            }
+        }
+
+        return [];
+    }
+}

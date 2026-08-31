@@ -40,7 +40,9 @@ prod-logs:
 # ─── Qualidade ──────────────────────────────────────────────
 
 lint:
-	find api -name "*.php" -not -path "*/vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
+	@set +e; erros="$$(find api -name "*.php" -not -path "*/vendor/*" -exec php -l {} \; 2>&1 | grep -v "No syntax errors")"; \
+	if [ -n "$$erros" ]; then printf '%s\n' "$$erros"; exit 1; fi; \
+	echo "Lint OK"
 
 fmt:
 	 which php-cs-fixer && php-cs-fixer fix api/ --rules=@PSR12 || echo "php-cs-fixer not installed"

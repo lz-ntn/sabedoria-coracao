@@ -22,6 +22,8 @@ services:
         sync: false
       - key: DB_PASS
         sync: false
+      - key: DB_SSL_CA
+        sync: false
       - key: DB_CHARSET
         value: utf8mb4
       - key: APP_URL

@@ -32,11 +32,20 @@ $charset = \Core\Config::get('DB_CHARSET', 'utf8mb4');
 
 try {
     $dsn = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
-    $pdo = new PDO($dsn, $user, $pass, [
+
+    $opts = [
         PDO::ATTR_TIMEOUT            => 3,
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
+    ];
+    if (function_exists('db_ssl_options')) {
+        $ssl = db_ssl_options(\Core\Config::isDevelopment());
+        if ($ssl !== []) {
+            $opts += $ssl;
+        }
+    }
+
+    $pdo = new PDO($dsn, $user, $pass, $opts);
     $row = $pdo->query('SELECT 1 AS ok')->fetch();
     $dados['db'] = $row ? 'ok' : 'error';
 } catch (Throwable $e) {
