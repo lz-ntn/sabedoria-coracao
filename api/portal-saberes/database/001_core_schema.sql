@@ -181,12 +181,10 @@ CREATE TABLE IF NOT EXISTS `artigos_views` (
 -- DADOS INICIAIS
 -- =============================================
 
--- Admin padrão (senha: admin123)
-INSERT INTO `usuarios` (`nome`, `email`, `senha`, `nivel`) VALUES
-('Administrador', 'admin@saberes.com',
- '$2y$12$k0WE9sMyYa3UMTVQef1cHO7FebpGoJexy6Z/t4NgvX5zaPqdNgSkW',
- 'admin')
-ON DUPLICATE KEY UPDATE `id` = `id`;
+-- ⚠️ NÃO se cria usuário admin padrão aqui.
+-- Por segurança, a senha padrão (admin123) foi removida do schema.
+-- Para criar/atualizar o administrador com senha aleatória ou via env,
+-- rode:  php seed-admin.php   (na raiz do app)
 
 -- Configurações iniciais
 INSERT INTO `configuracoes` (`chave`, `valor`) VALUES

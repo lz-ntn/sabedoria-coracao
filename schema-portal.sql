@@ -181,12 +181,9 @@ CREATE TABLE IF NOT EXISTS `artigos_views` (
 -- DADOS INICIAIS
 -- =============================================
 
--- Admin padrão (senha: admin123)
-INSERT INTO `usuarios` (`nome`, `email`, `senha`, `nivel`) VALUES
-('Administrador', 'admin@saberes.com',
- '$2y$12$k0WE9sMyYa3UMTVQef1cHO7FebpGoJexy6Z/t4NgvX5zaPqdNgSkW',
- 'admin')
-ON DUPLICATE KEY UPDATE `id` = `id`;
+-- ⚠️ NÃO se cria usuário admin padrão aqui (senha padrão removida por segurança).
+-- Para criar/atualizar o administrador com senha aleatória ou via env:
+--   php api/portal-saberes/seed-admin.php
 
 -- Configurações iniciais
 INSERT INTO `configuracoes` (`chave`, `valor`) VALUES

@@ -155,10 +155,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- DADOS INICIAIS (seeds)
 -- =============================================
 
--- Admin padrão (senha: admin123)
-INSERT INTO `admin` (`usuario`, `senha`, `email`) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@saberes.com')
-ON DUPLICATE KEY UPDATE `id` = `id`;
+-- ⚠️ NÃO se cria usuário admin padrão aqui (senha padrão removida por segurança).
+-- Para criar/atualizar o administrador com senha aleatória ou via env:
+--   php api/caminho-saberes/seed-admin.php
 
 -- Categorias
 INSERT INTO `categorias` (`nome`, `slug`, `descricao`, `icone`, `cor`, `ordem`) VALUES

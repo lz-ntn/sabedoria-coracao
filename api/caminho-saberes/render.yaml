@@ -8,7 +8,7 @@ services:
     runtime: php
     buildCommand: composer install --no-dev --optimize-autoloader
     startCommand: php database/migrate.php && php -S 0.0.0.0:10000 -t .
-    healthCheckPath: /api/health
+    healthCheckPath: /api/health.php
     envVars:
       - key: APP_ENV
         value: production

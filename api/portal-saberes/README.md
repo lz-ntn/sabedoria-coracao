@@ -94,7 +94,7 @@ http://localhost/portal-saberes/
 
 | Papel | Email | Senha |
 |-------|-------|-------|
-| Admin | admin@saberes.com | admin123 |
+| Admin | admin@saberes.com | (configurada via `php seed-admin.php` — sem senha padrão) |
 | User | (criar no registro) | (definir no cadastro) |
 
 ## Deploy no InfinityFree

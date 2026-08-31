@@ -3,8 +3,7 @@
  * Admin - Painel de Controle
  * 
  * Acesso: http://localhost/caminho-saberes/admin/
- * Usuário: admin
- * Senha: admin123
+ * Usuário: admin (senha configurada via php seed-admin.php — não há senha padrão)
  */
 
 require_once __DIR__ . '/../config/app.php';

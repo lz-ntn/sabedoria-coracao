@@ -86,7 +86,7 @@ C:\xampp\htdocs\caminho-saberes\
 
 - **Site**: http://localhost/caminho-saberes/
 - **Admin**: http://localhost/caminho-saberes/admin/
-- **Login admin**: `admin` / `admin123`
+- **Login admin**: `admin` / (senha configurada via `php seed-admin.php` — sem senha padrão)
 
 ### Passo 6: Verificar se está funcionando
 
@@ -177,7 +177,7 @@ Você pode usar **FileZilla** (gratuito) ou o gerenciador de arquivos do própri
 
 - **Site**: https://caminho-saberes.infinityfreeapp.com/
 - **Admin**: https://caminho-saberes.infinityfreeapp.com/admin/
-- **Login admin**: `admin` / `admin123`
+- **Login admin**: `admin` / (senha configurada via `php seed-admin.php` — sem senha padrão)
 
 ---
 
@@ -371,7 +371,7 @@ curl http://localhost/caminho-saberes/api/quiz.php
 | `Error 403` | Permissão de pasta | Chmod 755 na pasta (Linux) |
 | AJAX não funciona | URL da API errada | Verifique `APP_URL` no `config/app.php` |
 | CSS quebrado | Cache do navegador | Ctrl+F5 para limpar cache |
-| Admin não loga | Senha errada | Admin: `admin` / Senha: `admin123` |
+| Admin não loga | Senha errada | Configure o admin: `php seed-admin.php` (sem senha padrão) |
 
 ---
 

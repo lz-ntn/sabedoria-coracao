@@ -14,15 +14,17 @@ $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ];
 
-$caCandidates = [
-    '/etc/ssl/certs/ca-certificates.crt',
-    '/etc/pki/tls/certs/ca-bundle.crt',
-    '/etc/ssl/ca-bundle.pem',
-];
-foreach ($caCandidates as $caPath) {
-    if (file_exists($caPath)) {
-        $options[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
-        break;
+if (env('APP_ENV', 'production') !== 'development') {
+    $caCandidates = [
+        '/etc/ssl/certs/ca-certificates.crt',
+        '/etc/pki/tls/certs/ca-bundle.crt',
+        '/etc/ssl/ca-bundle.pem',
+    ];
+    foreach ($caCandidates as $caPath) {
+        if (file_exists($caPath)) {
+            $options[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
+            break;
+        }
     }
 }
 
