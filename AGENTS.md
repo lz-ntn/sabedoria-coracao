@@ -23,9 +23,13 @@ render.yaml           Blueprint Render (6 Static Sites)
 - **APIs:** `api/biblioteca.php` (lista/busca/detalhe de artigos `tipo='artigo'`), `api/discussoes.php` (comentários),
   `api/progresso.php` (agora filtra `tipo='licao'`); `stats.php`, `favoritos.php`, `quiz.php`, `newsletter.php`.
 - Admin (`api/caminho-saberes/admin/index.php`) tem abas **Lições** e **Artigos** + CRUD de categorias + ação de importação.
-- **Seed de conteúdo de exemplo:** `php database/seed_biblioteca.php` (idempotente por slug). Importação do Portal legado:
-  `php database/import_portal.php` (lê `portal_saberes`, pulo quando o slug já existe).
+- **Seed e imports:** `php database/seed_biblioteca.php` (8 artigos de exemplo, idempotente).
+  `php database/import_saberes_wiki.php` (52 saberes do JSON → lições; cria 5 categorias novas: Práticas, Cosmologia,
+  Jornada, Vida Verdadeira, Tradições). `php database/import_jesus_artigos.php` (22 artigos Markdown → artigos).
+  `php database/import_blavatsky.php` (5 lições HTML → artigos). Todos aceitam paths via variáveis de ambiente.
 - Consumo no SPA: seção `#biblioteca` + modal de artigo; **LGPD segue obrigatória** antes de criar cookie/usuário.
+- **Estado atual:** 95 itens (60 lições + 35 artigos) em 11 categorias: Gnose, Epigenética, Práticas, Hermetismo,
+  Kundalini, Cosmologia, Teosofia, Jornada, Coração, Vida Verdadeira, Tradições.
 
 ## ⚠️ Gotcha crítico: `core/src/` existe em 2 cópias ativas
 
