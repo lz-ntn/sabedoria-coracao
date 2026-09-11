@@ -449,6 +449,7 @@
     
     #certificado {
         display: block !important;
+        opacity: 1 !important;
         page-break-after: always;
     }
     

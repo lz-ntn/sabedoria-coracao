@@ -1,6 +1,6 @@
 # AGENTS.md — Sabedoria de Coração
 
-Ecossistema de saberes ancestrais: 6 sites estáticos + 2 APIs PHP puro + biblioteca compartilhada. PHP 8.3+, sem framework, MySQL/TiDB Serverless, Docker, Render.
+Ecossistema de saberes ancestrais: 6 sites estáticos + 2 APIs PHP puro + biblioteca compartilhada. PHP 8.3+, sem framework, MySQL/TiDB Serverless, Docker, Render. Repo git próprio (branch `main`): `github.com/lz-ntn/sabedoria-coracao`.
 
 ```
 sites/{portal,aprender,meditacao,viver,cristianismo,curso}   HTML/CSS/JS estáticos
@@ -10,61 +10,74 @@ core/                 Biblioteca compartilhada sabedoria/core (namespace Core\)
 render.yaml           Blueprint Render (6 Static Sites)
 ```
 
-## ⚠️ Gotcha crítico: a biblioteca `core/` tem DUAS cópias
+## ⚠️ Gotcha crítico: `core/src/` existe em 3 cópias idênticas
 
-`Database.php` e `Migration.php` existem **somente na raiz** `core/src/`. Cada API tem uma **cópia comprometida própria** `api/*/core/src/` que contém apenas `Config, Csrf, functions, RateLimiter`.
+Há **três** cópias de `core/src/` (Config, Csrf, Database, functions, Migration, RateLimiter), todas **byte-idênticas** e todas commitadas em git:
+`core/src/`, `api/portal-saberes/core/src/`, `api/caminho-saberes/core/src/`.
 
-- O composer de cada API mapeia `Core\` → seu próprio `api/*/core/src/` (path repo `sabedoria/core: @dev` → symlink `vendor/sabedoria/core -> ../../core/`, que é gitignored).
-- Código que usa `\Core\Database` ou `\Core\Migration` só resolve em **dev**, onde `docker-compose.yml` monta `./core:/app/core` por cima da cópia embutida. Na imagem de produção (`Dockerfile` com `COPY . .`), Database/Migration não estão nas fontes `Core\` autoloadadas.
-- **Ao editar `core/src/*.php`, você precisa sincronizar manualmente para `api/<nome>/core/src/`** (exceto Database/Migration, que só existem na raiz).
+- O autoload PSR-4 de cada API (`Core\` → `core/src/`) resolve para a **própria cópia embutida** da API — inclusive no `caminho`, onde o path repo `sabedoria/core` gera o symlink `vendor/sabedoria/core -> ../../core/`, que aponta de volta para a cópia embutida (auto-loop; `realpath` = `api/caminho-saberes/core/src`). O `vendor/sabedoria/core` é efetivamente morto — a cópia embutida sempre vence.
+- **Qual cópia roda?** Dev (`make up`, `docker-compose.yml`) monta `./core:/app/core` por cima da embutida → roda a **raiz**. Prod/Render (`Dockerfile COPY . .` sem mount) → roda a **cópia embutida** de cada API (o Render builda a partir de `rootDir: api/<nome>`, então a raiz `./core` nem entra na imagem).
+- **Regra de ouro:** ao editar `core/src/*.php`, sincronize **as 3 cópias** (`core/src/`, `api/portal-saberes/core/src/`, `api/caminho-saberes/core/src/`). Sem isso, dev e prod divergem.
+
+## Integração com o OPS Dashboard (`gestor.sh`)
+
+Gerenciado pelo `gestor.sh` (vidaReal) como serviço `sabedoria`:
+
+```bash
+/home/lz-ntn/vidaReal/novoComeco/scripts/gestor.sh sabedoria start|stop|restart|logs
+/home/lz-ntn/vidaReal/novoComeco/scripts/gestor.sh status docker   # saúde dos containers/portas
+```
+
+- `gestor.sh` usa `compose_dir="/home/lz-ntn/Área de trabalho/sabedoria-deploy"` (com fallback `/home/lz-ntn/sabedoria-deploy`).
+- Containers monitorados: `sabedoria-deploy_mysql_1`, `sabedoria-deploy_static_1`, `sabedoria-deploy_portal-saberes_1`, `sabedoria-deploy_caminho-saberes_1`. Portas vigiadas: 8083 (portal), 8081 (caminho), 8082 (static).
 
 ## Ambiente local (Docker)
 
 ```bash
-make up       # docker compose up -d (dev; usa ./core montado)
+make up       # docker compose up -d (dev; monta ./core por cima)
 ```
-- Portal em `http://localhost:8083:10000`, Caminho em `8081:10000`, sites estáticos em `8082:80`. (Não 8080/8081 como docs antigas diziam.)
-- `composer.yaml` Images: `php:8.3-cli` (dev, roda `php -S` via `docker-entrypoint.sh`) e `php:8.3-fpm` (`Dockerfile.fpm`, OPcache, ambiente prod-like via `docker-compose.prod.yml`).
-- O entrypoint espera MySQL, roda `database/migrate.php`, depois `php -S 0.0.0.0:${PORT:-10000}`.
+- Portal em `:8083:10000`, Caminho em `:8081:10000`, estáticos em `:8082:80`, MySQL interno `:3306`. (Não 8080 — o .env.portal.example ainda diz `APP_URL=http://localhost:8080`, mas o compose sobrescreve para 8083.)
+- Imagens: `php:8.3-cli` (dev, `php -S` via `docker-entrypoint.sh`) e `php:8.3-fpm` (`Dockerfile.fpm`, OPcache, `docker-compose.prod.yml`).
+- O entrypoint espera o MySQL, roda `database/migrate.php`, depois `php -S 0.0.0.0:${PORT:-10000} -t .`.
 
 ## Comandos úteis
 
 ```bash
 make lint        # php -l em api/**/*.php (ignora vendor)
 make fmt         # php-cs-fixer @PSR12 (se instalado; senão no-op)
-make test        # phpunit se instalado (NÃO configurado — sem testes)
-make migrate-<svc>   # roda migrations no container
-make deploy      # git push origin main
+make test        # no-op (PHPUnit NÃO configurado — não há testes)
+make migrate-<svc>   # roda migrations no container (ex: migrate-caminho-saberes)
+make deploy      # git push origin main (remoto: lz-ntn/sabedoria-coracao)
 ```
-- **Não há testes configurados** (Makefile tem `test` no-op; PHPUnit não instalado). CI (`.github/workflows/ci.yml`) roda apenas `php -l`, `composer validate`, e PHPStan opcional (`continue-on-error`, não instalado → skip).
+- **Não há testes.** CI (`.github/workflows/ci.yml`) roda só `php -l`, `composer validate` e PHPStan (`continue-on-error`, não instalado → skip).
 
 ## Migrations
 
-- Sistema versionado `\Core\Migration` com tabela `migrations`. SQL numerados `001_*, 002_*` em `api/*/database/`.
-- O entrypoint roda migrations automaticamente no start. Manualmente: `make migrate-portal-saberes` / `make migrate-caminho-saberes`, ou `docker compose exec <svc> php database/migrate.php`.
-- `migrate.php` conecta exigindo SSL com CA bundle do sistema (exigência TiDB).
+- Sistema versionado `\Core\Migration` (tabela `migrations`), SQL numerados `001_*, 002_*` em `api/*/database/`.
+- Rodam automaticamente no start do entrypoint. Manual: `make migrate-<svc>`, ou `docker compose exec <svc> php database/migrate.php`.
+- `migrate.php` conecta com SSL (CA bundle) exigido pelo TiDB.
 
 ## Banco (Config + SSL)
 
-- `\Core\Config` carrega `.env` automaticamente e expõe `Config::get('KEY', default)`.
-- **Dev vs prod é definido por `APP_ENV`** (`Config::isDevelopment()`). Em produção (não-dev), `\Core\Database` adiciona CA bundle do sistema (`MYSQL_ATTR_SSL_CA`) — obrigatório para TiDB Serverless.
-- Padrões de DB: usa `MYSQLHOST/MYSQLPORT/MYSQLDATABASE` (Railway) se `DB_*` ausente.
+- `\Core\Config` carrega `.env` por `load($path)`; `Config::get('KEY', default)`; `Config::isDevelopment()` é `APP_ENV === 'development'` (default `production`).
+- **Dev vs prod via `APP_ENV`.** Fora de dev, `\Core\Database` adiciona CA bundle via `db_ssl_options()` (`MYSQL_ATTR_SSL_CA`, candidatos em `functions.php`) — obrigatório para TiDB Serverless. O `docker-entrypoint.sh` também usa `DB_SSL_CA` no readiness check.
+- Padrões de DB: `MYSQLHOST/MYSQLPORT/MYSQLDATABASE` (Railway) se `DB_*` ausente.
 
 ## Deploy
 
-- **Estáticos:** `render.yaml` = Blueprint com 6 Static Sites (`rootDir: sites/<nome>`, `staticPublishPath: .`). Repo `github.com/lz-ntn/sabedoria-coracao`.
-- **APIs no Render:** Web Service, root dir `api/<nome>`, build `composer install --no-dev --optimize-autoloader`, health checks (`/healthcheck` portal, `/api/health` caminho).
-- Databases TiDB: `portal_saberes` e `caminho_saberes` (utf8mb4). Schemas: `schema-*.sql` na raiz e em `api/*/database/001_core_schema.sql`.
-- `.env.*.example` são os modelos; `.env*` reais são gitignored.
+- **Estáticos:** `render.yaml` = Blueprint com 6 Static Sites (`rootDir: sites/<nome>`, `staticPublishPath: .`), repo `github.com/lz-ntn/sabedoria-coracao`, projeto `Luz`.
+- **APIs no Render:** Web Service `runtime: php`, build `composer install --no-dev --optimize-autoloader`, start `php database/migrate.php && php -S 0.0.0.0:10000 -t .` (ou seja, **Render usa `php -S`, não FPM**; FPM+Nginx só no `docker-compose.prod.yml`). Health checks: portal `/healthcheck.php`, caminho `/api/health.php`.
+- TiDB: `portal_saberes` e `caminho_saberes` (utf8mb4). Schemas `schema-*.sql` na raiz e em `api/*/database/001_core_schema.sql`.
+- `.env.*.example` são modelos; `.env*` reais são gitignored.
 
 ## Convenções / pendências reais
 
-- **Admin = sem senha padrão**: schemas não criam mais admin com `admin123`. Crie/atualize via `php seed-admin.php` (raiz de cada API) — gera senha aleatória ou usa `ADMIN_EMAIL`/`ADMIN_PASSWORD` do `.env`; bloqueado na web por `.htaccess` e por checagem CLI.
-- **Health checks**: `api/portal-saberes/healthcheck.php` (`/healthcheck.php`) e `api/caminho-saberes/api/health.php` (`/api/health.php`) — usados pelo Render `healthCheckPath`. Retornam 503 se o banco cair.
-- LGPD: UUID tracking no caminho-saberes só cria cookie após aceite do banner (`lgpd_consent`); endpoints tratam `$usuario_id = null`. Preservar esse contrato.
-- `.htaccess` existe em ambas as APIs (segurança + URL rewriting). `docker-entrypoint` usa `php -S` mesmo em "produção" dev; Nginx+FPM real fica no `docker-compose.prod.yml` via `Dockerfile.fpm`.
+- **Admin sem senha padrão:** schemas não criam mais admin com `admin123`. Crie/atualize via `php seed-admin.php` (na raiz de cada API) — gera aleatória ou usa `ADMIN_EMAIL`/`ADMIN_PASSWORD` do `.env`; bloqueado na web por `.htaccess` e checagem CLI.
+- **LGPD:** tracking no caminho-saberes só cria cookie após aceite do banner (`lgpd_consent`); os endpoints tratam `$usuario_id = null`. Preserve esse contrato.
+- `.htaccess` existe em ambas as APIs (segurança + URL rewriting).
+- **Sintoma clássico de banco vazio** (tabela `xxx.categorias doesn't exist`): reimportar `schema-portal.sql` / `schema-caminho.sql` (após `compose down -v`, o volume `mysql-data` some).
 
 ## Comandos legados relevantes
 
 - Conectar TiDB: `mysql -h <DB_HOST> -P 4000 -u <DB_USER> -p --ssl-mode=VERIFY_IDENTITY --ssl-ca=.../ca-certificates.crt`
-- Início do projeto: 2026-07-26. Contato: ecossistema@saberesancestrais.com
+- Início: 2026-07-26. Contato: ecossistema@saberesancestrais.com
