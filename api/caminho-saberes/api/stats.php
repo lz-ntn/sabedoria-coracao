@@ -15,9 +15,20 @@ if ($method !== 'GET') {
     json_error('Método não permitido.', 405);
 }
 
-// Total de lições
-$total_licoes = $db->fetch('SELECT COUNT(*) as total FROM licoes');
+// Total de lições (tipo = 'licao')
+$total_licoes = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'licao'");
 $total_licoes = $total_licoes['total'];
+
+// Total de artigos (tipo = 'artigo' — Biblioteca; Portal absorvido no Caminho em 2026-09)
+$total_artigos = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'artigo'");
+$total_artigos = $total_artigos['total'];
+
+// Total de conteúdo (lições + artigos)
+$total_conteudo = $total_licoes + $total_artigos;
+
+// Total de discussões (comentários — tabela criada na fusão do Portal)
+$total_discussoes = $db->fetch('SELECT COUNT(*) as total FROM discussoes');
+$total_discussoes = $total_discussoes['total'];
 
 // Total de categorias
 $total_categorias = $db->fetch('SELECT COUNT(*) as total FROM categorias');
@@ -65,6 +76,9 @@ $ultimos_usuarios = $db->select(
 
 json_response([
     'total_licoes' => $total_licoes,
+    'total_artigos' => $total_artigos,
+    'total_conteudo' => $total_conteudo,
+    'total_discussoes' => $total_discussoes,
     'total_categorias' => $total_categorias,
     'total_usuarios' => $total_usuarios,
     'total_progresso' => $total_progresso,
