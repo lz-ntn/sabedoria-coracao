@@ -5,8 +5,8 @@
  * GET /api/stats.php - Estatísticas gerais do sistema
  */
 
-require_once __DIR__ . '/../includes/Database.php';
 require_once __DIR__ . '/../config/app.php';
+require_once __DIR__ . '/../includes/Database.php';
 
 $db = Database::getInstance();
 $method = $_SERVER['REQUEST_METHOD'];

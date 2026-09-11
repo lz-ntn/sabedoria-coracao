@@ -11,15 +11,15 @@ require_once __DIR__ . '/includes/Database.php';
 
 $db = Database::getInstance();
 
-// Carregar categorias e lições do banco
-$categorias = $db->select(
-    'SELECT * FROM categorias ORDER BY ordem'
-);
+// Carregar categorias
+$categorias = $db->select('SELECT * FROM categorias ORDER BY ordem');
 
+// Carregar apenas lições (tipo='licao') para a jornada de conhecimento
 $licoes = $db->select(
     'SELECT l.*, c.nome as categoria_nome, c.slug as categoria_slug, c.cor, c.icone
      FROM licoes l
      JOIN categorias c ON c.id = l.categoria_id
+     WHERE l.tipo = "licao"
      ORDER BY c.ordem, l.ordem'
 );
 
@@ -173,6 +173,11 @@ foreach ($licoes as $l) {
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="#biblioteca" class="nav-link" data-section="biblioteca">
+                        <i class="bi bi-book-half"></i> <span>Biblioteca</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#praticas" class="nav-link" data-section="praticas">
                         <i class="bi bi-person-bounding-box"></i> <span>Práticas</span>
                     </a>
@@ -287,7 +292,7 @@ foreach ($licoes as $l) {
             </div>
         </section>
 
-        <!-- Conhecimento -->
+        <!-- Conhecimento (Lições) -->
         <section id="conhecimento">
             <h2><i class="bi bi-book"></i> Tradições de Conhecimento</h2>
             <p class="section-subtitle">Explore saberes ancestrais e científicos que transformam a consciência</p>
@@ -360,6 +365,45 @@ foreach ($licoes as $l) {
                     </div>
                 </div>
                 <?php endforeach; ?>
+            </div>
+        </section>
+
+        <!-- Biblioteca (Artigos) -->
+        <section id="biblioteca">
+            <h2><i class="bi bi-book-half"></i> Biblioteca</h2>
+            <p class="section-subtitle">Artigos aprofundados, pesquisas e reflexões sobre as tradições</p>
+
+            <!-- Busca e Filtros -->
+            <div class="biblioteca-toolbar">
+                <div class="biblioteca-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="biblioteca-search" placeholder="Buscar artigos por título, conteúdo ou tags..." autocomplete="off">
+                </div>
+                <div class="biblioteca-filters">
+                    <select id="biblioteca-categoria">
+                        <option value="">Todas as Categorias</option>
+                        <?php foreach ($categorias as $cat): ?>
+                        <option value="<?= esc_html($cat['slug']) ?>"><?= esc_html($cat['nome']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <select id="biblioteca-ordenar">
+                        <option value="recente">Mais Recentes</option>
+                        <option value="antigo">Mais Antigos</option>
+                        <option value="popular">Mais Lidos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid de Artigos -->
+            <div id="biblioteca-grid" class="biblioteca-grid">
+                <!-- Carregado via JS -->
+            </div>
+
+            <!-- Paginação -->
+            <div id="biblioteca-pagination" class="pagination" style="display:none">
+                <button type="button" class="btn btn-secondary" id="biblioteca-prev" disabled><i class="bi bi-chevron-left"></i> Anterior</button>
+                <span id="biblioteca-page-info" style="padding:0 20px"></span>
+                <button type="button" class="btn btn-secondary" id="biblioteca-next" disabled>Próxima <i class="bi bi-chevron-right"></i></button>
             </div>
         </section>
 
@@ -508,8 +552,9 @@ foreach ($licoes as $l) {
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#conhecimento">Conhecimento</a></li>
+                    <li><a href="#biblioteca">Biblioteca</a></li>
                     <li><a href="#praticas">Práticas</a></li>
-                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#quiz">Quiz</span></a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -527,6 +572,31 @@ foreach ($licoes as $l) {
         <i class="bi bi-arrow-up"></i>
     </button>
 
+    <!-- Modal Artigo (Biblioteca) -->
+    <div id="artigo-modal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="artigo-modal-title"></h3>
+                <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="artigo-modal-meta" class="artigo-meta"></div>
+                <div id="artigo-modal-body" class="artigo-body"></div>
+                <!-- Discussões -->
+                <div id="artigo-discussoes" class="discussoes-section" style="margin-top:30px;padding-top:20px;border-top:1px solid var(--border)">
+                    <h4><i class="bi bi-chat"></i> Discussões</h4>
+                    <form id="discussao-form" class="discussao-form" style="margin-bottom:20px">
+                        <textarea name="conteudo" placeholder="Compartilhe sua reflexão..." rows="3" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text)"></textarea>
+                        <div style="margin-top:10px">
+                            <button type="submit" class="btn btn-primary btn-sm">Comentar</button>
+                        </div>
+                    </form>
+                    <div id="discussoes-lista" class="discussoes-lista"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================
          SCRIPTS
          ============================================ -->
@@ -541,6 +611,307 @@ foreach ($licoes as $l) {
     </script>
     <script src="assets/js/api.js?v=<?= APP_VERSION ?>"></script>
     <script src="assets/js/app.js?v=<?= APP_VERSION ?>"></script>
+    <script>
+    // Biblioteca JS inline (será movido para app.js depois)
+    (function() {
+        var bibliotecaPage = 1;
+        var bibliotecaLoading = false;
+        var bibliotecaHasMore = true;
+        var bibliotecaCurrentFilters = { q: '', categoria: '', ordenar: 'recente' };
+
+        function carregarBiblioteca(append) {
+            if (bibliotecaLoading || (!append && !bibliotecaHasMore)) return;
+            bibliotecaLoading = true;
+            
+            var params = new URLSearchParams();
+            params.append('page', bibliotecaPage);
+            params.append('per_page', 12);
+            if (bibliotecaCurrentFilters.q) params.append('q', bibliotecaCurrentFilters.q);
+            if (bibliotecaCurrentFilters.categoria) params.append('categoria', bibliotecaCurrentFilters.categoria);
+            if (bibliotecaCurrentFilters.ordenar !== 'recente') params.append('ordenar', bibliotecaCurrentFilters.ordenar);
+
+            fetch(window.APP_DATA.url_api + '/biblioteca.php?' + params.toString())
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var grid = document.getElementById('biblioteca-grid');
+                    var pagination = document.getElementById('biblioteca-pagination');
+                    
+                    if (!append) {
+                        grid.innerHTML = '';
+                        bibliotecaPage = 1;
+                    }
+                    
+                    if (data.artigos && data.artigos.length > 0) {
+                        data.artigos.forEach(function(artigo) {
+                            grid.appendChild(criarCardArtigo(artigo));
+                        });
+                        bibliotecaPage = data.page + 1;
+                        bibliotecaHasMore = data.page < data.total_pages;
+                    } else if (!append) {
+                        grid.innerHTML = '<p class="empty-message" style="grid-column:1/-1;text-align:center;padding:40px">Nenhum artigo encontrado.</p>';
+                        bibliotecaHasMore = false;
+                    }
+                    
+                    // Atualizar paginação
+                    document.getElementById('biblioteca-page-info').textContent = 'Página ' + data.page + ' de ' + data.total_pages;
+                    document.getElementById('biblioteca-prev').disabled = data.page <= 1;
+                    document.getElementById('biblioteca-next').disabled = !bibliotecaHasMore;
+                    pagination.style.display = data.total_pages > 1 ? 'flex' : 'none';
+                })
+                .catch(function(err) {
+                    console.error('Erro ao carregar biblioteca:', err);
+                })
+                .finally(function() {
+                    bibliotecaLoading = false;
+                });
+        }
+
+        function criarCardArtigo(artigo) {
+            var card = document.createElement('article');
+            card.className = 'artigo-card';
+            card.dataset.id = artigo.id;
+            card.dataset.slug = artigo.slug;
+            
+            var catCor = artigo.categoria_cor || '#9b59b6';
+            var catIcon = artigo.categoria_icone || 'bi bi-book';
+            var dataPub = artigo.publicado_em ? new Date(artigo.publicado_em).toLocaleDateString('pt-BR') : '';
+            
+            card.innerHTML = 
+                '<div class="artigo-cat" style="color:' + catCor + '">' +
+                    '<i class="' + catIcon + ' me-1"></i>' + escHtml(artigo.categoria_nome || 'Sem categoria') +
+                '</div>' +
+                '<h3>' + escHtml(artigo.titulo) + '</h3>' +
+                (artigo.resumo ? '<p class="artigo-excerpt">' + escHtml(artigo.resumo) + '</p>' : '') +
+                '<div class="artigo-meta">' +
+                    '<span><i class="bi bi-eye me-1"></i>' + (artigo.views || 0) + '</span>' +
+                    '<span><i class="bi bi-calendar me-1"></i>' + dataPub + '</span>' +
+                    (artigo.autor_nome ? '<span><i class="bi bi-person me-1"></i>' + escHtml(artigo.autor_nome) + '</span>' : '') +
+                '</div>';
+            
+            card.addEventListener('click', function() { abrirArtigo(artigo); });
+            return card;
+        }
+
+        function abrirArtigo(artigo) {
+            fetch(window.APP_DATA.url_api + '/biblioteca.php?id=' + artigo.id)
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    document.getElementById('artigo-modal-title').textContent = data.titulo;
+                    document.getElementById('artigo-modal-meta').innerHTML = 
+                        '<span class="artigo-cat" style="color:' + (data.categoria_cor || '#9b59b6') + '">' +
+                            '<i class="' + (data.categoria_icone || 'bi bi-book') + ' me-1"></i>' + escHtml(data.categoria_nome || '') +
+                        '</span>' +
+                        (data.autor_nome ? '<span class="meta-item"><i class="bi bi-person me-1"></i>' + escHtml(data.autor_nome) + '</span>' : '') +
+                        (data.publicado_em ? '<span class="meta-item"><i class="bi bi-calendar me-1"></i>' + new Date(data.publicado_em).toLocaleDateString('pt-BR') + '</span>' : '') +
+                        '<span class="meta-item"><i class="bi bi-eye me-1"></i>' + (data.views || 0) + ' visualizações</span>';
+                    document.getElementById('artigo-modal-body').innerHTML = nl2brHtml(data.conteudo);
+                    
+                    // Carregar discussões
+                    carregarDiscussoes(data.id);
+                    
+                    var modal = document.getElementById('artigo-modal');
+                    modal.classList.add('visible');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+        }
+
+        function carregarDiscussoes(licaoId) {
+            fetch(window.APP_DATA.url_api + '/discussoes.php?licao_id=' + licaoId)
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var container = document.getElementById('discussoes-lista');
+                    if (data.discussoes && data.discussoes.length > 0) {
+                        container.innerHTML = data.discussoes.map(function(d) {
+                            return renderDiscussao(d);
+                        }).join('');
+                    } else {
+                        container.innerHTML = '<p class="empty-message">Nenhuma discussão ainda. Seja o primeiro a comentar!</p>';
+                    }
+                });
+        }
+
+        function renderDiscussao(d, nivel) {
+            nivel = nivel || 0;
+            var indent = nivel > 0 ? 'style="margin-left:' + (nivel * 30) + 'px;border-left:2px solid var(--border);padding-left:15px"' : '';
+            var autor = d.autor_nome_exibicao || 'Anônimo';
+            var data = d.criado_em ? new Date(d.criado_em).toLocaleString('pt-BR') : '';
+            var html = '<div class="discussao-item" ' + indent + ' data-id="' + d.id + '">' +
+                '<div class="discussao-header">' +
+                    '<strong>' + escHtml(autor) + '</strong>' +
+                    '<span class="discussao-data">' + data + '</span>' +
+                '</div>' +
+                '<div class="discussao-conteudo">' + d.conteudo + '</div>' +
+                '<div class="discussao-actions">' +
+                    '<button type="button" class="btn-responder" data-parent="' + d.id + '"><i class="bi bi-reply"></i> Responder</button>' +
+                '</div>' +
+                '<div class="discussao-respostas" data-parent="' + d.id + '"></div>' +
+            '</div>';
+            
+            if (d.respostas && d.respostas.length > 0) {
+                html += '<div class="discussao-respostas-container" data-parent="' + d.id + '">';
+                d.respostas.forEach(function(r) {
+                    html += renderDiscussao(r, nivel + 1);
+                });
+                html += '</div>';
+            }
+            return html;
+        }
+
+        // Event listeners Biblioteca
+        document.addEventListener('DOMContentLoaded', function() {
+            // Busca
+            var searchInput = document.getElementById('biblioteca-search');
+            var searchDebounce;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchDebounce);
+                searchDebounce = setTimeout(function() {
+                    bibliotecaCurrentFilters.q = searchInput.value.trim();
+                    bibliotecaPage = 1;
+                    carregarBiblioteca(false);
+                }, 300);
+            });
+
+            // Filtro categoria
+            document.getElementById('biblioteca-categoria').addEventListener('change', function() {
+                bibliotecaCurrentFilters.categoria = this.value;
+                bibliotecaPage = 1;
+                carregarBiblioteca(false);
+            });
+
+            // Ordenação
+            document.getElementById('biblioteca-ordenar').addEventListener('change', function() {
+                bibliotecaCurrentFilters.ordenar = this.value;
+                bibliotecaPage = 1;
+                carregarBiblioteca(false);
+            });
+
+            // Paginação
+            document.getElementById('biblioteca-prev').addEventListener('click', function() {
+                if (bibliotecaPage > 1) {
+                    bibliotecaPage--;
+                    carregarBiblioteca(false);
+                }
+            });
+            document.getElementById('biblioteca-next').addEventListener('click', function() {
+                if (bibliotecaHasMore) {
+                    carregarBiblioteca(false);
+                }
+            });
+
+            // Modal Artigo
+            document.getElementById('artigo-modal').querySelector('.modal-close').addEventListener('click', function() {
+                fecharArtigoModal();
+            });
+            document.getElementById('artigo-modal').addEventListener('click', function(e) {
+                if (e.target === this) fecharArtigoModal();
+            });
+
+            // Formulário discussão
+            document.getElementById('discussao-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var textarea = this.querySelector('textarea');
+                var conteudo = textarea.value.trim();
+                if (!conteudo) return;
+                
+                // Pegar licao_id do artigo aberto
+                var modal = document.getElementById('artigo-modal');
+                var licaoId = modal.dataset.currentArtigoId;
+                
+                fetch(window.APP_DATA.url_api + '/discussoes.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': window.APP_DATA.csrf_token
+                    },
+                    body: JSON.stringify({ licao_id: licaoId, conteudo: conteudo })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        textarea.value = '';
+                        carregarDiscussoes(licaoId);
+                    }
+                });
+            });
+
+            // Delegação para botões de responder
+            document.getElementById('discussoes-lista').addEventListener('click', function(e) {
+                var btn = e.target.closest('.btn-responder');
+                if (btn) {
+                    var parentId = btn.dataset.parent;
+                    var container = document.querySelector('.discussao-respostas[data-parent="' + parentId + '"]');
+                    if (container && !container.querySelector('.resposta-form')) {
+                        var form = document.createElement('div');
+                        form.className = 'resposta-form';
+                        form.style.marginTop = '10px';
+                        form.innerHTML = 
+                            '<textarea name="conteudo" placeholder="Sua resposta..." rows="2" required style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text);font-size:0.9rem"></textarea>' +
+                            '<div style="margin-top:5px;text-align:right">' +
+                                '<button type="button" class="btn btn-secondary btn-sm btn-cancelar-resposta">Cancelar</button>' +
+                                '<button type="button" class="btn btn-primary btn-sm btn-enviar-resposta" data-parent="' + parentId + '">Responder</button>' +
+                            '</div>';
+                        container.appendChild(form);
+                        form.querySelector('.btn-enviar-resposta').addEventListener('click', function() {
+                            var ta = form.querySelector('textarea');
+                            var texto = ta.value.trim();
+                            if (!texto) return;
+                            var licaoId = document.getElementById('artigo-modal').dataset.currentArtigoId;
+                            fetch(window.APP_DATA.url_api + '/discussoes.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-Token': window.APP_DATA.csrf_token
+                                },
+                                body: JSON.stringify({ licao_id: licaoId, conteudo: texto, parent_id: parentId })
+                            })
+                            .then(function(r) { return r.json(); })
+                            .then(function(data) {
+                                if (data.success) {
+                                    carregarDiscussoes(licaoId);
+                                }
+                            });
+                        });
+                        form.querySelector('.btn-cancelar-resposta').addEventListener('click', function() {
+                            form.remove();
+                        });
+                    }
+                }
+            });
+
+            // Carregar ao abrir seção biblioteca
+            var originalShowSection = window.showSection;
+            window.showSection = function(id) {
+                if (originalShowSection) originalShowSection(id);
+                if (id === 'biblioteca') {
+                    setTimeout(function() { carregarBiblioteca(false); }, 100);
+                }
+            };
+        });
+
+        function fecharArtigoModal() {
+            var modal = document.getElementById('artigo-modal');
+            modal.classList.remove('visible');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function escHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function nl2brHtml(str) {
+            if (!str) return '';
+            return escHtml(str).replace(/\n/g, '<br>');
+        }
+    })();
+    </script>
     <script>
     (function() {
         var banner = document.getElementById('lgpd-banner');

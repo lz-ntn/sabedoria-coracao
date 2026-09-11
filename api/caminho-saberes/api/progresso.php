@@ -1,27 +1,22 @@
 <?php
 /**
- * API de Progresso do Usuário
+ * API de Progresso do Usuário (apenas lições, tipo='licao')
  * 
- * GET    /api/progresso.php               - Buscar progresso do usuário logado
+ * GET    /api/progresso.php               - Buscar progresso do usuário
  * POST   /api/progresso.php               - Marcar lição como concluída
  * DELETE /api/progresso.php?licao_id=X    - Desmarcar lição
  * DELETE /api/progresso.php?reset=1       - Resetar todo progresso
- * 
- * Fluxo:
- *   1. Cliente envia requisição com UUID do usuário (cookie automático)
- *   2. Servidor valida, processa e retorna JSON
- *   3. Frontend atualiza a interface
  */
 
-require_once __DIR__ . '/../includes/Database.php';
 require_once __DIR__ . '/../config/app.php';
+require_once __DIR__ . '/../includes/Database.php';
 
 $db = Database::getInstance();
 $usuario_id = obter_usuario_id($db);
 $method = $_SERVER['REQUEST_METHOD'];
 
 // ══════════════════════════════════════════
-// GET - Buscar progresso
+// GET - Buscar progresso (apenas tipo='licao')
 // ══════════════════════════════════════════
 if ($method === 'GET') {
     if ($usuario_id === null) {
@@ -31,6 +26,7 @@ if ($method === 'GET') {
         'SELECT l.id, l.slug, l.titulo, l.categoria_id, p.concluida, p.concluida_em
          FROM licoes l
          LEFT JOIN progresso p ON p.licao_id = l.id AND p.usuario_id = ?
+         WHERE l.tipo = "licao"
          ORDER BY l.categoria_id, l.ordem',
         [$usuario_id]
     );
@@ -89,8 +85,8 @@ if ($method === 'POST') {
 
     $licao_id = (int) $data['licao_id'];
 
-    // Verifica se lição existe
-    $licao = $db->fetch('SELECT id FROM licoes WHERE id = ?', [$licao_id]);
+    // Verifica se lição existe E é do tipo 'licao'
+    $licao = $db->fetch('SELECT id FROM licoes WHERE id = ? AND tipo = "licao"', [$licao_id]);
     if (!$licao) {
         json_error('Lição não encontrada.', 404);
     }

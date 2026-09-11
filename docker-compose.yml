@@ -19,28 +19,6 @@ services:
       retries: 10
     restart: unless-stopped
 
-  # Portal Saberes - CMS Wiki
-  portal-saberes:
-    build: ./api/portal-saberes
-    ports:
-      - "8083:10000"
-    volumes:
-      - ./api/portal-saberes:/app
-      - ./core:/app/core
-    environment:
-      - APP_ENV=development
-      - DB_HOST=mysql
-      - DB_PORT=3306
-      - DB_NAME=portal_saberes
-      - DB_USER=root
-      - DB_PASS=root
-      - DB_CHARSET=utf8mb4
-      - APP_URL=http://localhost:8083
-    depends_on:
-      mysql:
-        condition: service_healthy
-    restart: unless-stopped
-
   # Caminho Saberes - Plataforma SPA
   caminho-saberes:
     build: ./api/caminho-saberes

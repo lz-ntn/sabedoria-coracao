@@ -7,8 +7,8 @@
  * DELETE /api/favoritos.php?licao_id=X   - Remover favorito
  */
 
-require_once __DIR__ . '/../includes/Database.php';
 require_once __DIR__ . '/../config/app.php';
+require_once __DIR__ . '/../includes/Database.php';
 
 $db = Database::getInstance();
 $usuario_id = obter_usuario_id($db);
