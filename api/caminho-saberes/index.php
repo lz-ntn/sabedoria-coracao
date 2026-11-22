@@ -212,17 +212,69 @@ foreach ($licoes as $l) {
     <main>
         <!-- Introdução -->
         <section id="inicio" class="introducao animacao-entrada">
-            <h1>O Caminho do Conhecimento</h1>
-            <p>Uma jornada através dos saberes que unem ciência, espiritualidade e sabedoria prática.</p>
-            <div class="destaque-texto">
-                <p style="font-style:italic;font-size:1.2rem;margin-top:15px">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-conteudo">
+                <span class="hero-eyebrow"><i class="bi bi-stars"></i> Saberes ancestrais · ciência · prática</span>
+                <h1>O Caminho do Conhecimento</h1>
+                <p class="hero-lead">Uma jornada através dos saberes que unem ciência, espiritualidade e sabedoria prática.</p>
+
+                <div class="hero-acoes">
+                    <a href="#conhecimento" class="btn btn-primary">
+                        <i class="bi bi-arrow-down-circle"></i> Começar a Jornada
+                    </a>
+                    <button type="button" class="btn btn-outline-light" id="hero-busca-toggle">
+                        <i class="bi bi-search"></i> Buscar um saber
+                    </button>
+                </div>
+
+                <form class="hero-busca" id="hero-busca-form" hidden>
+                    <i class="bi bi-search"></i>
+                    <input type="search" id="hero-busca-input" placeholder="Ex.: gnose, kundalini, consciência..." aria-label="Buscar saberes">
+                    <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+                </form>
+
+                <div class="hero-stats" id="hero-stats" aria-label="Estatísticas do acervo">
+                    <div class="hero-stat"><span class="hero-stat-num" data-stat="total_conteudo">—</span><span class="hero-stat-label">Saberes</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num" data-stat="total_artigos">—</span><span class="hero-stat-label">Artigos</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num" data-stat="total_categorias">—</span><span class="hero-stat-label">Categorias</span></div>
+                </div>
+
+                <blockquote class="hero-citacao">
                     "O conhecimento sem prática é vazio. A prática sem conhecimento é cega."
-                </p>
-                <span style="font-size:0.9rem;opacity:0.7">— Tradição Hermética</span>
+                    <cite>— Tradição Hermética</cite>
+                </blockquote>
             </div>
-            <a href="#conhecimento" class="btn btn-primary" style="margin-top:20px">
-                <i class="bi bi-arrow-down-circle"></i> Começar a Jornada
-            </a>
+        </section>
+
+        <!-- Atalhos + saberes recentes -->
+        <section class="hero-extras" aria-label="Explore o acervo">
+            <div class="atalhos-grid">
+                <a href="#conhecimento" class="atalho-card">
+                    <i class="bi bi-diagram-3"></i>
+                    <strong>Trilhas de saber</strong>
+                    <span>Aprenda por categoria, do básico ao avançado</span>
+                </a>
+                <a href="#biblioteca" class="atalho-card">
+                    <i class="bi bi-book-half"></i>
+                    <strong>Biblioteca</strong>
+                    <span>Artigos e pesquisas para aprofundar</span>
+                </a>
+                <a href="#praticas" class="atalho-card">
+                    <i class="bi bi-yin-yang"></i>
+                    <strong>Práticas</strong>
+                    <span>Exercícios para viver o conhecimento</span>
+                </a>
+            </div>
+
+            <div class="recentes">
+                <div class="recentes-header">
+                    <h2><i class="bi bi-clock-history"></i> Adicionados recentemente</h2>
+                    <a href="#biblioteca">Ver biblioteca <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="recentes-grid" id="recentes-grid">
+                    <p class="recentes-placeholder">Carregando saberes...</p>
+                </div>
+            </div>
         </section>
 
         <!-- Cronograma -->
@@ -715,6 +767,8 @@ foreach ($licoes as $l) {
                     document.body.style.overflow = 'hidden';
                 });
         }
+        // Exposto para os cards de "Adicionados recentemente" (home dinâmica)
+        window.abrirArtigo = abrirArtigo;
 
         function carregarDiscussoes(licaoId) {
             fetch(window.APP_DATA.url_api + '/discussoes.php?licao_id=' + licaoId)

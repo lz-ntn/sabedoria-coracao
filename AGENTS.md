@@ -31,6 +31,7 @@ render.yaml           Blueprint Render (6 Static Sites)
 - **APIs:** `api/biblioteca.php` (lista/busca/detalhe de artigos `tipo='artigo'`), `api/discussoes.php` (comentários),
   `api/progresso.php` (agora filtra `tipo='licao'`); `stats.php`, `favoritos.php`, `quiz.php`, `newsletter.php`.
 - Admin (`api/caminho-saberes/admin/index.php`) tem abas **Lições** e **Artigos** + CRUD de categorias + ação de importação.
+- **Home dinâmica:** seção `#inicio` em `index.php` consome `/api/stats.php` (contadores animados via `HomeDinamica` em `assets/js/app.js`) e `/api/biblioteca.php?per_page=3&ordenar=recente` (cards "Adicionados recentemente"). Busca rápida da home replica o termo em `#biblioteca-search` e rola até a Biblioteca. `abrirArtigo()` é exposto em `window` pelo script inline do `index.php` para os cards recentes.
 - **Dados embutidos no deploy:** `api/caminho-saberes/data/` contém `dados-unificados.json`, `jesus-posts/` (23 Markdown) e `blavatsky/` (5 lições HTML). O Dockerfile `COPY . .` leva tudo para `/app/data/`, que é onde os importadores procuram primeiro — sem depender de caminhos do host.
 - **Popular de uma vez:** `php database/popular.php` roda os 4 importadores em processos separados (seed, saberes_wiki, jesus, blavatsky). Todos são idempotentes (pulam slug existente). No admin: aba **📦 Popular Conteúdo** (`?acao=popular`) executa o mesmo script e mostra o log.
 - **Seed e imports:** `php database/seed_biblioteca.php` (8 artigos de exemplo, idempotente).

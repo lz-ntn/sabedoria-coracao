@@ -711,9 +711,109 @@
     };
 
     // ==========================================
+    // HOME DINÂMICA (stats + recentes + busca rápida)
+    // ==========================================
+    const HomeDinamica = {
+        init() {
+            this.carregarStats();
+            this.carregarRecentes();
+            this.iniciarBusca();
+        },
+
+        animarNumero(el, alvo) {
+            const duracao = 900;
+            const inicio = performance.now();
+            const passo = (agora) => {
+                const p = Math.min((agora - inicio) / duracao, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(alvo * ease).toLocaleString('pt-BR');
+                if (p < 1) requestAnimationFrame(passo);
+            };
+            requestAnimationFrame(passo);
+        },
+
+        async carregarStats() {
+            if (!window.APP_DATA) return;
+            try {
+                const resp = await fetch(window.APP_DATA.url_api + '/stats.php');
+                if (!resp.ok) return;
+                const dados = await resp.json();
+                document.querySelectorAll('[data-stat]').forEach(el => {
+                    const chave = el.dataset.stat;
+                    if (typeof dados[chave] === 'number') this.animarNumero(el, dados[chave]);
+                });
+            } catch (e) {
+                document.querySelectorAll('[data-stat]').forEach(el => { el.textContent = '—'; });
+            }
+        },
+
+        async carregarRecentes() {
+            const grid = document.getElementById('recentes-grid');
+            if (!grid || !window.APP_DATA) return;
+            try {
+                const resp = await fetch(window.APP_DATA.url_api + '/biblioteca.php?per_page=3&ordenar=recente');
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const dados = await resp.json();
+                const artigos = dados.artigos || [];
+                if (!artigos.length) {
+                    grid.innerHTML = '<p class="recentes-placeholder">Nenhum artigo publicado ainda — em breve!</p>';
+                    return;
+                }
+                grid.innerHTML = artigos.map(a => `
+                    <a class="recente-card" href="#biblioteca" data-id="${Number(a.id)}">
+                        <span class="recente-cat">${Utils.escaparHTML(a.categoria_nome || 'Saber')}</span>
+                        <span class="recente-titulo">${Utils.escaparHTML(a.titulo)}</span>
+                        <span class="recente-resumo">${Utils.escaparHTML(a.resumo || '')}</span>
+                        <span class="recente-meta"><i class="bi bi-eye"></i> ${Number(a.views || 0).toLocaleString('pt-BR')} leituras</span>
+                    </a>
+                `).join('');
+
+                grid.querySelectorAll('[data-id]').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const artigo = artigos.find(a => Number(a.id) === Number(card.dataset.id));
+                        if (artigo && typeof window.abrirArtigo === 'function') {
+                            window.abrirArtigo(artigo);
+                        } else {
+                            document.getElementById('biblioteca').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            } catch (e) {
+                grid.innerHTML = '<p class="recentes-placeholder">Não foi possível carregar os saberes agora.</p>';
+            }
+        },
+
+        iniciarBusca() {
+            const toggle = document.getElementById('hero-busca-toggle');
+            const form = document.getElementById('hero-busca-form');
+            const input = document.getElementById('hero-busca-input');
+            if (!toggle || !form || !input) return;
+
+            toggle.addEventListener('click', () => {
+                form.hidden = !form.hidden;
+                if (!form.hidden) input.focus();
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const termo = input.value.trim();
+                const campo = document.getElementById('biblioteca-search');
+                if (campo) {
+                    campo.value = termo;
+                    campo.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                const destino = document.getElementById('biblioteca');
+                if (destino) destino.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    };
+
+    // ==========================================
     // INICIALIZAÇÃO GLOBAL
     // ==========================================
     function inicializar() {
+        HomeDinamica.init();
         BarraProgresso.init();
         Tema.init();
         Accordion.init('.accordion-item');
