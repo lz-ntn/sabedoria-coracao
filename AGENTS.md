@@ -98,6 +98,8 @@ make clean       # remove volumes e containers ( MySQL data é perdido)
 - Rodam no start do entrypoint e no `startCommand` do Render. Manual: `make migrate-caminho-saberes`, ou `docker-compose exec caminho-saberes php database/migrate.php`.
 - **`migrate.php` é idempotente de verdade (corrigido em 22/11/2026):** checa `SELECT ... FROM migrations` **antes** de executar cada SQL e imprime `Já aplicada: ...`. Não depende de "engolir erro de coluna duplicada" como antes.
 - **Um batch por execução:** todas as migrations novas entram no mesmo batch; as antigas ficaram nos batches 1/2/3 (histórico preservado, não reescrito).
+- **Conferência de schema real:** antes de confiar na tabela `migrations`, o script checa `information_schema` — se `licoes` não existe reaplica `001`; se `tipo`/`resumo` faltam, reaplica `003` (cobre banco recriado no TiDB).
+- **Deploy Render:** Web Service Docker com Root Directory `api/caminho-saberes` (não `api/portal-saberes`); exige env vars `APP_ENV`, `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`, `DB_SSL_CA`, `DB_CHARSET`, `APP_URL`. URL: `https://saberes-de-coracao.onrender.com`.
 - **SSL condicional:** `APP_ENV=development` → `--ssl=0` (MySQL local); fora de dev → `--ssl-mode=VERIFY_IDENTITY --ssl-ca=<CA>` (ou `REQUIRED` se não achar CA), via `db_ssl_options()`. O TiDB Serverless **exige** TLS.
 - **Sempre faça backup antes de migrar:**
   ```bash
