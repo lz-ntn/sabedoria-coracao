@@ -104,6 +104,28 @@ function md_to_html($md) {
 $files = glob("$postsDir/*.md");
 echo "Encontrados " . count($files) . " artigos\n\n";
 
+/**
+ * "mensagem-dos-mestres" → "Mensagem dos Mestres"
+ * (preposições e artigos ficam minúsculos, como em português).
+ */
+function titulo_do_arquivo(string $slug): string
+{
+    static $minusculas = [
+        'a', 'o', 'as', 'os', 'de', 'da', 'do', 'das', 'dos', 'e', 'em',
+        'na', 'no', 'nas', 'nos', 'para', 'com', 'sem', 'ao', 'à', 'pelo', 'pela',
+    ];
+
+    $palavras = preg_split('/[\s\-_]+/', $slug, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    foreach ($palavras as $i => $palavra) {
+        $minuscula = mb_strtolower($palavra);
+        $palavras[$i] = ($i > 0 && in_array($minuscula, $minusculas, true))
+            ? $minuscula
+            : mb_convert_case($minuscula, MB_CASE_TITLE);
+    }
+
+    return implode(' ', $palavras);
+}
+
 $importados = 0;
 $pulados = 0;
 $erros = 0;
@@ -114,9 +136,25 @@ foreach ($files as $file) {
     $body = '';
     parse_frontmatter($content, $meta, $body);
 
-    $titulo = $meta['title'] ?? basename($file, '.md');
     $slug = $meta['slug'] ?? basename($file, '.md');
-    $excerpt = $meta['excerpt'] ?? '';
+
+    // Sem frontmatter o slug viraria título ("mensagem-dos-mestres").
+    // Humaniza o nome do arquivo: "mensagem-dos-mestres" → "Mensagem dos Mestres".
+    $titulo = $meta['title'] ?? titulo_do_arquivo($slug);
+
+    // Sem excerpt, usa o começo do texto: card sem resumo parece conteúdo vazio.
+    $excerpt = trim((string)($meta['excerpt'] ?? ''));
+    if ($excerpt === '') {
+        // Troca tags por espaço (senão "série"+"A verdade" gruda) e colapsa espaços.
+        $plano = preg_replace('/<[^>]+>/', ' ', md_to_html(trim($body)));
+        $plano = trim((string)preg_replace('/\s+/u', ' ', (string)$plano));
+        if ($plano !== '') {
+            $excerpt = mb_substr($plano, 0, 220);
+            if (mb_strlen($plano) > 220) {
+                $excerpt = rtrim($excerpt, " \t\n\r.,;:") . '…';
+            }
+        }
+    }
     $tags = isset($meta['tags']) ? str_replace(['[', ']', '"'], '', $meta['tags']) : '';
     $date = $meta['date'] ?? date('Y-m-d');
 

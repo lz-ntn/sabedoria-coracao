@@ -721,15 +721,31 @@
         },
 
         animarNumero(el, alvo) {
+            const formatar = (v) => Math.round(v).toLocaleString('pt-BR');
+
+            // Aba em segundo plano congela requestAnimationFrame e o número ficaria
+            // no meio da contagem. Sem animação (ou como rede de segurança) o valor
+            // final é escrito direto.
+            const semAnimacao = window.matchMedia
+                && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (semAnimacao || typeof requestAnimationFrame !== 'function') {
+                el.textContent = formatar(alvo);
+                return;
+            }
+
             const duracao = 900;
             const inicio = performance.now();
             const passo = (agora) => {
                 const p = Math.min((agora - inicio) / duracao, 1);
                 const ease = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(alvo * ease).toLocaleString('pt-BR');
+                el.textContent = formatar(alvo * ease);
                 if (p < 1) requestAnimationFrame(passo);
             };
             requestAnimationFrame(passo);
+
+            // Garante o número exato mesmo se o rAF parar no meio.
+            setTimeout(() => { el.textContent = formatar(alvo); }, duracao + 150);
         },
 
         async carregarStats() {
