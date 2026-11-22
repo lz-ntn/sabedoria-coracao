@@ -15,6 +15,13 @@ core/                 Biblioteca compartilhada sabedoria/core (namespace Core\)
 render.yaml           Blueprint Render (6 Static Sites)
 ```
 
+## Fonte da verdade e deploys (decisão 22/11/2026)
+
+- **Este repo (`lz-ntn/sabedoria-coracao`) é o canônico** — único lugar para dev e deploy. Atalho limpo: `~/vidaReal/novoComeco/sabedoria-de-coracao/sabedoria-deploy`. URLs oficiais: `sabedoria-{aprender,viver,meditacao,portal,cristianismo,curso}.onrender.com` + API `caminho-saberes`.
+- **Projeto distinto:** `lz-ntn/saberes-de-coracao` (SPA antigo, código na partição Manjaro) é servido por `saberesdecoracao.up.railway.app` **e** `saberes-de-coracao.onrender.com` com bytes idênticos (hash `bf5832de…`). Não confundir com este repo — os domínios oficiais aqui são `sabedoria-*`, não `saberes-*`.
+- Railway foi **desativado em 22/11/2026**: removido o domínio público do service `saberes-de-coracao` (projeto `Saberes de Coração`); a URL hoje responde 404. Projeto/service foram mantidos (reversível). Render é a produção oficial.
+- Em 22/11/2026 as cópias antigas foram **arquivadas por rename reversível**: pastas na partição Manjaro e `/opt/lampp/htdocs/{caminho,portal}-saberes` ganharam sufixo `_LEGADO_ARCHIVADO_2026-11-22`; `api/portal-saberes/railway.json` → `railway.json.LEGADO`. Detalhes em `~/vidaReal/novoComeco/sabedoria-de-coracao/local.md`.
+
 ## Estrutura de conteúdo no Caminho
 
 - `licoes` ganhou colunas na migration `003_portal_merge.sql`: `tipo` (`licao`|`artigo`), `resumo`, `tags`, `imagem`,
