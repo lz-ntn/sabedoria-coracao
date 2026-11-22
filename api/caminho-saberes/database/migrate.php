@@ -1,4 +1,13 @@
 <?php
+/**
+ * Migrations do Caminho Saberes.
+ *
+ * Regras (corrigidas em 2026-11-22):
+ *  - Idempotente de verdade: verifica a tabela `migrations` ANTES de executar o SQL.
+ *  - Um batch por execução (todas as migrations novas entram no mesmo batch).
+ *  - SSL: desligado só em dev (APP_ENV=development); em produção usa o CA bundle
+ *    do sistema (exigência do TiDB Serverless), o mesmo de db_ssl_options().
+ */
 
 require_once __DIR__ . '/../config/app.php';
 
@@ -7,79 +16,86 @@ $port    = env('DB_PORT', getenv('MYSQLPORT') ?: '3306');
 $name    = env('DB_NAME', getenv('MYSQLDATABASE') ?: 'caminho_saberes');
 $user    = env('DB_USER', getenv('MYSQLUSER') ?: 'root');
 $pass    = env('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
+$dev     = env('APP_ENV', 'production') === 'development';
 
-echo "Migração: host=$host, port=$port, db=$name, user=$user\n";
+// Opções PDO (mesma fonte usada por \Core\Database)
+$sslOpts = function_exists('db_ssl_options') ? db_ssl_options($dev) : [];
+
+// Flags equivalentes para o cliente mysql (que não entende o array do PDO)
+$sslCli = '';
+if ($dev) {
+    $sslCli = ' --ssl=0';
+} else {
+    $caPath = $sslOpts[PDO::MYSQL_ATTR_SSL_CA] ?? '';
+    $sslCli = $caPath !== ''
+        ? ' --ssl-mode=VERIFY_IDENTITY --ssl-ca=' . escapeshellarg($caPath)
+        : ' --ssl-mode=REQUIRED';
+}
+
+echo "Migração: host=$host, port=$port, db=$name, user=$user, ssl=" . ($dev ? 'off (dev)' : 'on') . "\n";
 
 try {
-    // Create database and run migrations using mysql client (handles comments/multi-stmt)
-    $mysqlCmd = "mysql -h{$host} -P{$port} -u{$user} --ssl=0";
+    // Cliente mysql: lida com comentários e multi-statement dos arquivos SQL
+    $mysqlCmd = "mysql -h{$host} -P{$port} -u{$user}{$sslCli}";
     if ($pass !== '') {
-        $mysqlCmd .= " -p{$pass}";
+        $mysqlCmd .= ' -p' . escapeshellarg($pass);
     }
-    $mysqlCmd .= " --default-character-set=utf8mb4";
+    $mysqlCmd .= ' --default-character-set=utf8mb4';
 
-    // Create database
+    // 1. Garante o banco (CREATE DATABASE é idempotente)
     $createDb = "CREATE DATABASE IF NOT EXISTS `{$name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
-    $cmd = "{$mysqlCmd} -e " . escapeshellarg($createDb);
-    exec($cmd, $out, $code);
+    $out = [];
+    exec("{$mysqlCmd} -e " . escapeshellarg($createDb) . " 2>&1", $out, $code);
     if ($code !== 0) {
-        throw new Exception("Failed to create database: " . implode("\n", $out));
+        throw new Exception('Falha ao criar banco: ' . implode("\n", $out));
     }
 
-    // Run migration files
+    // 2. Tabela de controle ANTES do loop (PDO com as mesmas opções SSL)
+    $pdo = new PDO(
+        "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4",
+        $user,
+        $pass,
+        array_merge([PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION], $sslOpts)
+    );
+    $pdo->exec("CREATE TABLE IF NOT EXISTS migrations (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        migration VARCHAR(255) NOT NULL UNIQUE,
+        batch INT NOT NULL,
+        executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+    // 3. Um batch para todas as migrations aplicadas nesta execução
+    $batch = (int)$pdo->query('SELECT COALESCE(MAX(batch), 0) + 1 FROM migrations')->fetchColumn();
+
     $files = glob(__DIR__ . '/*.sql');
     sort($files);
 
     foreach ($files as $file) {
         $filename = basename($file);
-        echo "  Migrating: {$filename}\n";
 
-        // Run migration file using mysql client
-        $cmd = "{$mysqlCmd} {$name} < " . escapeshellarg($file) . " 2>&1";
-        exec($cmd, $out, $code);
-
-        // If migration failed due to duplicate columns/keys (already applied), treat as success
-        if ($code !== 0) {
-            $errorOutput = implode("\n", $out);
-            if (strpos($errorOutput, 'Duplicate column name') !== false || 
-                strpos($errorOutput, 'Duplicate key name') !== false ||
-                strpos($errorOutput, 'already exists') !== false) {
-                echo "  Migration appears already applied (duplicate column/key), recording...\n";
-            } else {
-                throw new Exception("Migration failed [{$filename}]: " . implode("\n", $out));
-            }
-        }
-
-        // Record migration in tracking table
-        $pdo = new PDO("mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4", $user, $pass, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        ]);
-        $pdo->exec("CREATE TABLE IF NOT EXISTS migrations (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            migration VARCHAR(255) NOT NULL UNIQUE,
-            batch INT NOT NULL,
-            executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-
-        // Check if migration already exists
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM migrations WHERE migration = ?");
+        // 4. PULAR se já aplicada — ANTES de rodar o SQL (idempotência real)
+        $stmt = $pdo->prepare('SELECT COUNT(*) FROM migrations WHERE migration = ?');
         $stmt->execute([$filename]);
         if ($stmt->fetchColumn() > 0) {
-            echo "  Already migrated: {$filename}\n";
+            echo "  Já aplicada: {$filename}\n";
             continue;
         }
 
-        // Get next batch
-        $stmt = $pdo->query("SELECT COALESCE(MAX(batch), 0) + 1 FROM migrations");
-        $batch = (int)$stmt->fetchColumn();
+        $out = []; // 5. reset: $out acumula entre chamadas de exec()
+        $cmd = "{$mysqlCmd} {$name} < " . escapeshellarg($file) . ' 2>&1';
+        exec($cmd, $out, $code);
+        if ($code !== 0) {
+            throw new Exception("Falha na migration [{$filename}]: " . implode("\n", $out));
+        }
 
-        $pdo->exec("INSERT INTO migrations (migration, batch) VALUES (" . $pdo->quote($filename) . ", {$batch})");
-        echo "  Migrated: {$filename}\n";
+        $stmt = $pdo->prepare('INSERT INTO migrations (migration, batch) VALUES (?, ?)');
+        $stmt->execute([$filename, $batch]);
+        echo "  Migrada: {$filename} (batch {$batch})\n";
     }
 
-    echo "Migration completed successfully!\n";
+    echo "Migrations concluídas com sucesso!\n";
 
-} catch (Exception $e) {
-    fwrite(STDERR, "Migration failed: " . $e->getMessage() . "\n");
+} catch (Throwable $e) {
+    fwrite(STDERR, 'Migration falhou: ' . $e->getMessage() . "\n");
     exit(1);
 }

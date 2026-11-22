@@ -86,9 +86,17 @@ make clean       # remove volumes e containers ( MySQL data é perdido)
 
 ## Migrations
 
-- Sistema versionado `\Core\Migration` (tabela `migrations`), SQL numerados `001_*, 002_*` em `api/*/database/`.
-- Rodam automaticamente no start do entrypoint. Manual: `make migrate-<svc>`, ou `docker compose exec <svc> php database/migrate.php`.
-- `migrate.php` conecta com SSL (CA bundle) exigido pelo TiDB em prod.
+- SQL numerados `001_*, 002_*, 003_*` em `api/caminho-saberes/database/` (a tabela `migrations` é criada pelo próprio `migrate.php`, não por `\Core\Migration`).
+- Rodam no start do entrypoint e no `startCommand` do Render. Manual: `make migrate-caminho-saberes`, ou `docker-compose exec caminho-saberes php database/migrate.php`.
+- **`migrate.php` é idempotente de verdade (corrigido em 22/11/2026):** checa `SELECT ... FROM migrations` **antes** de executar cada SQL e imprime `Já aplicada: ...`. Não depende de "engolir erro de coluna duplicada" como antes.
+- **Um batch por execução:** todas as migrations novas entram no mesmo batch; as antigas ficaram nos batches 1/2/3 (histórico preservado, não reescrito).
+- **SSL condicional:** `APP_ENV=development` → `--ssl=0` (MySQL local); fora de dev → `--ssl-mode=VERIFY_IDENTITY --ssl-ca=<CA>` (ou `REQUIRED` se não achar CA), via `db_ssl_options()`. O TiDB Serverless **exige** TLS.
+- **Sempre faça backup antes de migrar:**
+  ```bash
+  docker exec sabedoria-deploy_mysql_1 mysqldump -uroot -proot \
+    --databases portal_saberes caminho_saberes > ~/backup-sabedoria-$(date +%F).sql
+  ```
+- O banco `portal_saberes` **não deve ser dropado**: está vazio, mas `database/import_portal.php` e a aba de importação do admin conectam nele para trazer artigos legados. É mantido de propósito (ver topo deste arquivo).
 
 ## Banco (Config + SSL)
 
