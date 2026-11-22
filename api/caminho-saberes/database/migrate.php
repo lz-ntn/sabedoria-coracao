@@ -20,22 +20,39 @@ $user    = env('DB_USER', getenv('MYSQLUSER') ?: 'root');
 $pass    = env('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
 $dev     = env('APP_ENV', 'production') === 'development';
 
-// Opções PDO (mesma fonte usada por \Core\Database)
-$sslOpts = function_exists('db_ssl_options') ? db_ssl_options($dev) : [];
+// CA: mesma estratégia do docker-entrypoint.sh (que ja conecta com SSL no TiDB)
+$caPath = '';
+foreach ([
+    (string)getenv('DB_SSL_CA'),
+    __DIR__ . '/../../core/ssl/ca-certificates.crt',
+    '/app/core/ssl/ca-certificates.crt',
+    '/etc/ssl/certs/ca-certificates.crt',
+    '/etc/pki/tls/certs/ca-bundle.crt',
+    '/etc/ssl/ca-bundle.pem',
+] as $candidato) {
+    if ($candidato !== '' && file_exists($candidato) && is_readable($candidato)) {
+        $caPath = $candidato;
+        break;
+    }
+}
 
-// Flags equivalentes para o cliente mysql (que não entende o array do PDO)
+// Opções PDO — obrigatório no TiDB (insecure transport e bloqueado)
+$pdoOpts = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+if (!$dev && $caPath !== '') {
+    $pdoOpts[PDO::MYSQL_ATTR_SSL_CA] = $caPath;
+}
+
+// Flags do cliente mysql (mariadb-client nao tem --ssl-mode do MySQL 8)
 $sslCli = '';
 if ($dev) {
     $sslCli = ' --ssl=0';
 } else {
-    $caPath = $sslOpts[PDO::MYSQL_ATTR_SSL_CA] ?? '';
-    // mariadb-client (imagem Docker) nao suporta --ssl-mode; usa --ssl-ca + --ssl-verify-server-cert
     $sslCli = $caPath !== ''
         ? ' --ssl-ca=' . escapeshellarg($caPath) . ' --ssl-verify-server-cert'
         : ' --ssl';
 }
 
-echo "Migração: host=$host, port=$port, db=$name, user=$user, ssl=" . ($dev ? 'off (dev)' : 'on') . "\n";
+echo "Migração: host=$host, port=$port, db=$name, user=$user, ssl=" . ($dev ? 'off (dev)' : 'on') . ", ca=" . ($caPath ?: 'NAO ENCONTRADO') . "\n";
 
 try {
     // Cliente mysql: lida com comentários e multi-statement dos arquivos SQL
@@ -58,7 +75,7 @@ try {
         "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4",
         $user,
         $pass,
-        array_merge([PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION], $sslOpts)
+        $pdoOpts
     );
     $pdo->exec("CREATE TABLE IF NOT EXISTS migrations (
         id INT AUTO_INCREMENT PRIMARY KEY,
