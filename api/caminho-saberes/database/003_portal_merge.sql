@@ -16,8 +16,10 @@ ADD COLUMN `imagem` VARCHAR(255) DEFAULT NULL,
 ADD COLUMN `fonte` VARCHAR(500) DEFAULT NULL COMMENT 'Origem do conteúdo',
 ADD COLUMN `autor_id` INT DEFAULT NULL,
 ADD COLUMN `publicado_em` TIMESTAMP NULL DEFAULT NULL,
-ADD COLUMN `views` INT DEFAULT 0,
-ADD FULLTEXT KEY `ft_conteudo` (`titulo`, `conteudo`, `tags`);
+ADD COLUMN `views` INT DEFAULT 0;
+-- Sem FULLTEXT: o TiDB Serverless exige replica columnar (TiFlash, pago) para
+-- criar indice fulltext. A busca usa LIKE em biblioteca.php.
+-- CREATE FULLTEXT KEY ft_conteudo (titulo, conteudo, tags);
 
 -- FK para autor (usuarios do admin/portal)
 ALTER TABLE `licoes`

@@ -25,8 +25,9 @@ render.yaml           Blueprint Render (6 Static Sites)
 ## Estrutura de conteúdo no Caminho
 
 - `licoes` ganhou colunas na migration `003_portal_merge.sql`: `tipo` (`licao`|`artigo`), `resumo`, `tags`, `imagem`,
-  `fonte`, `autor_id`, `publicado_em`, `views`; tabela nova `discussoes` (comentários em camisetas); FULLTEXT `ft_conteudo`;
-  views `vw_artigos_publicos` e `vw_licoes_cronograma`.
+  `fonte`, `autor_id`, `publicado_em`, `views`; tabela nova `discussoes` (comentários em camisetas);
+  views `vw_artigos_publicos` e `vw_licoes_cronograma`. **Sem FULLTEXT** (o TiDB Serverless exige réplica columnar paga);
+  a busca em `biblioteca.php` usa `LIKE` em `titulo/conteudo/tags/resumo`.
 - **APIs:** `api/biblioteca.php` (lista/busca/detalhe de artigos `tipo='artigo'`), `api/discussoes.php` (comentários),
   `api/progresso.php` (agora filtra `tipo='licao'`); `stats.php`, `favoritos.php`, `quiz.php`, `newsletter.php`.
 - Admin (`api/caminho-saberes/admin/index.php`) tem abas **Lições** e **Artigos** + CRUD de categorias + ação de importação.

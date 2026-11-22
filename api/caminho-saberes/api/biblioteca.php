@@ -67,9 +67,13 @@ if ($categoriaSlug) {
 }
 
 if ($q) {
-    // Busca fulltext
-    $where .= ' AND MATCH(l.titulo, l.conteudo, l.tags) AGAINST(? IN NATURAL LANGUAGE MODE)';
-    $params[] = $q;
+    // Busca por LIKE: TiDB Serverless nao suporta FULLTEXT sem replica columnar (paga)
+    $like = '%' . $q . '%';
+    $where .= ' AND (l.titulo LIKE ? OR l.conteudo LIKE ? OR l.tags LIKE ? OR l.resumo LIKE ?)';
+    $params[] = $like;
+    $params[] = $like;
+    $params[] = $like;
+    $params[] = $like;
 }
 
 // Total para paginação
