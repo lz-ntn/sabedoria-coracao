@@ -7,6 +7,8 @@
  *  - Um batch por execução (todas as migrations novas entram no mesmo batch).
  *  - SSL: desligado só em dev (APP_ENV=development); em produção usa o CA bundle
  *    do sistema (exigência do TiDB Serverless), o mesmo de db_ssl_options().
+ *    O cliente instalado é o mariadb-client: use --ssl-ca/--ssl-verify-server-cert
+ *    (o --ssl-mode do MySQL 8 não existe no cliente MariaDB).
  */
 
 require_once __DIR__ . '/../config/app.php';
@@ -27,9 +29,10 @@ if ($dev) {
     $sslCli = ' --ssl=0';
 } else {
     $caPath = $sslOpts[PDO::MYSQL_ATTR_SSL_CA] ?? '';
+    // mariadb-client (imagem Docker) nao suporta --ssl-mode; usa --ssl-ca + --ssl-verify-server-cert
     $sslCli = $caPath !== ''
-        ? ' --ssl-mode=VERIFY_IDENTITY --ssl-ca=' . escapeshellarg($caPath)
-        : ' --ssl-mode=REQUIRED';
+        ? ' --ssl-ca=' . escapeshellarg($caPath) . ' --ssl-verify-server-cert'
+        : ' --ssl';
 }
 
 echo "Migração: host=$host, port=$port, db=$name, user=$user, ssl=" . ($dev ? 'off (dev)' : 'on') . "\n";
