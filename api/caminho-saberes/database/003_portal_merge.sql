@@ -6,15 +6,17 @@
 USE `caminho_saberes`;
 
 -- 1. Adicionar colunas em licoes para distinguir lição vs artigo (tudo em um ALTER TABLE)
+-- TiDB nao aceita AFTER referenciando coluna criada no mesmo ALTER TABLE.
+-- Colunas adicionadas sem AFTER (ordem fisica irrelevante para a aplicacao).
 ALTER TABLE `licoes` 
-ADD COLUMN `tipo` ENUM('licao','artigo') NOT NULL DEFAULT 'licao' AFTER `nivel`,
-ADD COLUMN `resumo` VARCHAR(500) DEFAULT NULL AFTER `conteudo`,
-ADD COLUMN `tags` VARCHAR(500) DEFAULT NULL AFTER `resumo`,
-ADD COLUMN `imagem` VARCHAR(255) DEFAULT NULL AFTER `tags`,
-ADD COLUMN `fonte` VARCHAR(500) DEFAULT NULL COMMENT 'Origem do conteúdo' AFTER `imagem`,
-ADD COLUMN `autor_id` INT DEFAULT NULL AFTER `fonte`,
-ADD COLUMN `publicado_em` TIMESTAMP NULL DEFAULT NULL AFTER `autor_id`,
-ADD COLUMN `views` INT DEFAULT 0 AFTER `publicado_em`,
+ADD COLUMN `tipo` ENUM('licao','artigo') NOT NULL DEFAULT 'licao',
+ADD COLUMN `resumo` VARCHAR(500) DEFAULT NULL,
+ADD COLUMN `tags` VARCHAR(500) DEFAULT NULL,
+ADD COLUMN `imagem` VARCHAR(255) DEFAULT NULL,
+ADD COLUMN `fonte` VARCHAR(500) DEFAULT NULL COMMENT 'Origem do conteúdo',
+ADD COLUMN `autor_id` INT DEFAULT NULL,
+ADD COLUMN `publicado_em` TIMESTAMP NULL DEFAULT NULL,
+ADD COLUMN `views` INT DEFAULT 0,
 ADD FULLTEXT KEY `ft_conteudo` (`titulo`, `conteudo`, `tags`);
 
 -- FK para autor (usuarios do admin/portal)

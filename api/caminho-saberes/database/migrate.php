@@ -126,7 +126,8 @@ try {
         if ($filename === '001_core_schema.sql') {
             $schemaFaltando = !tabelaExiste($pdo, 'licoes');
         } elseif ($filename === '003_portal_merge.sql') {
-            $schemaFaltando = tabelaExiste($pdo, 'licoes') && !colunaExiste($pdo, 'licoes', 'tipo');
+            $schemaFaltando = tabelaExiste($pdo, 'licoes') &&
+                (!colunaExiste($pdo, 'licoes', 'tipo') || !colunaExiste($pdo, 'licoes', 'resumo'));
         }
 
         if ($registrada && !$schemaFaltando) {
