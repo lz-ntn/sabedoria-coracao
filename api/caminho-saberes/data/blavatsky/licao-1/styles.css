@@ -1,0 +1,134 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #16a085;
+    --accent-color: #e67e22;
+    --bg-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.concept {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.example-box {
+    background: #2c3e50;
+    color: violet;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.concept code {
+    background: transparent;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.teosofo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.teosofo-list li {
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    background: linear-gradient(90deg, rgba(22, 160, 133, 0.1), transparent);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 6px 6px 0;
+}
+
+.exercise {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+}
+
+.exercise ol {
+    margin-left: 1.5rem;
+}
+
+.exercise li {
+    margin: 0.8rem 0;
+}
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+footer a:hover {
+    background: var(--accent-color);
+}

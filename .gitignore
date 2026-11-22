@@ -19,4 +19,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
-api/caminho-saberes/data/
+
+# api/caminho-saberes/data/ — NÃO ignorar: conteúdo embutido no deploy
+# (dados-unificados.json, jesus-posts/, blavatsky/) usado por database/popular.php

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lição 4: JavaScript - A Consciência Interativa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lição 4: JavaScript</h1>
+        <p class="subtitle">Dando vida e interatividade aos conceitos</p>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <h2>O que é JavaScript?</h2>
+            <p>
+                JavaScript é a linguagem de programação que adiciona interatividade às páginas web.
+                Enquanto HTML é a estrutura e CSS é a aparência, JavaScript é a ação e comportamento.
+                É como a diferença entre um livro (HTML/CSS) e uma conversa (JavaScript) -
+                onde há resposta, movimento e relação dinâmica.
+            </p>
+
+            <h3>Conceito Teosófico: O Fluxo da Consciência</h3>
+            <p>
+                Na Teosofia, a consciência está em constante movimento - ella flui, adapta-se e responde.
+                O JavaScript representa esse princípio dinâmico:ele responde a eventos, calcula causas e efeitos,
+                e manifesta mudanças baseado em interações - assim como o Karma responde às nossas ações.
+            </p>
+
+            <article class="concept">
+                <h3>Variáveis - Os "Sementos" do Código</h3>
+                <p>
+                    Variáveis armazenam valores. São como as "sementes kármicas" que plantamos -
+                    guardam potencial que pode se manifestar posteriormente:
+                </p>
+                <div class="code-example">
+                    <pre><code>// Declarando variáveis
+let nome = "Atma";      // O Espírito
+const imutavel = "Buddhi"; // Alma Espiritual (constante)
+var antigo = "Manas";   // Mente (estilo antigo)
+
+// Mostrando o valor
+console.log(nome);</code></pre>
+                </div>
+                <div class="variable-demo">
+                    <div class="var-box" data-name="atman">
+                        <span class="var-label">Atma</span>
+                        <span class="var-desc">Espírito Divino</span>
+                    </div>
+                    <div class="var-box" data-name="buddhi">
+                        <span class="var-label">Buddhi</span>
+                        <span class="var-desc">Alma Espiritual</span>
+                    </div>
+                    <div class="var-box" data-name="manas">
+                        <span class="var-label">Manas</span>
+                        <span class="var-desc">Mente</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="concept">
+                <h3>Funções - As "Meditações" do Código</h3>
+                <p>
+                    Funções são blocos de código reutilizáveis. Eles são como práticas de meditação:
+                    você define uma técnica (função) e pode aplicá-la repetidamente:
+                </p>
+                <div class="code-example">
+                    <pre><code>// Função simples
+function meditar(tempo) {
+    return "Meditando por " + tempo + " minutos";
+}
+
+// Chamando a função
+let resultado = meditar(15);
+console.log(resultado);</code></pre>
+                </div>
+                <button class="demo-button" onclick="executarMeditacao()">
+                    Executar Meditação (15 min)
+                </button>
+                <p id="meditacao-resultado"></p>
+            </article>
+
+            <article class="concept">
+                <h3>Eventos - O "Karma" do JavaScript</h3>
+                <p>
+                    Eventos são ações quetrigger respostas. Na Teosofia, a Lei do Karma diz que
+                    toda ação gera uma reação. Em JavaScript, eventos são exatamente isso:
+                    uma ação (evento) que trigger uma resposta (handler):
+                </p>
+                <div class="event-buttons">
+                    <button class="action-btn" data-action="estudo">
+                        <span class="btn-icon">📖</span>
+                        <span class="btn-text">Estudar</span>
+                    </button>
+                    <button class="action-btn" data-action="meditar">
+                        <span class="btn-icon">🧘</span>
+                        <span class="btn-text">Meditar</span>
+                    </button>
+                    <button class="action-btn" data-action="servir">
+                        <span class="btn-icon">🤝</span>
+                        <span class="btn-text">Servir</span>
+                    </button>
+                </div>
+                <div id="karma-resultado" class="karma-display">
+                    Clique em uma ação para ver seu "karma" (resultado)
+                </div>
+            </article>
+
+            <article class="concept">
+                <h3>Objetos - As "Hierarquias" do Código</h3>
+                <p>
+                    Objetos armazenam dados relacionados. São como as hierarquias espirituais:
+                    cada objeto contém propriedades e métodos que trabalham juntos:
+                </p>
+                <div class="code-example">
+                    <pre><code>// Objeto Hierarquia Espiritual
+const maestro = {
+    nome: "Mestre",
+    nivel: 7,
+    ensinar: function() {
+        return " transmitindo sabedoria";
+    }
+};
+
+console.log(maestro.nome); // "Mestre"
+console.log(maestro.ensinar()); // "transmitindo sabedoria"</code></pre>
+                </div>
+                <div class="object-visual">
+                    <div class="hierarchy-level" style="--level: 1;">
+                        <span class="level-num">VII</span>
+                        <span class="level-name">Mahatma</span>
+                    </div>
+                    <div class="hierarchy-level" style="--level: 2;">
+                        <span class="level-num">VI</span>
+                        <span class="level-name">Adepto</span>
+                    </div>
+                    <div class="hierarchy-level" style="--level: 3;">
+                        <span class="level-num">V</span>
+                        <span class="level-name">Iniciado</span>
+                    </div>
+                    <div class="hierarchy-level" style="--level: 4;">
+                        <span class="level-num">IV</span>
+                        <span class="level-name">Estudioso</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="concept">
+                <h3>Arrays - As "Encarnações" Sucessivas</h3>
+                <p>
+                    Arrays armazenam múltiplos valores em sequência. São como a série de 
+                    encarnações que uma alma passa - cada vida é um item no array da jornada:
+                </p>
+                <div class="code-example">
+                    <pre><code>// Array de encarnações
+const encarnacoes = [
+    "1ª Ronda - Homens-Renda",
+    "2ª Ronda - Hyperbóreos",
+    "3ª Ronda - Lemurianos",
+    "4ª Ronda - Atlantes",
+    "5ª Ronda - Arianos",
+    "6ª Ronda - Futura",
+    "7ª Ronda - Final"
+];
+
+// Acessando uma encarnação
+console.log(encarnacoes[0]); // "1ª Ronda Homens-Renda"
+
+// Iterando todas
+encarnacoes.forEach((vida, index) => {
+    console.log(\`Rodada \${index + 1}: \${vida}\`);
+});</code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section class="interactive-example">
+            <h2>Exemplo Interativo: O Ciclo do Karma</h2>
+            <p>Uma demonstração prática de como o JavaScript gerencia ações e consequências:</p>
+            
+            <div class="karma-counter">
+                <div class="counter-display">
+                    <span class="counter-label">Ações Positivas</span>
+                    <span id="positive-count" class="counter-value">0</span>
+                </div>
+                <div class="counter-display">
+                    <span class="counter-label">Consequências</span>
+                    <span id="negative-count" class="counter-value">0</span>
+                </div>
+            </div>
+
+            <div class="action-panel">
+                <button class="karma-btn positive" onclick="addKarma('positive')">
+                    +1 Ação Positiva
+                </button>
+                <button class="karma-btn negative" onclick="addKarma('negative')">
+                    +1 Ação Negativa
+                </button>
+                <button class="karma-btn reset" onclick="resetKarma()">
+                    Reiniciar Ciclo
+                </button>
+            </div>
+
+            <div class="karma-log">
+                <h4>Registro do Karma:</h4>
+                <ul id="karma-log-list"></ul>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h2>Exercício Proposto</h2>
+            <ol>
+                <li>Crie um arquivo chamado "script.js"</li>
+                <li>Defina variáveis para os três princípios da Sociedade Teosófica</li>
+                <li>Crie uma função que mostre uma mensagem inspirational</li>
+                <li>Adicione um evento de clique que exiba uma reflexão teosófica</li>
+                <li>Crie um objeto com propriedades sobre a lei do Karma</li>
+                <li>Crie um array com os sete princípios do homem</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="../licao-3/index.html">&larr; Lição Anterior</a>
+            <a href="../licao-5/index.html">&rarr; Próxima Lição: Projeto Final</a>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -161,6 +161,14 @@ if ($logado && $_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once __DIR__ . '/../database/import_portal.php';
         $mensagem = 'Importação executada! Verifique logs acima.';
     }
+
+    // --- POPULAR TODO O CONTEÚDO (dados embutidos no deploy) ---
+    if (isset($_POST['popular_conteudo'])) {
+        echo '<div class="log-import" style="background:#0d1117;color:#c9d1d9;padding:16px;border-radius:8px;font-family:monospace;font-size:0.82rem;white-space:pre-wrap;max-height:480px;overflow:auto;margin:16px 0">';
+        passthru(escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/../database/popular.php') . ' 2>&1', $codigo);
+        echo '</div>';
+        $mensagem = $codigo === 0 ? 'Conteúdo populado com sucesso!' : 'Importação terminou com erros (exit ' . $codigo . ').';
+    }
 }
 
 // ══════════════════════════════════════════
@@ -349,6 +357,7 @@ if ($logado) {
             <a href="?acao=licoes&tipo=artigo" class="<?= $acao==='licoes' && $licoes_tipo==='artigo'?'active':'' ?>">📖 Artigos</a>
             <a href="?acao=categorias" class="<?= $acao==='categorias'?'active':'' ?>">📂 Categorias</a>
             <a href="?acao=importar" class="<?= $acao==='importar'?'active':'' ?>">📥 Importar Portal</a>
+            <a href="?acao=popular" class="<?= $acao==='popular'?'active':'' ?>">📦 Popular Conteúdo</a>
             <a href="../index.php" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ver Site</a>
             <a href="?logout=1"><i class="bi bi-box-arrow-right"></i> Sair</a>
         </div>
@@ -568,6 +577,26 @@ if ($logado) {
                 <li>Duração estimada baseada no tamanho do texto</li>
             </ul>
             <p style="margin-top:15px;opacity:0.6">Artigos com mesmo slug já existentes serão pulados.</p>
+
+        <!-- POPULAR CONTEÚDO -->
+        <?php elseif ($acao === 'popular'): ?>
+            <h3>📦 Popular Conteúdo (Biblioteca + Lições)</h3>
+            <p style="opacity:0.7;margin-bottom:20px">
+                Importa todo o conteúdo disponível no deploy, em sequência. Todos os importadores são
+                <strong>idempotentes</strong> (itens com o mesmo slug são pulados) — pode rodar quantas vezes quiser.
+            </p>
+            <form method="POST" style="max-width:460px">
+                <?= \Core\Csrf::field() ?>
+                <button type="submit" name="popular_conteudo" class="btn btn-primary">🚀 Popular agora</button>
+            </form>
+            <h4 style="margin-top:30px">Fontes incluídas:</h4>
+            <ul style="opacity:0.8;line-height:2">
+                <li><strong>Seed da Biblioteca</strong> — artigos de exemplo distribuídos nas categorias</li>
+                <li><strong>Saberes Wiki</strong> — saberes do <code>dados-unificados.json</code> como lições</li>
+                <li><strong>Jesus (sem filtros)</strong> — 23 artigos Markdown como artigos da Biblioteca</li>
+                <li><strong>Helena Blavatsky</strong> — 5 lições de Teosofia</li>
+            </ul>
+            <p style="margin-top:15px;opacity:0.6">Conteúdo repetido é ignorado. O processo pode levar alguns segundos.</p>
         <?php endif; ?>
     </div>
 

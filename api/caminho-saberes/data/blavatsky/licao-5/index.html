@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Final: Portal Teosófico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>A Sabedoria Perene</h1>
+            <p class="quote">"Não há religião mais elevada que a Verdade"</p>
+            <p class="author">- H.P. Blavatsky</p>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="inicio">Início</button>
+            <button class="nav-btn" data-section="conceitos">Conceitos</button>
+            <button class="nav-btn" data-section="estudo">Estudo</button>
+            <button class="nav-btn" data-section="pratica">Prática</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Início -->
+        <section id="inicio" class="content-section active">
+            <article class="welcome-card">
+                <h2>Bem-vindo ao Estudo da Sabedoria</h2>
+                <p>
+                    A Teosofia (do grego <em>theos</em> = divino + <em>sophia</em> = sabedoria) 
+                    é o caminho que busca compreender a natureza profunda da realidade, da consciência 
+                    e do propósito da existência humana.
+                </p>
+                <p>
+                    Este projeto integra os conceitos aprendidos ao longo das lições anteriores,
+                    demonstrando como a programação web pode ser uma ferramenta para 
+                    compartilhar sabedoria.
+                </p>
+            </article>
+
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <span class="principle-icon">🌌</span>
+                    <h3>A Unidade</h3>
+                    <p>Toda a vida é uma só. Não existe separação verdadeira - todos somos manifestações de uma mesma essência.</p>
+                </div>
+                <div class="principle-card">
+                    <span class="principle-icon">🔄</span>
+                    <h3>A Reencarnação</h3>
+                    <p>A alma passa por múltiplas vidas, aprendendo e evoluindo em cada ciclo de existência.</p>
+                </div>
+                <div class="principle-card">
+                    <span class="principle-icon">⚖️</span>
+                    <h3>O Karma</h3>
+                    <p>A lei de causa e efeito: cada ação gera uma consequência proporcional.</p>
+                </div>
+                <div class="principle-card">
+                    <span class="principle-icon">🧘</span>
+                    <h3>A Evolução</h3>
+                    <p>O objetivo da vida é o despertar da consciência para sua natureza divina.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Conceitos -->
+        <section id="conceitos" class="content-section">
+            <h2>Os Sete Princípios do Homem</h2>
+            <p>Na filosofia teosófica, o ser humano é composto por sete princípios:</p>
+            
+            <div class="principles-table">
+                <div class="table-header">
+                    <span>Princípio</span>
+                    <span>Nome Sânscrito</span>
+                    <span>Tradução</span>
+                    <span>Função</span>
+                </div>
+                <div class="table-row" data-principle="atma">
+                    <strong>1</strong>
+                    <em>Atma</em>
+                    <span>Espírito Divino</span>
+                    <span>Acentelha divina, oEUreal</span>
+                </div>
+                <div class="table-row" data-principle="buddhi">
+                    <strong>2</strong>
+                    <em>Buddhi</em>
+                    <span>Alma Espiritual</span>
+                    <span>O veículo da iluminação</span>
+                </div>
+                <div class="table-row" data-principle="manas">
+                    <strong>3</strong>
+                    <em>Manas</em>
+                    <span>Mente</span>
+                    <span>O Pensador, a individualidade</span>
+                </div>
+                <div class="table-row" data-principle="kama">
+                    <strong>4</strong>
+                    <em>Kama</em>
+                    <span>Desejo/Vontade</span>
+                    <span>O impulso de buscar</span>
+                </div>
+                <div class="table-row" data-principle="linga">
+                    <strong>5</strong>
+                    <em>Linga Sharira</em>
+                    <span>Corpo Astral</span>
+                    <span>O modelo do corpo físico</span>
+                </div>
+                <div class="table-row" data-principle="prana">
+                    <strong>6</strong>
+                    <em>Prana</em>
+                    <span>Princípio Vital</span>
+                    <span>A energia vital</span>
+                </div>
+                <div class="table-row" data-principle="sthula">
+                    <strong>7</strong>
+                    <em>Sthula Sharira</em>
+                    <span>Corpo Físico</span>
+                    <span>O veículo material</span>
+                </div>
+            </div>
+
+            <div class="karma-visual">
+                <h3>A Lei do Karma Visualizada</h3>
+                <div class="karma-wheel">
+                    <div class="wheel-center">KARMA</div>
+                    <div class="wheel-spoke" style="--i: 0;">Ação</div>
+                    <div class="wheel-spoke" style="--i: 1;">Intenção</div>
+                    <div class="wheel-spoke" style="--i: 2;">Pensamento</div>
+                    <div class="wheel-spoke" style="--i: 3;">Palavra</div>
+                    <div class="wheel-spoke" style="--i: 4;">Attitude</div>
+                    <div class="wheel-spoke" style="--i: 5;">Hábito</div>
+                </div>
+                <p class="karma-explanation">O ciclo de causa e efeito que governa a evolução da consciência</p>
+            </div>
+        </section>
+
+        <!-- Seção Estudo -->
+        <section id="estudo" class="content-section">
+            <h2>Programa de Estudo</h2>
+            
+            <div class="study-routine">
+                <div class="routine-card">
+                    <h3>📖 Estudo Sério</h3>
+                    <p>3x por semana (30-40 min)</p>
+                    <ul>
+                        <li>10 min - Revisão de anotações</li>
+                        <li>20-30 min - Leitura concentrada</li>
+                        <li>5 min - Reflexão escrita</li>
+                    </ul>
+                </div>
+                <div class="routine-card">
+                    <h3>🧘 Disciplina Interior</h3>
+                    <p>Diário (10-15 min)</p>
+                    <ul>
+                        <li>Meditação matinal</li>
+                        <li>Reflexão teosófica</li>
+                        <li>Intenção do dia</li>
+                    </ul>
+                </div>
+                <div class="routine-card">
+                    <h3>🤝 Servi��o</h3>
+                    <p>1x por semana</p>
+                    <ul>
+                        <li>Voluntariado</li>
+                        <li>Apoio a alguém</li>
+                        <li>Ação fraterna</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="question-guide">
+                <h3>Pergunta-Guia de Estudo</h3>
+                <blockquote>
+                    "Se isso for verdadeiro, o que mudaria na forma como trato 
+                    a mim, aos outros e ao planeta?"
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Seção Prática -->
+        <section id="pratica" class="content-section">
+            <h2>Prática Diária</h2>
+            <p>Experimentos de 30 dias para aplicar os princípios teosóficos:</p>
+            
+            <div class="practice-experiments">
+                <div class="experiment-card">
+                    <h3>Palavra Consciente</h3>
+                    <p>Antes de falar algo crítico:</p>
+                    <ol>
+                        <li>Pausa de 3 segundos</li>
+                        <li>Pergunte: "É verdadeiro?"</li>
+                        <li>Pergunte: "É útil?"</li>
+                        <li>Pergunte: "É necessário?"</li>
+                    </ol>
+                </div>
+                
+                <div class="experiment-card">
+                    <h3>Não-Violência</h3>
+                    <p>Pratique em pequenas coisas:</p>
+                    <ol>
+                        <li>Evite fofoca</li>
+                        <li>Não julgue precipitadamente</li>
+                        <li>Respire antes de reagir</li>
+                        <li>Observe sem opinionar</li>
+                    </ol>
+                </div>
+                
+                <div class="experiment-card">
+                    <h3>Fraternidade</h3>
+                    <p>Uma ação diária:</p>
+                    <ol>
+                        <li>Gentileza genuína</li>
+                        <li>Ouvir de verdade</li>
+                        <li>Agradecer com consciência</li>
+                        <li>Ajudar sem esperar</li>
+                    </ol>
+                </div>
+                
+                <div class="experiment-card">
+                    <h3>Honestidade</h3>
+                    <p>No fim do dia:</p>
+                    <ol>
+                        <li>Onde fui coerente?</li>
+                        <li>Onde falhei?</li>
+                        <li>O que aprendi?</li>
+                        <li>Como posso melhorar?</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="meditation-guide">
+                <h3>Meditação Simples (10-15 min)</h3>
+                <ol class="meditation-steps">
+                    <li>
+                        <strong>Sente-se comfortable</strong>
+                        <span>Coluna ereta, olhos fechados ou semiabertos</span>
+                    </li>
+                    <li>
+                        <strong>Foque na respiração</strong>
+                        <span>Sinta o ar entrando e saindo自然的</span>
+                    </li>
+                    <li>
+                        <strong>Quando a mente dispersar</strong>
+                        <span>Nota suavemente e volta à respiração</span>
+                    </li>
+                    <li>
+                        <strong>Nos últimos 2 minutos</strong>
+                        <span>Traga uma intenção: "Que eu seja um canal de paz"</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-quote">
+            "A única verdadeira religião é a Sabedoria Eterna expressa 
+            em todas as suas formas."
+        </p>
+        <p class="footer-links">
+            <a href="../licao-1/index.html">&larr; Lição 1</a>
+            <a href="../licao-2/index.html">Lição 2</a>
+            <a href="../licao-3/index.html">Lição 3</a>
+            <a href="../licao-4/index.html">Lição 4</a>
+            <a href="index.html">Projeto Final</a>
+        </p>
+        <p class="copyright">
+            Criado como exercício de programação web com conteúdo teosófico
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

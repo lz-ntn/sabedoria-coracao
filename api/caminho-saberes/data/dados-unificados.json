@@ -1,0 +1,3529 @@
+{
+  "meta": {
+    "versao": "6.0",
+    "atualizado": "2026-06-14",
+    "descricao": "Dados unificados Saberes de Coração v6.0 — 7 categorias: Espírito, Práticas, Ciência, Cosmologia, Jornada, Vida Verdadeira, Tradições"
+  },
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "ESPÍRITO",
+      "slug": "espirito",
+      "descricao": "Gnose, Hermetismo, Teosofia — o conhecimento direto do divino",
+      "cor": "#9b59b6",
+      "icone": "fa-heart"
+    },
+    {
+      "id": 2,
+      "nome": "PRÁTICAS",
+      "slug": "praticas",
+      "descricao": "Técnicas de transformação interior — meditação, respiração, energia",
+      "cor": "#3498db",
+      "icone": "fa-brain"
+    },
+    {
+      "id": 3,
+      "nome": "CIÊNCIA",
+      "slug": "ciencia",
+      "descricao": "Conhecimento baseado em evidências — epigenética, neurociência do coração",
+      "cor": "#2ecc71",
+      "icone": "fa-flask"
+    },
+    {
+      "id": 4,
+      "nome": "COSMOLOGIA",
+      "slug": "cosmologia",
+      "descricao": "A ciência do todo — éter, iCosmica, mapas de conhecimento ancestral",
+      "cor": "#00bcd4",
+      "icone": "fa-globe"
+    },
+    {
+      "id": 5,
+      "nome": "JORNADA",
+      "slug": "jornada",
+      "descricao": "Propósito, consciência e transformação — a travessia do ser",
+      "cor": "#e67e22",
+      "icone": "fa-compass"
+    },
+    {
+      "id": 6,
+      "nome": "VIDA VERDADEIRA",
+      "slug": "vida-verdadeira",
+      "descricao": "Integração e presença — Tao, Pneuma, Eu Sou, Filoxenia",
+      "cor": "#e74c3c",
+      "icone": "fa-infinity"
+    },
+    {
+      "id": 7,
+      "nome": "TRADIÇÕES",
+      "slug": "tradicoes",
+      "descricao": "Sabedoria ancestral dos povos — Cristianismo original, Pindorama, filosofia universal",
+      "cor": "#f39c12",
+      "icone": "fa-book"
+    }
+  ],
+  "saberes": [
+    {
+      "id": "gnose-1",
+      "categoria_id": 1,
+      "titulo": "O Que é Gnose?",
+      "slug": "gnose-o-que-e",
+      "descricao": "Conhecimento direto e experiencial da natureza divina",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "gnose",
+        "conhecimento",
+        "autoconhecimento"
+      ],
+      "fonte": "Tradição Gnóstica",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Gnose (γνῶσις) significa 'conhecimento' em grego. É o conhecimento direto e experiencial da natureza divina, não apenas conhecimento intelectual.",
+        "conceitos": [
+          {
+            "termo": "Pneuma",
+            "def": "A centelha divina dentro do ser humano"
+          },
+          {
+            "termo": "Hyle",
+            "def": "A matéria como prisão espiritual"
+          },
+          {
+            "termo": "Demiurgo",
+            "def": "A inteligência criadora imperfeita do mundo material"
+          }
+        ],
+        "citacoes": [
+          "Conhece-te a ti mesmo e conhecerás o universo e os deuses."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Autoobservação",
+          "instrucoes": "Sente-se em silêncio por 10 minutos. Observe seus pensamentos sem julgamento. Quem está observando? Essa é a centelha.",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "kundalini-1",
+        "hermetismo-1"
+      ]
+    },
+    {
+      "id": "gnose-2",
+      "categoria_id": 1,
+      "titulo": "Os Três Mundos",
+      "slug": "gnose-tres-mundos",
+      "descricao": "Plerooma, Kenoma e o ser humano",
+      "nivel": "intermediario",
+      "duracao": 20,
+      "tags": [
+        "gnose",
+        "cosmologia",
+        "plerooma"
+      ],
+      "fonte": "Tradição Gnóstica",
+      "conteudo": {
+        "mundos": [
+          {
+            "nome": "Plerooma",
+            "simbolo": "🔥",
+            "desc": "O mundo da plenitude divina. Realm da luz, onde habitam os eones e a verdadeira essência espiritual."
+          },
+          {
+            "nome": "Kenoma",
+            "simbolo": "🌫️",
+            "desc": "O vazio ou falta. O mundo material criado pelo demiurgo, onde a alma está aprisionada."
+          },
+          {
+            "nome": "Sarak",
+            "simbolo": "🌱",
+            "desc": "O ser humano pneumático. A centelha divina que pode ascender e retornar ao Plerooma."
+          }
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1"
+      ]
+    },
+    {
+      "id": "gnose-3",
+      "categoria_id": 1,
+      "titulo": "Textos Gnósticos",
+      "slug": "gnose-textos",
+      "descricao": "Biblioteca de Nag Hammadi",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "gnose",
+        "nag-hammadi",
+        "textos"
+      ],
+      "fonte": "Biblioteca de Nag Hammadi",
+      "conteudo": {
+        "textos": [
+          {
+            "nome": "Evangelho de Tomé",
+            "desc": "Contém ditos de Jesus preservados independentemente dos evangelhos canônicos."
+          },
+          {
+            "nome": "Evangelho de Filipe",
+            "desc": "Explora a espiritualidade e os sacramentos gnósticos."
+          },
+          {
+            "nome": "Apocalipse de Pedro",
+            "desc": "Revela visões do julgamento e da salvação."
+          },
+          {
+            "nome": "Hipóstases do Arquon",
+            "desc": "Descreve a estrutura do cosmo e a descida da luz."
+          }
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1",
+        "gnose-2"
+      ]
+    },
+    {
+      "id": "hermetismo-1",
+      "categoria_id": 1,
+      "titulo": "Os Sete Princípios do Kybalion",
+      "slug": "hermetismo-sete-principios",
+      "descricao": "As leis fundamentais do universo",
+      "nivel": "iniciante",
+      "duracao": 30,
+      "tags": [
+        "hermetismo",
+        "kybalion",
+        "leis"
+      ],
+      "fonte": "O Kybalion",
+      "conteudo": {
+        "principios": [
+          {
+            "num": 1,
+            "nome": "Mentalismo",
+            "frase": "O Todo é Mente",
+            "desc": "Tudo existe na consciência divina, e nossa mente é uma parcela da mente universal."
+          },
+          {
+            "num": 2,
+            "nome": "Correspondência",
+            "frase": "Como acima, assim abaixo",
+            "desc": "O microcosmo reflete o macrocosmo. O ser humano é um universo em miniatura."
+          },
+          {
+            "num": 3,
+            "nome": "Vibração",
+            "frase": "Nada está em repouso",
+            "desc": "A matéria é vibração em diferentes frequências. O pensamento também vibra."
+          },
+          {
+            "num": 4,
+            "nome": "Polaridade",
+            "frase": "Tudo tem dois polos",
+            "desc": "Calor/frio, luz/sombra, amor/medo. Os opostos são extremos do mesmo espectro."
+          },
+          {
+            "num": 5,
+            "nome": "Ritmo",
+            "frase": "Tudo flui e reflui",
+            "desc": "Os ciclos estão em tudo: respiração, marés, estações, emoções."
+          },
+          {
+            "num": 6,
+            "nome": "Causa e Efeito",
+            "frase": "Todo efeito tem causa",
+            "desc": "Não há acaso, apenas causas que não percebemos. Você co-cria sua realidade."
+          },
+          {
+            "num": 7,
+            "nome": "Gênero",
+            "frase": "Tudo tem masculino e feminino",
+            "desc": "Não apenas física, mas em todos os níveis. Equilíbrio é chave."
+          }
+        ],
+        "citacoes": [
+          "O que está em cima é como o que está em baixo, e o que está em baixo é como o que está em cima."
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1",
+        "correspondencia-1"
+      ]
+    },
+    {
+      "id": "correspondencia-1",
+      "categoria_id": 1,
+      "titulo": "Lei da Correspondência",
+      "slug": "lei-correspondencia",
+      "descricao": "Como em cima, assim em baixo",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "hermetismo",
+        "correspondencia",
+        "macrocosmo"
+      ],
+      "fonte": "Tábua de Esmeralda",
+      "conteudo": {
+        "definicao": "Tudo o que existe no macrocosmo existe no microcosmo. O universo é um espelho infinito onde cada parte reflete o todo.",
+        "aplicacoes": [
+          {
+            "maior": "Sol",
+            "menor": "Coração"
+          },
+          {
+            "maior": "Lua",
+            "menor": "Mente"
+          },
+          {
+            "maior": "Terra",
+            "menor": "Corpo"
+          },
+          {
+            "maior": "Ar",
+            "menor": "Pulmões"
+          },
+          {
+            "maior": "Fogo",
+            "menor": "Metabolismo"
+          },
+          {
+            "maior": "Água",
+            "menor": "Emoções"
+          }
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação da Correspondência",
+          "instrucoes": "1. Sente-se em silêncio\n2. Escolha um Aspecto da natureza\n3. Pergunte: 'O que isto reflete em mim?'\n4. Observe a resposta\n5. Pergunte: 'O que isto reflete no cosmos?'\n6. Integre a compreensão",
+          "duracao": 15,
+          "frequencia": "semanal"
+        }
+      ],
+      "conexoes": [
+        "hermetismo-1"
+      ]
+    },
+    {
+      "id": "epigenetica-1",
+      "categoria_id": 3,
+      "titulo": "O Que é Epigenética?",
+      "slug": "epigenetica-o-que-e",
+      "descricao": "A ciência das mudanças na expressão gênica",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "epigenetica",
+        "ciencia",
+        "genes"
+      ],
+      "fonte": "Ciência Moderna",
+      "conteudo": {
+        "definicao": "Epigenética é o estudo das mudanças na atividade dos genes que não envolvem alterações na sequência do DNA.",
+        "analogia": "Pense no seu DNA como um livro de receitas com todas as possibilidades. A epigenética são as anotações e marcadores que decidem quais receitas serão lidas e executadas.",
+        "insight": "Você pode ter genes 'de risco' que nunca se expressam se mantiver bons hábitos epigenéticos!"
+      },
+      "praticas": [],
+      "conexoes": [
+        "epigenetica-2",
+        "respiracao-1"
+      ]
+    },
+    {
+      "id": "epigenetica-2",
+      "categoria_id": 3,
+      "titulo": "Os Três Mecanismos",
+      "slug": "epigenetica-mecanismos",
+      "descricao": "Metilação, Histonas e MicroRNA",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "epigenetica",
+        "mecanismos",
+        "biologia"
+      ],
+      "fonte": "Ciência Moderna",
+      "conteudo": {
+        "mecanismos": [
+          {
+            "nome": "Metilação",
+            "icone": "🎯",
+            "desc": "Adição de grupos metil ao DNA que DESLIGAM genes. Como colocar um 'não leia' em uma página.",
+            "exemplo": "Fumar pode adicionar metil em genes de tumor"
+          },
+          {
+            "nome": "Histonas",
+            "icone": "📚",
+            "desc": "Proteínas ao redor das quais o DNA se enrola. Podem ABRIR ou FECHAR o acesso aos genes.",
+            "exemplo": "Estresse crônico compacta genes relacionados à imunidade"
+          },
+          {
+            "nome": "MicroRNA",
+            "icone": "✉️",
+            "desc": "Moléculas que REGULAM quais genes são traduzidos em proteínas.",
+            "exemplo": "Dieta rica em ômega-3 afeta microRNAs inflamatórios"
+          }
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "epigenetica-1",
+        "epigenetica-3"
+      ]
+    },
+    {
+      "id": "epigenetica-3",
+      "categoria_id": 3,
+      "titulo": "O Que Influencia?",
+      "slug": "epigenetica-influencias",
+      "descricao": "Fatores que afetam a epigenética",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "epigenetica",
+        "habitos",
+        "estilo-de-vida"
+      ],
+      "fonte": "Ciência Moderna",
+      "conteudo": {
+        "fatores": [
+          {
+            "nome": "Alimentação",
+            "icone": "🍎",
+            "desc": "Folatos, ômega-3, antioxidantes. Dieta mediterrânea = genes pró-inflamatórios desligados."
+          },
+          {
+            "nome": "Estresse",
+            "icone": "😰",
+            "desc": "Cortisol crônico = epigenética do envelhecimento acelerado. Mas meditação reverte isso!"
+          },
+          {
+            "nome": "Exercício",
+            "icone": "🏃",
+            "desc": "Atividade física = metilação em genes relacionados à inflamação e metabolismo."
+          },
+          {
+            "nome": "Sono",
+            "icone": "😴",
+            "desc": "Noite bem dormida = epigenética de regeneração. Noite ruim = genes de estresse ativados."
+          },
+          {
+            "nome": "Conexões Sociais",
+            "icone": "👥",
+            "desc": "Solidão = genes inflamatórios ativados. Comunidade = genes de imunidade fortalecidos."
+          }
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "epigenetica-2",
+        "respiracao-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "kundalini-1",
+      "categoria_id": 1,
+      "titulo": "O Que é Kundalini?",
+      "slug": "kundalini-o-que-e",
+      "descricao": "A energia serpentina",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "kundalini",
+        "energia",
+        "chakra"
+      ],
+      "fonte": "Tradição Gnóstica",
+      "conteudo": {
+        "definicao": "Kundalini (sânscrito: 'enrolada') é a energia espiritual latente na base da coluna, frequentemente representada como uma serpente adormecida.",
+        "chakras": [
+          {
+            "nome": "Múládhara",
+            "cor": "#f87271",
+            "desc": "Raiz - Base da coluna"
+          },
+          {
+            "nome": "Svádhishthána",
+            "cor": "#fb923c",
+            "desc": "Sexual - 2 vértebras acima"
+          },
+          {
+            "nome": "Manipúra",
+            "cor": "#facc15",
+            "desc": "Umbigo - Plexo solar"
+          },
+          {
+            "nome": "Anáhata",
+            "cor": "#4ade80",
+            "desc": "Coração - Centro do peito"
+          },
+          {
+            "nome": "Vishúdda",
+            "cor": "#60a5fa",
+            "desc": "Garganta - Pescoço"
+          },
+          {
+            "nome": "Ajña",
+            "cor": "#a78bfa",
+            "desc": "Terceiro olho - Entre sobrancelhas"
+          },
+          {
+            "nome": "Sahasrára",
+            "cor": "#c084fc",
+            "desc": "Coroa - Topo da cabeça"
+          }
+        ],
+        "aviso": "O despertar de Kundalini deve ser gradual. Despertar abrupto pode causar desconforto. Comece com práticas suaves."
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1",
+        "respiracao-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "respiracao-1",
+      "categoria_id": 2,
+      "titulo": "Respiração Quadrada",
+      "slug": "respiracao-quadrada",
+      "descricao": "Técnica 4x4 para acalmar a mente",
+      "nivel": "iniciante",
+      "duracao": 10,
+      "tags": [
+        "respiracao",
+        "pranayama",
+        "calma"
+      ],
+      "fonte": "Tradições Orientais",
+      "conteudo": {
+        "tecnica": "Inspire por 4 segundos, segure por 4 segundos, exale por 4 segundos, segure por 4 segundos.",
+        "beneficios": [
+          "Equilibra o sistema nervoso",
+          "Acalma a mente",
+          "Aumenta foco"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Respiração Quadrada",
+          "instrucoes": "Inspire por 4 segundos\nSegure por 4 segundos\nExale por 4 segundos\nSegure por 4 segundos\nRepita 5-10 vezes",
+          "duracao": 4,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "epigenetica-3",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "meditacao-1",
+      "categoria_id": 2,
+      "titulo": "Técnica de Meditação",
+      "slug": "tecnica-meditacao",
+      "descricao": "Prática contemplativa por chakras",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "meditacao",
+        "chakra",
+        "contemplacao"
+      ],
+      "fonte": "Tradições Universais",
+      "conteudo": {
+        "chakras": [
+          {
+            "soma": "I",
+            "nome": "Coronário",
+            "foco": "Conexão espiritual",
+            "cor": "#c084fc"
+          },
+          {
+            "soma": "I",
+            "nome": "Frontal",
+            "foco": "Intuição",
+            "cor": "#a78bfa"
+          },
+          {
+            "soma": "E",
+            "nome": "Laríngeo",
+            "foco": "Comunicação",
+            "cor": "#60a5fa"
+          },
+          {
+            "soma": "O",
+            "nome": "Cardíaco",
+            "foco": "Amor",
+            "cor": "#f472b6"
+          },
+          {
+            "soma": "U",
+            "nome": "Plexo Solar",
+            "foco": "Poder pessoal",
+            "cor": "#4ade80"
+          },
+          {
+            "soma": "A",
+            "nome": "Pulmonares",
+            "foco": "Vitalidade",
+            "cor": "#facc15"
+          },
+          {
+            "soma": "M",
+            "nome": "Prostático",
+            "foco": "Criatividade",
+            "cor": "#fb923c"
+          },
+          {
+            "soma": "S",
+            "nome": "Coccígeo",
+            "foco": "Segurança",
+            "cor": "#f87171"
+          }
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação por Chakras",
+          "instrucoes": "Comece pelo topo (Coronário) e desça gradualmente. A cada chakra, repita o mantra vocalizado por 1-2 minutos, respirando profundamente.",
+          "duracao": 15,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "respiracao-1",
+        "gnose-1",
+        "epigenetica-3"
+      ]
+    },
+    {
+      "id": "mantras-1",
+      "categoria_id": 2,
+      "titulo": "Mantras de Poder",
+      "slug": "mantras-poder",
+      "descricao": "Sons sagrados para transformação",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "mantra",
+        "som",
+        "vibracao"
+      ],
+      "fonte": "Tradições Universais",
+      "conteudo": {
+        "mantras": [
+          {
+            "nome": "OM (AUM)",
+            "origem": "Hindu/Tântrica",
+            "desc": "O som primordial. Contém todos os outros sons.",
+            "quando": "Meditação, início do dia"
+          },
+          {
+            "nome": "OM MANI PADME HUM",
+            "origem": "Tibetana",
+            "desc": "'A joia no lótus' - iluminação",
+            "quando": "Prática diária"
+          },
+          {
+            "nome": "Hu (הוּ)",
+            "origem": "Hebraica",
+            "desc": "O sopro de vida",
+            "quando": "Cura"
+          },
+          {
+            "nome": "RAM",
+            "origem": "Yoga",
+            "desc": "Associado ao chakra do coração",
+            "quando": "Amor e compaixão"
+          }
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática de Mantra",
+          "instrucoes": "1. Escolha UM mantra para este mês\n2. Repita em silêncio durante o dia\n3. Cante em voz ALTA pelo menos 5 minutos\n4. Sinta a vibração no corpo\n5. Permaneça no silêncio após",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "jornada-1",
+      "categoria_id": 5,
+      "titulo": "A Jornada da Consciência",
+      "slug": "jornada-consciencia",
+      "descricao": "Três visões sobre a natureza da consciência",
+      "nivel": "avancado",
+      "duracao": 30,
+      "tags": [
+        "jornada",
+        "consciencia",
+        "filosofia"
+      ],
+      "fonte": "Múltiplas tradições",
+      "conteudo": {
+        "visoes": [
+          {
+            "nome": "Materialista",
+            "desc": "Você é um pedaço do Todo que ganhou complexidade suficiente pra se olhar no espelho. O universo é um sistema físico. A consciência surge como propriedade emergente.",
+            "citacao": "Você é o universo se autoconhecendo. — Carl Sagan"
+          },
+          {
+            "nome": "Não-Dual",
+            "desc": "A consciência não 'surge' do cérebro; ela é fundamental, como espaço, tempo ou massa. Tudo tem um grão mínimo de 'experiência'.",
+            "citacao": "O Todo é consciente em si mesmo e você é apenas um ponto focal dele."
+          },
+          {
+            "nome": "Experiencial",
+            "desc": "Muitos humanos (místicos, psicodélicos, meditação profunda) sentem o 'eu' dissolver e virar o Todo. O cérebro, quando certos circuitos são desligados, para de gerar a ilusão do 'eu separado'.",
+            "citacao": "Você vira o universo experimentando a si mesmo."
+          }
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1",
+        "hermetismo-1"
+      ]
+    },
+    {
+      "id": "teosofia-1",
+      "categoria_id": 1,
+      "titulo": "O Que é Teosofia?",
+      "slug": "teosofia-o-que-e",
+      "descricao": "Sabedoria divina - síntese de tradições",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "teosofia",
+        "helena-blavatsky",
+        "sabedoria"
+      ],
+      "fonte": "Helena Blavatsky",
+      "conteudo": {
+        "definicao": "Teosofia (do grego: theos = Deus, sophia = sabedoria) significa 'sabedoria divina'.",
+        "sintese": [
+          "Religiões orientais (Hinduísmo, Budismo)",
+          "Filosofia ocidental (Platão, Pitágoras)",
+          "Ciência moderna (física quântica, epigenética)",
+          "Práticas contemplativas (meditação, yoga)"
+        ],
+        "citacoes": [
+          "Não existe religião maior que a verdade. — Helena Blavatsky"
+        ]
+      },
+      "praticas": [],
+      "conexoes": [
+        "gnose-1",
+        "hermetismo-1"
+      ]
+    },
+    {
+      "id": "coracao-1",
+      "categoria_id": 3,
+      "titulo": "Campo Eletromagnético",
+      "slug": "coracao-campo",
+      "descricao": "O coração como centro de inteligência",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "coracao",
+        "coerencia",
+        "heartmath"
+      ],
+      "fonte": "HeartMath Institute",
+      "conteudo": {
+        "dado": "60x maior campo eletromagnético que o cérebro",
+        "desc": "O coração gera o campo eletromagnético mais potente do corpo humano. Este campo pode ser medido a até 3 metros do corpo.",
+        "insight": "Pesquisas do HeartMath Institute mostram que o campo cardíaco influencia o cérebro e até o campo de pessoas próximas."
+      },
+      "praticas": [],
+      "conexoes": [
+        "epigenetica-3"
+      ]
+    },
+    {
+      "id": "coracao-2",
+      "categoria_id": 3,
+      "titulo": "Coerência Cardíaca",
+      "slug": "coracao-coerencia",
+      "descricao": "Estado de harmonia coração-mente",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "coracao",
+        "coerencia",
+        "hrv"
+      ],
+      "fonte": "HeartMath Institute",
+      "conteudo": {
+        "definicao": "Estado em que o ritmo do coração é organizado e equilibrado, criando harmonia entre coração, mente e emoção.",
+        "beneficios": [
+          "Redução de cortisol (hormônio do estresse)",
+          "Melhoria do sistema imunológico",
+          "Clareza mental e tomada de decisão",
+          "Melhoria na saúde cardiovascular"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Respiração Coerente",
+          "instrucoes": "1. Sente-se confortavelmente\n2. Coloque uma mão no coração\n3. Respire pelo nariz contando 5 segundos (inspiração)\n4. Exale pelo nariz ou boca por 5 segundos\n5. Mantenha o foco na área do coração\n6. Pense em algo que faz sentir gratidão",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "coracao-1",
+        "respiracao-1"
+      ]
+    },
+    {
+      "id": "jornada-2",
+      "categoria_id": 5,
+      "titulo": "Estados de Consciência",
+      "slug": "estados-consciencia",
+      "descricao": "Vigília, sono, sonho e silêncio profundo",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "jornada",
+        "consciencia",
+        "estados",
+        "meditacao"
+      ],
+      "fonte": "Tradições Contemplativas",
+      "conteudo": {
+        "definicao": "A consciência não é um estado único. Oscilamos naturalmente entre vigília, sonho e sono profundo, mas há estados além: silêncio mental, presença plena, testemunha sem objeto.",
+        "conceitos": [
+          {
+            "termo": "Jagrat (Vigília)",
+            "def": "Estado ordinário, identificação com corpo e mente, mundo externo parece sólido e separado."
+          },
+          {
+            "termo": "Swapna (Sonho)",
+            "def": "Realidade onírica, a mente cria mundos inteiros a partir de si mesma — revelando que 'realidade' também é construção."
+          },
+          {
+            "termo": "Sushupti (Sono Profundo)",
+            "def": "Ausência de conteúdo, mas presença latente. A consciência sem objeto. Mais próximo do que somos sem as camadas."
+          },
+          {
+            "termo": "Turiya (Quarto Estado)",
+            "def": "Testemunha dos três estados. Consciência pura, não condicionada. O fundo do qual todos os estados emergem."
+          }
+        ],
+        "insight": "Você não é nenhum dos estados — você é aquele que sabe que está em cada um deles."
+      },
+      "praticas": [
+        {
+          "titulo": "Observação dos Estados",
+          "instrucoes": "1. Ao acordar, note o momento de transição do sonho para a vigília\n2. Durante o dia, pergunte-se: 'quem está ciente disto?'\n3. Ao dormir, tente manter um fio de consciência enquanto o corpo adormece\n4. No sonho, busque o 'sabedor' dentro do sonho",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "jornada-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "vida-verdadeira-1",
+      "categoria_id": 6,
+      "titulo": "Vida Verdadeira",
+      "slug": "vida-verdadeira",
+      "descricao": "Integrar saberes no viver cotidiano",
+      "nivel": "avancado",
+      "duracao": 30,
+      "tags": [
+        "vida-verdadeira",
+        "integracao",
+        "pratica",
+        "caminho"
+      ],
+      "fonte": "Múltiplas tradições",
+      "conteudo": {
+        "definicao": "Vida Verdadeira não é um destino, mas um modo de estar no mundo: agir com consciência, viver em coerência com o que se sabe, e tratar cada momento como oportunidade de despertar.",
+        "principios": [
+          {
+            "num": 1,
+            "nome": "Coerência",
+            "frase": "Seja o que você sabe",
+            "desc": "De nada adianta conhecer os 7 princípios se você não os vive. A vida verdadeira é a integração entre conhecimento e ação."
+          },
+          {
+            "num": 2,
+            "nome": "Serviço",
+            "frase": "O conhecimento que não serve ao outro é vazio",
+            "desc": "A sabedoria se completa quando compartilhada. O verdadeiro saber eleva o campo coletivo."
+          },
+          {
+            "num": 3,
+            "nome": "Humildade",
+            "frase": "Sei que nada sei",
+            "desc": "O conhecimento verdadeiro gera mais perguntas que respostas. A certeza é o maior obstáculo para aprender."
+          },
+          {
+            "num": 4,
+            "nome": "Presença",
+            "frase": "O agora é a única porta",
+            "desc": "Passado é memória, futuro é imaginação. A vida verdadeira acontece neste instante, não em outro lugar."
+          }
+        ],
+        "citacoes": [
+          "O que você faz é tão forte que não precisa do que você diz. — Desconhecido",
+          "A vida verdadeira não se encontra — se cria, momento a momento."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Exame Diário",
+          "instrucoes": "1. Ao final do dia, reserve 5 minutos\n2. Pergunte-se: 'Hoje vivi de acordo com o que sei?'\n3. Onde agi no automático? Onde estive consciente?\n4. Sem julgamento, apenas observe\n5. Decida UM ajuste para o dia seguinte",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "jornada-1",
+        "gnose-1",
+        "hermetismo-1"
+      ]
+    },
+    {
+      "id": "gnose-4",
+      "categoria_id": 1,
+      "titulo": "Yeshua: o Cristo Gnóstico",
+      "slug": "gnose-yeshua-cristo-gnostico",
+      "descricao": "O Jesus histórico e gnóstico além da religião institucional",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "gnose",
+        "yeshua",
+        "cristo",
+        "gnosticismo"
+      ],
+      "fonte": "Evangelhos Gnósticos + Didache",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Yeshua (ישוע) não foi apenas um mestre moral — foi um revelador gnóstico que ensinou o caminho do autoconhecimento como chave para o Reino Interior. Seus ensinamentos originais, preservados em textos como o Evangelho de Tomé e a Didache, apontam para uma experiência direta do divino, não para uma religião institucional.",
+        "parabolas": [
+          {
+            "nome": "O Fermento",
+            "texto": "O Reino é como fermento que uma mulher escondeu em três medidas de farinha até tudo ficar levedado",
+            "sentido": "O conhecimento divino começa pequeno e silencioso, mas transforma toda a consciência"
+          },
+          {
+            "nome": "A Rede",
+            "texto": "O Reino é como uma rede lançada ao mar que recolhe peixes de toda espécie",
+            "sentido": "O despertar atrai todo tipo de experiência — cabe ao pescador (consciência) separar o que serve"
+          },
+          {
+            "nome": "O Amigo à Meia-Noite",
+            "texto": "Amigo, empresta-me três pães, pois um amigo chegou de viagem e não tenho nada para lhe oferecer",
+            "sentido": "A persistência na busca é a chave que move o universo a responder"
+          }
+        ],
+        "ensinamentos_chave": [
+          {
+            "tema": "O Reino Interior",
+            "ensino": "O Reino de Deus não vem com sinais exteriores — está dentro de vós e fora de vós. Quando vos conhecerdes, sereis conhecidos."
+          },
+          {
+            "tema": "A Regra de Ouro",
+            "ensino": "Tudo o que quereis que os homens vos façam, fazei-lho vós também. Esta é a Lei e os Profetas — sem filtros, sem exceções."
+          },
+          {
+            "tema": "Radicalidade do Amor",
+            "ensino": "Amai vossos inimigos. Não se trata de sentimento, mas de ação consciente que quebra o ciclo de reatividade."
+          },
+          {
+            "tema": "O Perdão como Tecnologia",
+            "ensino": "Perdoai setenta vezes sete. O perdão não é para o outro — é a limpeza do campo energético pessoal."
+          },
+          {
+            "tema": "O Desapego Radical",
+            "ensino": "Vendei o que tendes e dai aos pobres. Não é um mandamento literal, mas um convite a abandonar a identificação com a posse."
+          }
+        ],
+        "citacoes": [
+          "Conhece-te a ti mesmo e conhecerás o universo e os deuses.",
+          "O Reino de Deus está dentro de vós.",
+          "Eu e o Pai somos um — e vós também sois."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Lectio Divina Gnóstica",
+          "instrucoes": "1. Escolha um dito do Evangelho de Tomé\n2. Leia em voz alta lentamente\n3. Feche os olhos e repita mentalmente\n4. Pergunte: 'O que isto revela sobre mim?'\n5. Sente-se em silêncio por 5 min\n6. Anote o insight",
+          "duracao": 15,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "gnose-1",
+        "gnose-3",
+        "cristianismo-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "gnose-5",
+      "categoria_id": 1,
+      "titulo": "Pistis Sophia e os Mistérios Gnósticos",
+      "slug": "gnose-pistis-sophia-misterios",
+      "descricao": "O drama da alma caída e seu retorno à Plenitude",
+      "nivel": "avancado",
+      "duracao": 35,
+      "tags": [
+        "gnose",
+        "pistis-sophia",
+        "nag-hammadi",
+        "misterios"
+      ],
+      "fonte": "Texto de Pistis Sophia + Biblioteca de Nag Hammadi",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Pistis Sophia (Πίστις Σοφία — Fé-Sabedoria) é o mais extenso dos textos gnósticos sobreviventes. Narra o drama cósmico de Sophia, uma emanação divina que cai do Pleroma ao caos ao desejar conhecer a Luz sem seu par, e seu longo caminho de arrependimento, redescoberta e ascensão — uma alegoria da jornada de toda alma.",
+        "estrutura_cosmica": {
+          "pleroma": "A Plenitude divina, morada do Deus Incognoscível e dos Éons (emanações divinas). Reino da Luz sem início nem fim.",
+          "caos": "A matéria primordial informe, o 'meio' onde Sophia cai. Região das trevas exteriores e dos Arcontes.",
+          "kenoma": "O Vazio — o mundo material criado pelo Demiurgo (Yaldabaoth) como imitação imperfeita do Pleroma."
+        },
+        "personagens": [
+          {
+            "nome": "Bythos (Profundidade)",
+            "descricao": "O Deus Primeiro, incognoscível, de quem tudo emana"
+          },
+          {
+            "nome": "Pistis Sophia",
+            "descricao": "A décima terceira emanação, que cai ao desejar conhecer a Luz suprema sem sua contraparte"
+          },
+          {
+            "nome": "Yaldabaoth (Saklas)",
+            "descricao": "O Demiurgo cego que se proclama 'Deus único' e cria o mundo material como prisão"
+          },
+          {
+            "nome": "Jesus (Soter)",
+            "descricao": "O Salvador enviado do Pleroma para despertar Sophia e recordar-lhe sua origem"
+          },
+          {
+            "nome": "Arcontes",
+            "descricao": "Governantes do cosmos material que bloqueiam a ascensão das almas"
+          }
+        ],
+        "misterios": [
+          {
+            "nome": "Primeiro Mistério",
+            "desc": "O mistério do Perdão — a dissolução do erro original através do reconhecimento"
+          },
+          {
+            "nome": "Segundo Mistério",
+            "desc": "O mistério do Batismo — a purificação que permite entrar nos reinos superiores"
+          },
+          {
+            "nome": "Terceiro Mistério",
+            "desc": "O mistério da Transfiguração — a transformação do corpo de desejo em corpo de luz"
+          }
+        ],
+        "citacoes": [
+          "Ó Luz, em ti confiei desde o princípio... Não abandones a minha alma nas trevas exteriores.",
+          "Levanta-te, ó Sophia, pois tua luz brilhou nas trevas e as trevas não a compreenderam."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação da Alma Caída",
+          "instrucoes": "1. Sente-se em silêncio\n2. Visualize uma centelha de luz dentro do peito\n3. Pergunte: 'Em que áreas da minha vida esqueci minha origem divina?'\n4. Observe sem julgamento\n5. Visualize a centelha crescendo e envolvendo todo o ser\n6. Afirme: 'Eu lembro. Eu Sou Luz.'",
+          "duracao": 15,
+          "frequencia": "semanal"
+        }
+      ],
+      "conexoes": [
+        "gnose-1",
+        "gnose-2",
+        "gnose-3",
+        "gnose-4"
+      ]
+    },
+    {
+      "id": "cristianismo-1",
+      "categoria_id": 7,
+      "titulo": "Cristianismo Primitivo",
+      "slug": "cristianismo-primitivo",
+      "descricao": "As primeiras comunidades cristãs dos séculos I a IV",
+      "nivel": "iniciante",
+      "duracao": 25,
+      "tags": [
+        "cristianismo",
+        "primitivo",
+        "historia",
+        "didache"
+      ],
+      "fonte": "História do Cristianismo + Didache",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Cristianismo Primitivo é o movimento de seguidores de Jesus nos primeiros quatro séculos — uma época de enorme diversidade teológica antes da padronização ortodoxa. Não existia 'um' cristianismo original, mas múltiplas comunidades com diferentes ênfases: ebionitas, docetas, gnósticos, valentinianos e proto-ortodoxos.",
+        "caracteristicas": [
+          {
+            "nome": "Comunidade e Unidade",
+            "desc": "Igrejas domésticas reunidas em casas, compartilhamento de bens (Atos 2:44-45), refeições comunitárias (ágape)"
+          },
+          {
+            "nome": "Batismo e Eucaristia",
+            "desc": "Rituais centrais de iniciação e comunhão, com variações significativas entre comunidades"
+          },
+          {
+            "nome": "Oração e Caridade",
+            "desc": "O Pai-Nosso como oração central, coleta para viúvas e órfãos, hospitalidade radical (filoxenia)"
+          },
+          {
+            "nome": "Estrutura Flexível",
+            "desc": "Apóstolos, presbíteros, diáconos, profetas e mestres — liderança carismática antes da hierarquização episcopal"
+          }
+        ],
+        "desafios": [
+          {
+            "nome": "Perseguição",
+            "desc": "De imperadores romanos (Nero, Domiciano, Decio, Diocleciano) — períodos de intensa repressão alternados com tolerância"
+          },
+          {
+            "nome": "Relação com o Judaísmo",
+            "desc": "Separação progressiva: de seita messiânica judaica a religião gentílica independente"
+          },
+          {
+            "nome": "Diversidade Doutrinária",
+            "desc": "Canonização gradual do Novo Testamento (séc. II-IV), disputas entre gnósticos e proto-ortodoxos"
+          },
+          {
+            "nome": "Mulheres na Liderança",
+            "desc": "Lidia (comerciante de púrpura), Priscila (mestre com Áquila), Junia (apóstola) — liderança feminina depois suprimida"
+          }
+        ],
+        "nag_hammadi": {
+          "descricao": "Em 1945, no Egito, 13 códices com 52 textos gnósticos foram descobertos — revolucionando a compreensão da diversidade cristã primitiva.",
+          "textos": [
+            {
+              "nome": "Evangelho de Tomé",
+              "desc": "114 ditos de Jesus, sem narrativa de paixão ou ressurreição — ênfase no autoconhecimento como caminho para o Reino"
+            },
+            {
+              "nome": "Evangelho de Filipe",
+              "desc": "Sacramentos gnósticos, casamento sagrado (hierosgamos)"
+            },
+            {
+              "nome": "Apócrifo de João",
+              "desc": "Cosmologia gnóstica completa: Pleroma, Sophia, Demiurgo, Arcontes"
+            },
+            {
+              "nome": "Evangelho de Maria",
+              "desc": "Pedro vs. Maria Madalena sobre autoridade e revelação"
+            }
+          ]
+        },
+        "citacoes": [
+          "Onde estiverem dois, não estarão sem Deus; e onde houver um só, digo que estou com ele. Levanta a pedra e ali me encontrarás; parte o lenho e ali estou. — Evangelho de Tomé"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Contemplação Histórica",
+          "instrucoes": "1. Escolha uma figura do cristianismo primitivo (Lidia, Priscila, Maria Madalena, Tomé)\n2. Leia sobre sua vida\n3. Pergunte: 'O que esta pessoa me ensina sobre viver minha fé/verdade hoje?'\n4. Escreva uma carta como se fosse essa pessoa para você mesmo",
+          "duracao": 20,
+          "frequencia": "semanal"
+        }
+      ],
+      "conexoes": [
+        "gnose-3",
+        "gnose-4",
+        "gnose-5",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "teosofia-2",
+      "categoria_id": 1,
+      "titulo": "Helena Blavatsky: Doutrina e Legado",
+      "slug": "teosofia-helena-blavatsky",
+      "descricao": "A fundadora da Teosofia moderna e seus ensinamentos",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "teosofia",
+        "blavatsky",
+        "doutrina-secreta",
+        "fraternidade"
+      ],
+      "fonte": "Helena Blavatsky — A Doutrina Secreta",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Helena Petrovna Blavatsky (1831-1891) fundou a Sociedade Teosófica em 1875, propondo uma síntese de ciência, religião e filosofia que revelasse a 'Sabedoria Divina' (Teosofia) subjacente a todas as tradições espirituais.",
+        "principios": [
+          {
+            "nome": "Unidade de Toda Vida",
+            "desc": "Tudo procede de uma mesma Realidade espiritual. Humanidade, natureza e cosmos são um só organismo."
+          },
+          {
+            "nome": "Reencarnação e Carma",
+            "desc": "A alma percorre múltiplas existências para aprender e evoluir. O carma é a lei de causa e efeito que educa a consciência."
+          },
+          {
+            "nome": "Fraternidade Universal",
+            "desc": "O único princípio obrigatório: formar um núcleo de fraternidade sem distinção de raça, credo, sexo, casta ou cor."
+          },
+          {
+            "nome": "Estrutura Setenária",
+            "desc": "O ser humano tem 7 princípios: Atma (Espírito), Buddhi (Alma Espiritual), Manas (Mente), Kama (Desejo), Linga Sharira (Corpo Astral), Prana (Vital), Sthula Sharira (Físico)."
+          }
+        ],
+        "obras": [
+          {
+            "titulo": "Ísis sem Véu (1877)",
+            "desc": "Crítica ao materialismo científico e religioso da época, expondo a sabedoria oculta das tradições mundiais"
+          },
+          {
+            "titulo": "A Doutrina Secreta (1888)",
+            "desc": "Sua obra magna — cosmogênese, antropogênese e simbolismo esotérico. A evolução do cosmos e da humanidade em ciclos"
+          },
+          {
+            "titulo": "A Chave para a Teosofia (1889)",
+            "desc": "Obra introdutória em formato de perguntas e respostas"
+          },
+          {
+            "titulo": "A Voz do Silêncio (1889)",
+            "desc": "Textos inspirados no Budismo Tibetano — preceitos para o aspirante espiritual"
+          }
+        ],
+        "controversias": [
+          {
+            "tema": "Acusações de Fraude",
+            "desc": "Críticos apontaram fenômenos mediúnicos forjados e plágio em suas obras — questões que permanecem debatidas"
+          },
+          {
+            "tema": "Influências Esotéricas",
+            "desc": "Bebeu de fontes orientais (hinduísmo, budismo), ocultismo ocidental (Kabbalah, Hermetismo) e filosofias gregas (Platão, Pitágoras)"
+          },
+          {
+            "tema": "Legado Complexo",
+            "desc": "Influenciou o movimento New Age, a psicologia junguiana, a teosofia de Rudolf Steiner e o despertar espiritual do Ocidente para o Oriente"
+          }
+        ],
+        "citacoes": [
+          "Não existe religião maior que a verdade.",
+          "A maior de todas as ilusões é a ilusão da separação.",
+          "Tudo está interligado — cada pensamento, cada ação, cada vida afeta o Todo."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação Teosófica",
+          "instrucoes": "1. Sente-se em silêncio\n2. Contemple: 'O que significa ser parte de um Todo infinito?'\n3. Sinta a conexão com tudo ao redor — ar, sons, vida\n4. Leia um parágrafo de 'A Voz do Silêncio'\n5. Medite sobre seu significado\n6. Pergunte: 'Como isto pode transformar meu dia?'",
+          "duracao": 15,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "teosofia-1",
+        "gnose-1",
+        "hermetismo-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "hermetismo-2",
+      "categoria_id": 1,
+      "titulo": "O Caibalion e o Ser-Todo",
+      "slug": "hermetismo-caibalion-ser-todo",
+      "descricao": "As Sete Leis Universais e a natureza da realidade",
+      "nivel": "iniciante",
+      "duracao": 25,
+      "tags": [
+        "hermetismo",
+        "caibalion",
+        "leis",
+        "todo"
+      ],
+      "fonte": "O Caibalion + Hermes Trismegisto",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "O Caibalion ('Tradição Oral do Alto Egito') é um texto hermético anônimo publicado em 1908 por 'Três Iniciados'. Apresenta os 7 Princípios Herméticos como chaves para compreender e navegar o universo. O 'Ser-Todo' é o reconhecimento de que o Todo (a Mente Infinita) não está fora de nós — somos expressões individuais dessa mesma consciência.",
+        "principios": [
+          {
+            "num": 1,
+            "nome": "Mentalismo",
+            "frase": "O TODO é Mente; o Universo é Mental.",
+            "desc": "Tudo o que existe é pensamento na Mente Infinita. Nossa mente individual é uma centelha dessa Mente Universal."
+          },
+          {
+            "num": 2,
+            "nome": "Correspondência",
+            "frase": "Como acima, assim abaixo.",
+            "desc": "O microcosmo reflete o macrocosmo. Cada parte contém o todo. O que está fora está dentro."
+          },
+          {
+            "num": 3,
+            "nome": "Vibração",
+            "frase": "Nada está em repouso; tudo vibra.",
+            "desc": "Da partícula subatômica à galáxia, tudo é vibração. Pensamento é vibração sutil; matéria é vibração densa."
+          },
+          {
+            "num": 4,
+            "nome": "Polaridade",
+            "frase": "Tudo é duplo; tudo tem polos.",
+            "desc": "Os opostos são extremos do mesmo espectro. Calor/frio são temperatura; amor/medo são emoção."
+          },
+          {
+            "num": 5,
+            "nome": "Ritmo",
+            "frase": "Tudo flui e reflui.",
+            "desc": "Tudo tem marés e ciclos. Compreender o ritmo permite navegar, não ser arrastado."
+          },
+          {
+            "num": 6,
+            "nome": "Causa e Efeito",
+            "frase": "Toda causa tem seu efeito.",
+            "desc": "Não há acaso. O que chamamos de 'sorte' são causas não percebidas. Somos co-criadores."
+          },
+          {
+            "num": 7,
+            "nome": "Gênero",
+            "frase": "Tudo tem seu princípio masculino e feminino.",
+            "desc": "Não apenas sexo biológico — são princípios criativos. Equilíbrio é a chave da criação consciente."
+          }
+        ],
+        "citacoes": [
+          "O universo é mental — contido na Mente do TODO.",
+          "Os lábios da sabedoria estão fechados, exceto aos ouvidos do entendimento.",
+          "Conhece-te a ti mesmo e conhecerás o universo."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Contemplação dos 7 Princípios",
+          "instrucoes": "1. Escolha um princípio por dia da semana\n2. Segunda: Mentalismo — observe como seus pensamentos criam sua experiência\n3. Terça: Correspondência — encontre um padrão 'lá fora' que reflita 'aqui dentro'\n4. Quarta: Vibração — note como pessoas/músicas/lugares afetam seu estado\n5. Quinta: Polaridade — transforme um julgamento polar em espectro\n6. Sexta: Ritmo — aceite um ciclo que está refluindo\n7. Sábado: Causa e Efeito — assuma responsabilidade por uma escolha\n8. Domingo: Gênero — equilibre ação e receptividade",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "hermetismo-1",
+        "correspondencia-1",
+        "gnose-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "kundalini-2",
+      "categoria_id": 2,
+      "titulo": "Kundalini: Fogo do Espírito Santo",
+      "slug": "kundalini-fogo-espirito-santo",
+      "descricao": "A energia serpentina e os 3 Fatores da Revolução da Consciência",
+      "nivel": "avancado",
+      "duracao": 35,
+      "tags": [
+        "kundalini",
+        "energia",
+        "fogo",
+        "espirito-santo",
+        "samael"
+      ],
+      "fonte": "Samael Aun Weor — Tradição Gnóstica",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Kundalini (sânscrito: 'enrolada') é a energia criadora adormecida na base da coluna, identificada na tradição gnóstica como o Fogo do Espírito Santo. Seu despertar não é um fenômeno New Age — é o resultado do trabalho disciplinado com os 3 Fatores da Revolução da Consciência.",
+        "mitos_desmistificados": [
+          {
+            "mito": "Despertar é acidental",
+            "verdade": "Não ocorre por acaso nem instantaneamente — exige preparação e disciplina"
+          },
+          {
+            "mito": "Só meditação basta",
+            "verdade": "Meditação é um pilar, mas sozinha não desperta a Kundalini"
+          },
+          {
+            "mito": "Pode ser usada para fins egoístas",
+            "verdade": "O uso egoísta leva à 'cauda de Satã' — energia invertida e autodestrutiva"
+          },
+          {
+            "mito": "Sintomas físicos são o objetivo",
+            "verdade": "Sensações físicas são subprodutos, não o propósito"
+          },
+          {
+            "mito": "Qualquer um pode ensinar",
+            "verdade": "Apenas quem completou o processo pode guiar outros"
+          }
+        ],
+        "tres_fatores": [
+          {
+            "fator": "Morrer — Morte do Ego",
+            "descricao": "Eliminação dos defeitos psicológicos: orgulho, ira, luxúria, inveja, medo. Não é autoflagelação, mas autotransformação consciente através da auto-observação."
+          },
+          {
+            "fator": "Nascer — Transmutação Sexual",
+            "descricao": "Sábio manejo da energia criadora (sêmen/ovário). Na tradição gnóstica: Magia Sexual ou Sahaja Maithuna — relação sexual sem ejaculação, transmutando a energia para os centros superiores."
+          },
+          {
+            "fator": "Sacrifício — Serviço à Humanidade",
+            "descricao": "Amor incondicional em ação. O conhecimento que não serve ao próximo é vazio. O sacrifício não é sofrimento — é doação consciente."
+          }
+        ],
+        "ascensao": "A Kundalini sobe pelo canal Sushumna na medula espinhal, vértebra por vértebra (33 no total). A cada vértebra, um centro de consciência é ativado. A queda ocorre se a energia é dissipada. Após os 33 canais físicos, o processo continua nos corpos etérico, astral, mental e causal. O mantra ARRONSA auxilia no corpo etérico.",
+        "citacoes": [
+          "A Kundalini não é uma metáfora. É o Fogo do Espírito Santo adormecido em cada ser humano.",
+          "Sem a morte do ego, a serpente não sobe. Sem a transmutação, não há combustível. Sem o sacrifício, não há direção."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática dos 3 Fatores (Diária)",
+          "instrucoes": "MANHÃ:\n1. Auto-observação: identifique UM defeito para trabalhar hoje\n2. Afirme: 'Hoje transmuto minha energia para o alto'\n3. Defina: um ato de serviço para realizar\n\nNOITE:\n1. Revise o dia: onde o ego apareceu?\n2. Onde conservei energia? Onde a dissipou?\n3. Como servi ao próximo?",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "kundalini-1",
+        "gnose-1",
+        "meditacao-1",
+        "respiracao-1"
+      ]
+    },
+    {
+      "id": "meditacao-2",
+      "categoria_id": 2,
+      "titulo": "Meditação dos Chakras com Mantras",
+      "slug": "meditacao-chakras-mantras",
+      "descricao": "Técnica completa de meditação com os 8 chakras e vocalização",
+      "nivel": "intermediario",
+      "duracao": 20,
+      "tags": [
+        "meditacao",
+        "chakra",
+        "mantra",
+        "vocalizacao",
+        "timer"
+      ],
+      "fonte": "Tradições orientais + Técnica de Meditação Lz_ntn",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Esta técnica combina o sistema de 8 chakras com mantras vocalizados, criando um caminho completo de interiorização. Cada chakra corresponde a uma letra-vibração: S, M, A, U, O, E, I, I (Silêncio). A prática guia o meditante do nível mais denso (coccígeo) ao mais sutil (coronário), culminando em 2 minutos de silêncio absoluto.",
+        "chakras": [
+          {
+            "ordem": 1,
+            "nome": "Coccígeo",
+            "silaba": "S",
+            "cor": "#f87171",
+            "local": "Base da coluna",
+            "funcao": "Segurança, enraizamento",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 2,
+            "nome": "Prostático/Sacro",
+            "silaba": "M",
+            "cor": "#fb923c",
+            "local": "Região pélvica",
+            "funcao": "Criatividade, prazer",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 3,
+            "nome": "Pulmonar/Umbigo",
+            "silaba": "A",
+            "cor": "#facc15",
+            "local": "Plexo solar",
+            "funcao": "Vitalidade, poder pessoal",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 4,
+            "nome": "Cardíaco",
+            "silaba": "U",
+            "cor": "#4ade80",
+            "local": "Centro do peito",
+            "funcao": "Amor incondicional",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 5,
+            "nome": "Laríngeo",
+            "silaba": "O",
+            "cor": "#60a5fa",
+            "local": "Garganta",
+            "funcao": "Comunicação, expressão",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 6,
+            "nome": "Frontal",
+            "silaba": "E",
+            "cor": "#a78bfa",
+            "local": "Entre sobrancelhas",
+            "funcao": "Intuição, percepção",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 7,
+            "nome": "Coronário",
+            "silaba": "I curto",
+            "cor": "#c084fc",
+            "local": "Topo da cabeça",
+            "funcao": "Conexão espiritual",
+            "duracao": "1 min"
+          },
+          {
+            "ordem": 8,
+            "nome": "Supra-Coronário",
+            "silaba": "I longo/Silêncio",
+            "cor": "#e879f9",
+            "local": "Acima da cabeça",
+            "funcao": "União com o Todo, Samadhi",
+            "duracao": "2 min"
+          }
+        ],
+        "instrucoes_passos": "1. Sente-se com a coluna ereta, mãos em meditação\n2. Respire profundamente 3 vezes\n3. Inicie pelo chakra Coccígeo (S): vocalize 'S' por 1 minuto, sinta a vibração na base\n4. Suba gradualmente: M (pélvis), A (umbigo), U (peito), O (garganta), E (terceiro olho), I curto (coroa), I longo/silêncio (supra-coroa)\n5. Permaneça em silêncio por 2 minutos após o último mantra\n6. Aos poucos, traga a consciência de volta ao corpo",
+        "citacoes": [
+          "O som é a vibração que conecta o denso ao sutil. Cada sílaba é uma chave para um estado de consciência.",
+          "No silêncio após o som, encontra-se o que sempre esteve lá."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Timer de Meditação por Chakras",
+          "instrucoes": "Configure um timer com 8 estágios:\n1 min (S) → 1 min (M) → 1 min (A) → 1 min (U) → 1 min (O) → 1 min (E) → 1 min (I curto) → 2 min (Silêncio)\nTotal: 10 minutos.\nUse o código do projeto 'tecnica-meditacao' para implementar o timer automático no site.",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "meditacao-1",
+        "kundalini-1",
+        "mantras-1",
+        "respiracao-1",
+        "kundalini-2"
+      ]
+    },
+    {
+      "id": "ether-1",
+      "categoria_id": 4,
+      "titulo": "Éter: A Quintessência da Existência",
+      "slug": "eter-quintessencia-existencia",
+      "descricao": "O quinto elemento, o campo de informação universal",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "ether",
+        "eter",
+        "akasha",
+        "quintessencia",
+        "campo"
+      ],
+      "fonte": "Alquimia + Física Quântica + Tradições Antigas",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Éter (do grego aith — 'queimar/brilhar') é a quinta essência (quintessentia) além dos quatro elementos clássicos (terra, água, fogo, ar). Na tradição sânscrita é Akasha — o campo etérico que registra toda informação do cosmos, a 'memória do universo'. Na física moderna, ressurge como campo quântico, biofótons (luz emitida por células vivas) e o campo magnético cardíaco detectável a 3-4 metros de distância.",
+        "ciencia_moderna": [
+          {
+            "topico": "Campo Quântico",
+            "desc": "O vácuo quântico não é vazio — é um mar de flutuações de energia. Partículas virtuais surgem e desaparecem constantemente. O 'nada' é, na verdade, um 'tudo' em potencial."
+          },
+          {
+            "topico": "Biofótons",
+            "desc": "Células vivas emitem luz coerente (biofótons) na faixa do UV ao visível. Essa emissão reflete o estado de saúde celular e pode mediar comunicação não-local entre células."
+          },
+          {
+            "topico": "Campo Cardíaco",
+            "desc": "O coração gera o campo eletromagnético mais potente do corpo (60x maior que o cérebro), detectável a metros de distância. O HeartMath Institute demonstrou que este campo transporta informação emocional."
+          },
+          {
+            "topico": "Registros Akáshicos",
+            "desc": "O conceito de um campo que registra toda experiência — da memória pessoal à memória planetária — encontra paralelos na cosmologia informacional e na teoria dos campos morfogenéticos de Rupert Sheldrake."
+          }
+        ],
+        "alquimia_interior": {
+          "nome": "Magnum Opus (A Grande Obra)",
+          "operacoes": [
+            {
+              "etapa": "1. Calcinação",
+              "desc": "Queimar o ego — reduzir a personalidade a cinzas através da auto-observação implacável"
+            },
+            {
+              "etapa": "2. Dissolução",
+              "desc": "Dissolver as certezas — mergulhar no caos criativo onde velhas estruturas se quebram"
+            },
+            {
+              "etapa": "3. Separação",
+              "desc": "Distinguir essência de acidente — o que é seu e o que foi herdado/condicionado"
+            },
+            {
+              "etapa": "4. Conjunção",
+              "desc": "Reunir opostos — integrar sombra e luz, masculino e feminino interior"
+            },
+            {
+              "etapa": "5. Fermentação",
+              "desc": "A infecção divina — o toque do Espírito que transforma o chumbo da consciência em ouro"
+            },
+            {
+              "etapa": "6. Destilação",
+              "desc": "Purificação repetida — cada ciclo traz versão mais sutil do Ser"
+            },
+            {
+              "etapa": "7. Coagulação",
+              "desc": "A Pedra Filosofal viva — a consciência unificada que não pode mais ser corrompida"
+            }
+          ]
+        },
+        "praticas_acesso": [
+          {
+            "nome": "Pranayama Áureo",
+            "proporcao": "1.618 (proporção áurea)",
+            "desc": "Inspire por 1.618s, segure por 1.618s, exale por 1.618s. Esta proporção ressoa com padrões naturais de crescimento e a geometria do campo etérico."
+          },
+          {
+            "nome": "Qigong do Vazio",
+            "desc": "Movimentos lentos que cultivam e circulam o Qi (energia vital), abrindo os canais para acessar o campo etérico."
+          },
+          {
+            "nome": "Meditação Akáshica",
+            "desc": "Visualize-se como uma gota no oceano da consciência universal. Pergunte: 'Que conhecimento está disponível para mim agora?'"
+          }
+        ],
+        "citacoes": [
+          "O Akasha é o campo onde todo o conhecimento existe em potencial — acessá-lo requer silêncio, não esforço.",
+          "A matéria é espírito vibrando em frequência tão baixa que se tornou visível."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Pranayama da Proporção Áurea",
+          "instrucoes": "1. Sente-se em silêncio\n2. Inspire contando 4 segundos\n3. Segure contando 4 × 1.618 = ~6.5 segundos\n4. Exale contando 4 segundos\n5. Repita 12 ciclos\n6. Observe as sensações sutis no corpo\n7. Anote qualquer insight que surgir",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "coracao-1",
+        "epigenetica-1",
+        "hermetismo-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "conhecimento-1",
+      "categoria_id": 4,
+      "titulo": "Conhecimento Antigo: Mapas de Sabedoria",
+      "slug": "conhecimento-antigo-mapas-sabedoria",
+      "descricao": "O saber oculto das tradições e os 4 Mapas da Consciência",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "conhecimento",
+        "antigo",
+        "oculto",
+        "mapas",
+        "sabedoria"
+      ],
+      "fonte": "Tradições Herméticas + Alquimia",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "O Conhecimento Antigo (ou Conhecimento Oculto) não se refere a segredos místicos inacessíveis, mas a verdades fundamentais sobre a realidade que foram preservadas em símbolos, mitos e ensinamentos esotéricos através dos milênios. O termo 'oculto' significa 'escondido' — não por elitismo, mas porque só pode ser compreendido quando o buscador está pronto para ver além das aparências.",
+        "mapa_exoterico_esoterico": {
+          "exoterico": "Conhecimento público, simplificado para o consumo geral. É útil para introdução, mas incompleto. Inclui religiões populares, ciência de manual, autoajuda superficial.",
+          "esoterico": "Conhecimento reservado àqueles que buscam profundidade. Não é 'secreto' no sentido de proibido — é 'reservado' no sentido de que exige preparação interior. Inclui a Gnose, a Alquimia Interior, os Mistérios."
+        },
+        "quatro_mapas": [
+          {
+            "nome": "Código Hermético (Correspondência)",
+            "ensinamento": "'O que está em cima é como o que está embaixo.' O universo é fractal. Cada coisa contém o todo. A cura individual contribui para a cura coletiva. Elemento: Mercúrio.",
+            "pratica": "Encontre uma situação exterior que te incomoda e pergunte: 'O que isto reflete em mim?'"
+          },
+          {
+            "nome": "Não-Dualidade (Advaita/Zen)",
+            "ensinamento": "A separação 'eu/mundo' é uma ilusão cognitiva (Maya). O sofrimento nasce dessa ilusão. A libertação é ver através dela. Elemento: Água.",
+            "pratica": "Ao sentir medo ou desejo intenso, pergunte: 'Quem é o 'eu' que está sentindo isto?'"
+          },
+          {
+            "nome": "Sombra (Jung/Alquimia)",
+            "ensinamento": "O que você rejeita em si mesmo controla você. Integrar a sombra transforma 'chumbo' em 'ouro'. Elemento: Fogo.",
+            "pratica": "Identifique uma qualidade que te irrita nos outros — essa é sua sombra projetada. Como ela vive em você?"
+          },
+          {
+            "nome": "Ritmo e Polaridade",
+            "ensinamento": "Nada é estático. Sucesso contém fracasso; dor contém aprendizado. Tudo oscila entre polos. Elemento: Ar.",
+            "pratica": "Em vez de resistir a um momento difícil, pergunte: 'Que ciclo está se completando? O que está nascendo?'"
+          }
+        ],
+        "ruido_moderno": "Na era da informação, o conhecimento profundo é soterrado por ruído superficial. Redes sociais, notícias 24h e entretenimento infinito fragmentam a atenção. A Gnose (conhecimento vivo) é substituída por dados. Recuperar a capacidade de atenção sustentada é o primeiro passo para acessar o conhecimento antigo.",
+        "citacoes": [
+          "O conhecimento não está escondido — você é que não está olhando para o lugar certo.",
+          "Não é sobre encontrar o mapa. É sobre ter coragem de trilhar o caminho que ele indica.",
+          "Informação é dado. Conhecimento é compreensão. Gnose é transformação."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Jornada dos 4 Mapas (4 semanas)",
+          "instrucoes": "Semana 1 — Mapa Hermético:\n- Diariamente, encontre uma correspondência entre evento externo e estado interno\n- Anote no diário\n\nSemana 2 — Mapa Não-Dual:\n- Ao sentir julgamento, pergunte: 'Quem julga?'\n- Pratique 10 min de meditação sentindo a unidade com o ambiente\n\nSemana 3 — Mapa da Sombra:\n- Identifique 3 qualidades que te irritam nos outros\n- Pergunte: 'Como estas qualidades vivem em mim?'\n\nSemana 4 — Mapa do Ritmo:\n- Observe os ciclos naturais do seu corpo, emoções, energia\n- Não resista ao refluxo — confie no fluxo que virá",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "hermetismo-1",
+        "gnose-1",
+        "jornada-1",
+        "ether-1",
+        "correspondencia-1"
+      ]
+    },
+    {
+      "id": "jornada-3",
+      "categoria_id": 5,
+      "titulo": "Ser ou Consciência?",
+      "slug": "ser-ou-consciencia",
+      "descricao": "A pergunta fundamental sobre a natureza da realidade",
+      "nivel": "avancado",
+      "duracao": 35,
+      "tags": [
+        "jornada",
+        "consciencia",
+        "ser",
+        "filosofia",
+        "dualismo"
+      ],
+      "fonte": "Filosofia da Mente + Neurociência + Teosofia",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "'Ser ou Consciência?' é talvez a pergunta mais fundamental que podemos fazer. O que veio primeiro? O Ser (a existência objetiva, material) que gera consciência como subproduto? Ou a Consciência (o subjetivo, experiencial) que é a base da qual o Ser emerge? Esta questão divide filósofos, cientistas e místicos há milênios.",
+        "correntes": [
+          {
+            "nome": "Dualismo Materialista",
+            "desc": "A consciência é um produto físico do cérebro — um epifenômeno. O Ser (matéria) precede a Consciência. Neurociência moderna, fMRI, correlações neurais da consciência. Força: explicabilidade científica. Fraqueza: o 'Hard Problem' (por que existe experiência subjetiva?)."
+          },
+          {
+            "nome": "Idealismo",
+            "desc": "A Consciência é fundamental — a matéria é sua manifestação. 'Tudo é mente.' Berkeley, tradições orientais (Advaita), a física quântica (o observador colapsa a função de onda). Força: resolve o Hard Problem. Fraqueza: difícil de conciliar com o realismo científico."
+          },
+          {
+            "nome": "Panpsiquismo",
+            "desc": "A consciência é uma propriedade fundamental da realidade, como massa ou carga. Tudo tem um 'grau mínimo' de experiência — elétrons, átomos, células. Galen Strawson, Christof Koch, Giulio Tononi (IIT). Força: elegantemente intermediário. Fraqueza: sem evidência experimental."
+          },
+          {
+            "nome": "Existencialismo",
+            "desc": "A existência precede a essência. Não há significado pré-definido — nós o criamos através de nossas escolhas e ações. Sartre, Camus, De Beauvoir. Força: enfatiza a liberdade e responsabilidade humanas."
+          }
+        ],
+        "ponte_ciencia_teosofia": {
+          "ciencia": "IIT de Tononi (Φ = nível de integração de informação), Hameroff & Penrose (Orch-OR — processos quânticos em microtúbulos), Default Mode Network e o 'eu' como construção cerebral.",
+          "teosofia": "Blavatsky propôs que a consciência primordial ('Raiz sem Raiz') emana planos de existência do mais sutil (Atma) ao mais denso (físico). O ser humano é um microcosmo que contém todos esses planos.",
+          "ponte": "Ambas as visões convergem: a consciência não é um acidente localizado no cérebro, mas um aspecto fundamental da realidade que o cérebro 'filtra' ou 'recebe'."
+        },
+        "citacoes": [
+          "A consciência não é um epifenômeno do cérebro — é a tela sobre a qual o universo se projeta.",
+          "Você não é a gota no oceano. Você é o oceano inteiro em uma gota. — Rumi",
+          "O universo não é apenas mais estranho do que supomos — é mais estranho do que podemos supor. — J.B.S. Haldane"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Contemplação Filosófica Diária",
+          "instrucoes": "1. Sente-se em silêncio por 5 min\n2. Escolha UMA das perguntas abaixo para o dia:\n- 'Se a consciência não surgisse do cérebro, mas o cérebro fosse um receptor dela?'\n- 'O que significa 'eu' antes de qualquer pensamento?'\n- 'Se tudo tem um grau mínimo de consciência, como isto muda minha relação com o mundo?'\n3. Leve a pergunta com você durante o dia\n4. Anote insights antes de dormir",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "jornada-1",
+        "jornada-2",
+        "gnose-1",
+        "teosofia-2"
+      ]
+    },
+    {
+      "id": "jornada-4",
+      "categoria_id": 5,
+      "titulo": "O Sentido da Existência",
+      "slug": "sentido-da-existencia",
+      "descricao": "Cinco perspectivas sobre o significado de tudo existir",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "jornada",
+        "sentido",
+        "existencia",
+        "proposito"
+      ],
+      "fonte": "Viktor Frankl + Existencialismo + Cosmovisões",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "'O que dá sentido à existência?' Esta pergunta acompanha a humanidade desde o alvorecer da consciência. Não há uma resposta única — mas há perspectivas que podem ser contempladas, testadas e vividas.",
+        "perspectivas": [
+          {
+            "nome": "Filosófica",
+            "desc": "O sentido não é encontrado — é criado. Existencialismo (Sartre): somos condenados à liberdade. Absurdo (Camus): o conflito entre o desejo humano de significado e um universo indiferente. Estoicismo: viver em harmonia com a natureza universal."
+          },
+          {
+            "nome": "Científica",
+            "desc": "O sentido emerge da complexidade. Cosmologia: somos o universo se autoconhecendo (Carl Sagan). Biologia evolutiva: o impulso de perpetuar a vida. Neurociência: o cérebro constrói narrativas de significado."
+          },
+          {
+            "nome": "Espiritual",
+            "desc": "O sentido é inerente ao Todo. Teísmo: propósito dado por Deus. Budismo/Hinduísmo: transcender o ciclo de existência. Panteísmo: experimentar a unidade fundamental de tudo."
+          },
+          {
+            "nome": "Relacional",
+            "desc": "O sentido está nas conexões. Amor, família, amizade, comunidade. O cuidado com o outro como fonte de significado. Viktor Frankl: 'O sentido da vida é encontrar o sentido da vida de outra pessoa.'"
+          },
+          {
+            "nome": "Criativo",
+            "desc": "O sentido está no criar. Arte, ciência, trabalho significativo, contribuição. Deixar algo no mundo que não existia antes de você."
+          }
+        ],
+        "if_no_meaning": {
+          "titulo": "E Se Não Houver Sentido?",
+          "reflexao": "O niilismo construtivo (ou niilismo otimista) propõe: se não há sentido inerente, temos a liberdade radical de criá-lo. Não como fuga do absurdo, mas como abraço da responsabilidade de dar sentido à própria existência através de escolhas conscientes.",
+          "citacao": "O ser humano não é um problema a ser resolvido, mas um mistério a ser vivido."
+        },
+        "citacoes": [
+          "A vida não é um problema a ser resolvido, mas uma realidade a ser experimentada. — Soren Kierkegaard",
+          "O sentido da vida é dar sentido à vida dos outros. — Viktor Frankl",
+          "Somos poeira estelar contemplando as estrelas."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Diário de Sentido (Ikigai)",
+          "instrucoes": "Responda por escrito:\n1. O que eu amo fazer?\n2. No que sou bom?\n3. O que o mundo precisa?\n4. Pelo que posso ser pago/retribuído?\n\nOnde estas quatro respostas se cruzam está seu Ikigai (razão de ser).\nReveja e atualize a cada 3 meses.",
+          "duracao": 15,
+          "frequencia": "semanal"
+        }
+      ],
+      "conexoes": [
+        "jornada-1",
+        "jornada-2",
+        "jornada-3",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "vida-verdadeira-2",
+      "categoria_id": 6,
+      "titulo": "Pneuma: O Sopro Vital",
+      "slug": "pneuma-sopro-vital",
+      "descricao": "O espírito que anima a matéria e conecta todos os seres",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "pneuma",
+        "sopro",
+        "estoicismo",
+        "logos",
+        "tool"
+      ],
+      "fonte": "Estoicismo + Panpsiquismo + Filosofia Tool",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Pneuma (πνεῦμα) — sopro, ar, hálito, espírito. Para os estoicos, o Pneuma é o princípio ativo que permeia e anima toda a matéria, como o sopro que dá vida ao corpo. Não é um espírito separado do mundo — é o próprio mundo em sua atividade vital. Logos (razão divina) + Pneuma (sopro) = a inteligência que organiza e a vida que anima.",
+        "dimensoes": [
+          {
+            "nome": "Logos",
+            "desc": "A razão ordenadora do cosmos. O princípio inteligente que estrutura a realidade. Equivalente estoico ao 'pensamento divino'. Presente em cada ser como 'logos spermatikos' (razão seminal)."
+          },
+          {
+            "nome": "Nous",
+            "desc": "A inteligência intuitiva — percepção direta além do pensamento discursivo. Não é aprendida, mas reconhecida. O 'olho da alma' que vê a verdade."
+          },
+          {
+            "nome": "Psyche",
+            "desc": "A alma individual — o centro da experiência psicológica. O eu que sente, pensa, deseja. Distinta do Pneuma universal, mas feita da mesma substância."
+          },
+          {
+            "nome": "Hyle",
+            "desc": "A matéria primordial — o 'material' passivo que o Pneuma informa e organiza. Não é 'má' como no Gnosticismo, mas neutra — é o que o sopro divino modela."
+          }
+        ],
+        "tool_musica": {
+          "analise": "A música 'Pneuma' da banda Tool (álbum Fear Inoculum, 2019) é uma meditação musical sobre este conceito. A letra evoca: 'Somos espírito preso na carne' — o reconhecimento de que nossa identidade verdadeira não é o corpo, mas a consciência que o anima. 'Born of one breath, one word' — todos compartilhamos a mesma origem. 'Child, wake up' — o chamado para lembrar quem realmente somos.",
+          "citacao": "We are spirit bound to this flesh / We go round one foot nailed down / But we're still born of one breath, one word / We are all one spark, sun becoming"
+        },
+        "praticas_diarias": [
+          {
+            "nome": "Consciência da Presença",
+            "desc": "3x ao dia, pare e sinta a respiração. Lembre-se: este sopro é o mesmo Pneuma que anima tudo que existe."
+          },
+          {
+            "nome": "Olhar da Unidade",
+            "desc": "Ao encontrar alguém, veja além da forma — reconheça a mesma centelha que anima você."
+          },
+          {
+            "nome": "Tomar-se Sol",
+            "desc": "Visualize-se como uma fonte de luz e consciência. Não pedindo luz ao universo — sendo luz."
+          }
+        ],
+        "citacoes": [
+          "O Pneuma não é uma relíquia da filosofia antiga para ser memorizada — é a realidade vibrante que você habita agora. Sinta-a no sopro.",
+          "Não somos 'eus' separados flutuando no vazio — somos o vazio que se tornou consciente de si mesmo através da forma."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação do Sopro",
+          "instrucoes": "1. Sente-se confortavelmente\n2. Coloque a atenção na respiração natural\n3. A cada inspiração, sinta: 'Este ar é o mesmo que animou todos os seres que já viveram'\n4. A cada expiração: 'Devolvo ao mundo minha presença'\n5. 5 minutos\n6. Ao final, perceba: 'Eu não tenho um Pneuma — eu SOU Pneuma experimentando a forma.'",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "hermetismo-1",
+        "gnose-1",
+        "respiracao-1",
+        "jornada-1"
+      ]
+    },
+    {
+      "id": "vida-verdadeira-3",
+      "categoria_id": 6,
+      "titulo": "Tao: O Caminho",
+      "slug": "tao-o-caminho",
+      "descricao": "O Tao que não pode ser nomeado e a arte de fluir com a vida",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "tao",
+        "dao",
+        "wu-wei",
+        "laozi",
+        "yin-yang"
+      ],
+      "fonte": "Lao Zi — Tao Te Ching",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Tao (道) — literalmente 'Caminho'. É o princípio fundamental do qual tudo emana. Não pode ser nomeado nem definido, pois nomear é limitar, e o Tao é ilimitado. Não é um deus nem uma força — é a própria natureza da realidade em seu fluir espontâneo. Lao Zi (Lao Tzu) escreveu o Tao Te Ching ('O Livro do Caminho e da Virtude') há cerca de 2500 anos.",
+        "principios": [
+          {
+            "nome": "Wu Wei (无为)",
+            "desc": "'Ação pela não-ação.' Não é passividade ou preguiça — é agir em harmonia com o fluxo natural, sem forçar, sem resistir. Como a água que contorna a pedra sem lutar contra ela — e no fim, a pedra é moldada pela água."
+          },
+          {
+            "nome": "Yin e Yang (阴阳)",
+            "desc": "Forças opostas mas complementares que criam toda a realidade. Escuro/claro, feminino/masculino, recepção/ação. Não são opostos em guerra — são parceiros na dança da existência."
+          },
+          {
+            "nome": "Te (德)",
+            "desc": "Virtude inerente — a expressão autêntica do Tao através de cada ser. Não é virtude moral imposta, mas a qualidade natural que emerge quando se está alinhado com o Caminho."
+          },
+          {
+            "nome": "Ziran (自然)",
+            "desc": "Espontaneidade natural. A natureza age sem esforço porque segue sua própria natureza. O sábio age da mesma forma — não por planejamento, mas por presença e resposta intuitiva."
+          },
+          {
+            "nome": "Três Tesouros",
+            "desc": "Compaixão (慈), Moderação (俭), Humildade (不敢为天下先). Três qualidades a cultivar que mantêm o praticante alinhado ao Tao."
+          }
+        ],
+        "conexao_heartmath": {
+          "descricao": "O HeartMath Institute e a Global Coherence Initiative (GCI) têm demonstrado que o campo eletromagnético do coração humano em estado de coerência (gratidão, compaixão, apreciação) ressoa com o campo magnético da Terra (Ressonância de Schumann). Isto oferece uma ponte científica para o conceito taoísta de 'fluir com o Tao' — a coerência cardíaca como estado de alinhamento com o fluxo natural do universo.",
+          "pratica": "Estudos globais da GCI (2021) mostraram que 15 minutos de prática coerente coletiva podem ser detectados nos magnetômetros da Terra. O Tao não é apenas filosofia — é física."
+        },
+        "citacoes": [
+          "O Tao que pode ser nomeado não é o Tao eterno.",
+          "A água é a substância mais suave da terra, mas pode penetrar a rocha mais dura. Assim é o Wu Wei.",
+          "O sábio age sem forçar, ensina sem palavras, produz sem possuir.",
+          "Se você está deprimido, está vivendo no passado. Se está ansioso, está vivendo no futuro. Se está em paz, está vivendo no presente."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática do Wu Wei (1 dia)",
+          "instrucoes": "MANHÃ:\n- Defina INTENÇÕES, não metas rígidas\n- 'Hoje quero fluir com o que surgir'\n\nDURANTE O DIA:\n- Ao encontrar resistência, pergunte: 'Estou forçando ou fluindo?'\n- Se estiver forçando, pare. Respire. Reavalie.\n- Aja como água: contorne, não enfrente\n\nNOITE:\n- Revise: onde forcei? Onde flui?\n- O que aprendi sobre o fluxo natural das coisas?",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-5",
+        "pratica-chama-violeta-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "cristianismo-didache-1",
+      "categoria_id": 7,
+      "titulo": "A Didache: o Cristianismo Antes da Igreja",
+      "slug": "didache-cristianismo-original",
+      "descricao": "O mais antigo catecismo cristão — ética pura antes dos dogmas",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "didache",
+        "cristianismo",
+        "primitivo",
+        "etica",
+        "dois-caminhos"
+      ],
+      "fonte": "Didache (Doutrina dos Doze Apóstolos), descoberta em 1884",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "A Didache (Διδαχή — 'Ensino') ou 'Doutrina dos Doze Apóstolos' é o mais antigo catecismo cristão existente, descoberto em 1884 pelo bispo Philotheos Bryennios em Constantinopla. Datado do século I ou início do século II, revela um cristianismo que priorizava a ética prática sobre dogmas, a hospitalidade radical sobre hierarquia, e a comunidade horizontal sobre instituições centralizadas.",
+        "conceitos": [
+          {
+            "termo": "Os Dois Caminhos",
+            "def": "A Didache abre com 'Há dois caminhos: um da Vida e um da Morte; grande é a diferença entre eles.' O caminho da Vida é amar a Deus e ao próximo; o da Morte é seguir as paixões egoístas. Não há credo complexo — há escolha ética."
+          },
+          {
+            "termo": "Filoxenia",
+            "def": "Hospitalidade radical — amor ao estranho, ao estrangeiro, ao desconhecido. A Didache instrui: 'Recebe todo homem que vem em nome do Senhor.' Não é caridade condescendente, mas reconhecimento do divino no outro."
+          },
+          {
+            "termo": "Metanoia",
+            "def": "Mudança radical de mentalidade. Não é arrependimento no sentido de culpa, mas transformação da percepção — reprogramar a mente para ver além do ego."
+          },
+          {
+            "termo": "Profetas Itinerantes",
+            "def": "A Didache descreve líderes espirituais que viajavam entre comunidades, sem propriedade ou poder institucional. Se pedissem dinheiro, eram falsos profetas. O verdadeiro mestre serve, não domina."
+          }
+        ],
+        "praticas_originais": "A Didache prescreve batismo por imersão em água corrente (ou por derramamento se não houver), jejum às quartas e sextas (evitando os dias dos 'hipócritas'), a oração do Pai-Nosso três vezes ao dia, e a Eucaristia como ação de graças — não como sacrifício, mas como comunhão fraterna.",
+        "citacoes": [
+          "Há dois caminhos: um da Vida e um da Morte; grande é a diferença entre eles.",
+          "Se alguém vier ensinar-vos tudo o que foi dito acima, recebei-o. Mas se o mestre, desviado, ensinar outra doutrina que leva à destruição, não o escuteis.",
+          "Orai pelos vossos inimigos e jejuai por aqueles que vos perseguem.",
+          "Não abandones os mandamentos do Senhor; guarda o que recebeste, sem nada acrescentar nem diminuir."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática dos Dois Caminhos",
+          "instrucoes": "1. Ao acordar, pergunte: 'Qual caminho escolho hoje: o da Vida ou o da Morte?'\n2. Durante o dia, observe cada escolha: 'Isto aproxima ou afasta da Vida?'\n3. Ao anoitecer, revise sem culpa: 'Onde escolhi a Vida? Onde escorreguei?'\n4. Não se condene — só veja com clareza",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "cristianismo-1",
+        "gnose-4",
+        "yeshua-historico-1",
+        "gnose-3",
+        "icxmica-1"
+      ]
+    },
+    {
+      "id": "gnose-pistis-2",
+      "categoria_id": 1,
+      "titulo": "Pistis Sophia: O Drama da Alma",
+      "slug": "pistis-sophia-drama-alma",
+      "descricao": "Os mistérios gnósticos do texto mais extenso de Nag Hammadi — a queda e o retorno de Sophia",
+      "nivel": "avancado",
+      "duracao": 40,
+      "tags": [
+        "gnose",
+        "pistis-sophia",
+        "sofia",
+        "queda",
+        "redencao",
+        "misterios"
+      ],
+      "fonte": "Pistis Sophia + Biblioteca de Nag Hammadi",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Pistis Sophia ('Fé-Sabedoria') é o texto gnóstico mais extenso que sobreviveu — um drama cósmico sobre Sophia, uma emanação divina que cai do Pleroma ao caos ao desejar conhecer a Luz sem sua contraparte. Sua jornada de arrependimento, redescoberta e ascensão é a alegoria de toda alma humana que despertou para sua verdadeira origem.",
+        "estrutura_cosmica": {
+          "pleroma": "A Plenitude divina, morada do Deus Incognoscível (Bythos) e dos Éons. Reino da Luz sem início nem fim. Sophia é o 13º Éon — o mais próximo do limite entre o Pleroma e o vazio exterior.",
+          "caos": "A matéria primordial informe, o 'meio' onde Sophia cai. Região das trevas exteriores e dos Arcontes — entidades que governam o esquecimento.",
+          "kenoma": "O Vazio — o mundo material criado por Yaldabaoth (o Demiurgo cego) como imitação imperfeita do Pleroma. A prisão da centelha divina."
+        },
+        "personagens": [
+          {
+            "nome": "Bythos (Profundidade)",
+            "descricao": "O Deus Primeiro, incognoscível, de quem tudo emana. Além de nome, forma ou atributo."
+          },
+          {
+            "nome": "Pistis Sophia",
+            "descricao": "A décima terceira emanação. Em seu desejo de conhecer a Luz suprema sem seu par (syzygy), ela projeta-se para fora do Pleroma e cai no caos, onde é aprisionada pelos Arcontes."
+          },
+          {
+            "nome": "Yaldabaoth (Saklas)",
+            "descricao": "O Demiurgo — 'o cego' — que se proclama 'Deus único' e cria o mundo material como prisão. É uma caricatura do Deus verdadeiro: ignorante de sua própria origem."
+          },
+          {
+            "nome": "Jesus (Soter)",
+            "descricao": "O Salvador enviado do Pleroma. Não vem para adorar ou pedir — vem para despertar Sophia e recordar-lhe sua origem. É o mensageiro que atravessa os reinos para trazer a Gnosis."
+          },
+          {
+            "nome": "Arcontes",
+            "descricao": "Governantes do cosmos material. Bloqueiam a ascensão das almas através de medo, desejo e esquecimento. Personificam as forças psicológicas que mantêm o ego preso."
+          }
+        ],
+        "misterios": [
+          {
+            "nome": "Primeiro Mistério — Perdão",
+            "desc": "A dissolução do erro original através do reconhecimento. Sophia não é punida por seu erro — é resgatada quando se lembra da Luz."
+          },
+          {
+            "nome": "Segundo Mistério — Batismo",
+            "desc": "A purificação que permite entrar nos reinos superiores. Não é ritual externo, mas a limpeza interna das camadas de esquecimento."
+          },
+          {
+            "nome": "Terceiro Mistério — Transfiguração",
+            "desc": "A transformação do corpo de desejo em corpo de luz. O momento em que a centelha se expande até ocupar todo o ser."
+          }
+        ],
+        "citacoes": [
+          "Ó Luz, em ti confiei desde o princípio... Não abandones a minha alma nas trevas exteriores.",
+          "Levanta-te, ó Sophia, pois tua luz brilhou nas trevas e as trevas não a compreenderam.",
+          "O Primeiro Mistério disse: 'Eu sou o Perdão — e quem me recebe recebe a dissolução de todo erro.'"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação da Alma Caída",
+          "instrucoes": "1. Sente-se em silêncio\n2. Visualize uma centelha de luz dentro do peito\n3. Pergunte: 'Em que áreas da minha vida esqueci minha origem divina?'\n4. Observe sem julgamento\n5. Visualize a centelha crescendo e envolvendo todo o ser\n6. Afirme: 'Eu lembro. Eu Sou Luz.'",
+          "duracao": 15,
+          "frequencia": "semanal"
+        }
+      ],
+      "conexoes": [
+        "gnose-5",
+        "gnose-1",
+        "gnose-2",
+        "gnose-4",
+        "gnose-3"
+      ]
+    },
+    {
+      "id": "pratica-chama-violeta-1",
+      "categoria_id": 2,
+      "titulo": "A Chama Violeta — Tecnologia Vibracional",
+      "slug": "chama-violeta-tecnologia",
+      "descricao": "O solvente universal para detritos energéticos — transmutação pelo fogo violeta",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "chama-violeta",
+        "transmutacao",
+        "energia",
+        "limpeza",
+        "saint-germain"
+      ],
+      "fonte": "Saint Germain + Ensinamentos Gnósticos",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "A Chama Violeta não é uma visualização poética — é uma tecnologia vibracional de limpeza. Atua como solvente universal para detritos energéticos: padrões negativos, memórias dolorosas, bloqueios emocionais e resíduos de experiências passadas. Visualize uma chama violeta envolvendo todo o seu ser, dissolvendo o que já não serve.",
+        "citacoes": [
+          "Eu sou a lei do perdão e a chama violeta transmutadora que consome todo erro e sombra em luz.",
+          "Não é magia — é uma tecnologia vibracional de limpeza."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática Diária da Chama Violeta",
+          "instrucoes": "1. Sente-se em silêncio\n2. Visualize uma chama violeta na base da coluna\n3. Veja-a subir lentamente, envolvendo cada chakra\n4. Sinta o calor e a vibração\n5. Afirme 7x: 'Eu Sou a Chama Violeta que transmuta toda sombra em luz'\n6. Permaneça em silêncio por 3 minutos após",
+          "duracao": 8,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-5",
+        "kundalini-1",
+        "meditacao-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "pratica-expressoes-1",
+      "categoria_id": 2,
+      "titulo": "Expressões Úteis — Ferramentas de Consciência",
+      "slug": "expressoes-uteis-ferramentas",
+      "descricao": "Frases e chaves linguísticas para cultivar a presença e transformar a percepção no cotidiano",
+      "nivel": "iniciante",
+      "duracao": 10,
+      "tags": [
+        "expressoes",
+        "consciencia",
+        "pratica",
+        "linguagem",
+        "presenca"
+      ],
+      "fonte": "Camino Verdade + Sabedoria Perene",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Expressões Úteis são chaves linguísticas que funcionam como portais de consciência. Uma frase dita com presença pode interromper o piloto automático, dissolver uma identificação e trazer de volta a percepção do que realmente é. Não são afirmações positivas de autoajuda — são ferramentas gnósticas de despertar.",
+        "citacoes": [
+          "EU SOU — A afirmação da existência e do poder criativo. 'Eu Sou' não é quem você é — 'Eu Sou' é o que você cria quando se lembra de quem É.",
+          "Viver de verdade — O oposto de sobreviver no automático. Cada ato como escolha consciente, não como reação programada.",
+          "O Escorregão — Quando a consciência 'escorrega' do automático. O flash de lucidez. 'Quem está fazendo isso?'",
+          "EU SOUNDO — Prática de afirmação da presença e consciência do ser. Soar o 'Eu Sou' como vibração no corpo."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática das Expressões",
+          "instrucoes": "1. Escolha UMA expressão para o dia\n2. Ao acordar, repita 3x em voz alta\n3. Durante o dia, ao lembrar-se, repita em silêncio\n4. Sinta a vibração no corpo\n5. Ao dormir, repita como mantra de adormecimento",
+          "duracao": 3,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-5",
+        "mantras-1",
+        "vida-verdadeira-1",
+        "pratica-diaria-1"
+      ]
+    },
+    {
+      "id": "pratica-metodos-1",
+      "categoria_id": 2,
+      "titulo": "Métodos Práticos de Transformação",
+      "slug": "metodos-praticos-transformacao",
+      "descricao": "Ferramentas de transmutação e manifestação: Chama Violeta, Assunção do Estado, Amor como Lei, Eterno Agora",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "metodos",
+        "pratica",
+        "transmutacao",
+        "manifestacao",
+        "presenca"
+      ],
+      "fonte": "Neville Goddard + Saint Germain + Gnosis",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Métodos Práticos são ferramentas concretas de autoconhecimento e transformação, extraídas de diversas tradições e destiladas para aplicação imediata no cotidiano. Não exigem crença — exigem prática.",
+        "citacoes": [
+          "A Chama Violeta — 'Eu sou a lei do perdão e a chama violeta transmutadora que consome todo erro e sombra em luz.'",
+          "A Assunção do Estado — O universo é um espelho que não responde a desejos ou súplicas, mas exclusivamente aos estados de consciência assumidos no presente. 'Viver a partir do fim' — sentir a realidade desejada como fato consumado. Isto muda o presente.",
+          "O Amor como Lei — O amor não é um sentimento romântico, mas uma lei natural de unidade. O 'outro' é você em uma frequência diferente. Quando você ama, não está fazendo algo pelo outro — está reconhecendo a realidade.",
+          "O Eterno Agora — A libertação exige o colapso das prisões do tempo: a culpa (passado) e a ansiedade (futuro). A vida só acontece no presente. O agora é a única porta."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Assunção do Estado (Mini-prática)",
+          "instrucoes": "1. Identifique UM estado que deseja incorporar (paz, confiança, clareza)\n2. Feche os olhos e sinta COMO SERIA se já estivesse nesse estado\n3. Não 'peça' — ASSUMA. Sinta no corpo, na respiração\n4. Abra os olhos e mantenha a sensação\n5. Aja a partir desse estado pelo resto do dia",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-5",
+        "pratica-chama-violeta-1",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "pratica-diaria-1",
+      "categoria_id": 2,
+      "titulo": "Prática Diária — Rotina de Despertar",
+      "slug": "pratica-diaria-rotina",
+      "descricao": "Roteiro completo para o dia: do despertar consciente ao exame noturno",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "pratica-diaria",
+        "rotina",
+        "despertar",
+        "integracao",
+        "habitos"
+      ],
+      "fonte": "Camino Verdade + Sabedoria Perene",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "O conhecimento sem prática é apenas informação. Esta rotina diária integra as principais ferramentas em um fluxo natural, do despertar ao adormecer. Não é uma lista de tarefas — é um caminho de presença.",
+        "instrucoes_passos": "MANHÃ (10 min):\n1. Ao acordar, antes de qualquer pensamento: 'EU SOU' — 3 respirações conscientes\n2. Coloque a mão no coração: respiração coerente 5x5 segundos\n3. Visualize a Chama Violeta descendente limpando o campo\n4. Defina UMA intenção para o dia (não meta — direção)\n\nDIA (lembretes conscientes):\n1. Ao celular tocar: respire 1x antes de atender\n2. Ao sentir estresse: respiração quadrada 4x4 (30 segundos)\n3. Ao julgar alguém: pergunte 'O que isto reflete em mim?'\n4. Ao comer: gratidão consciente por 5 segundos\n\nNOITE (10 min):\n1. Exame de consciência: 'Onde vivi o que sei? Onde agi no automático?'\n2. Sem julgamento — apenas veja claramente\n3. Gratidão: 3 coisas que agradece no dia\n4. Visualize Chama Violeta limpando resíduos do dia\n5. Ao dormir: 'Eu Sou enquanto durmo — consciente além do corpo'"
+      },
+      "praticas": [
+        {
+          "titulo": "Rotina Diária Integrada",
+          "instrucoes": "Siga o roteiro acima. Ajuste os tempos conforme sua realidade. O importante não é a quantidade — é a qualidade da presença em cada passo.",
+          "duracao": 20,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "vida-verdadeira-6",
+        "vida-verdadeira-5",
+        "mantras-1",
+        "pratica-chama-violeta-1",
+        "coracao-2",
+        "respiracao-1"
+      ]
+    },
+    {
+      "id": "epigenetica-pratica-1",
+      "categoria_id": 3,
+      "titulo": "Epigenética Prática — Guia Diário",
+      "slug": "epigenetica-pratica-guia",
+      "descricao": "Como seus hábitos diários ligam e desligam seus genes — guia prático de aplicação",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "epigenetica",
+        "pratica",
+        "habitos",
+        "dna",
+        "saude",
+        "alimentacao"
+      ],
+      "fonte": "Ciência Moderna + Práticas Ancestrais",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Epigenética é o estudo de como o ambiente e seus hábitos influenciam a leitura dos genes. Seus genes podem estar dormindo ou acordados dependendo das suas escolhas. Você não é apenas seus genes — você é o que faz com eles. Seus genes são como um teclado. Epigenética é como decidir quais teclas são tocadas.",
+        "fatores": [
+          {
+            "nome": "Cúrcuma",
+            "icone": "🟡",
+            "desc": "Ativa genes de cura e anti-inflamatórios. Comece o dia com cúrcuma."
+          },
+          {
+            "nome": "Chá Verde",
+            "icone": "🍵",
+            "desc": "Metilação positiva — ajuda a desligar genes ruins. 1-2 xícaras por dia."
+          },
+          {
+            "nome": "Brócolis",
+            "icone": "🥦",
+            "desc": "Ativa genes supressores de tumor. 3x por semana."
+          },
+          {
+            "nome": "Uvas/Romã",
+            "icone": "🍇",
+            "desc": "Protege telômeros (envelhecimento celular). Consumo diário."
+          },
+          {
+            "nome": "Alho",
+            "icone": "🧄",
+            "desc": "Modula genes do sistema imune. Cru ou cozido."
+          },
+          {
+            "nome": "Meditação",
+            "icone": "🧘",
+            "desc": "Desliga genes de estresse. 20 min por dia alteram marcadores epigenéticos."
+          },
+          {
+            "nome": "Exercício",
+            "icone": "🏃",
+            "desc": "Desliga genes inflamatórios. 30 min por dia."
+          },
+          {
+            "nome": "Sono",
+            "icone": "😴",
+            "desc": "Ativa genes de regeneração. 7-8h por noite."
+          },
+          {
+            "nome": "Natureza",
+            "icone": "🌿",
+            "desc": "Reduz cortisol e ativa genes de bem-estar. 1h ao ar livre."
+          },
+          {
+            "nome": "Conexão Social",
+            "icone": "👥",
+            "desc": "Fortalce genes do sistema imune. Contato genuíno com outros."
+          }
+        ],
+        "citacoes": [
+          "Você não é apenas seus genes. Você é o que faz com eles.",
+          "Seus genes são como um teclado. Epigenética é como decidir quais teclas são tocadas.",
+          "Você pode ter genes 'de risco' que nunca se expressam se mantiver bons hábitos epigenéticos!"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Ciclo Diário Epigenético",
+          "instrucoes": "☀️ MANHÃ:\n- Despertar consciente (sem celular 1h)\n- Exposição ao sol (vitamina D)\n- Cúrcuma + chá verde\n- 20 min de meditação\n\n🌤️ MEIO-DIA:\n- Alimento rico em sulforafano (brócolis, couve)\n- Movimento (caminhada 30 min)\n- Conexão social genuína\n- Momento de gratidão\n\n🌙 NOITE:\n- Jantar leve antes das 19h\n- Desconexão digital 2h antes de dormir\n- Sono completo (22h-6h)\n- Silêncio e introspecção",
+          "duracao": 15,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "epigenetica-1",
+        "epigenetica-3",
+        "epigenetica-2",
+        "respiracao-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "coracao-inteligencia-1",
+      "categoria_id": 3,
+      "titulo": "O Coração como Centro de Inteligência",
+      "slug": "coracao-centro-inteligencia",
+      "descricao": "O coração possui seu próprio sistema nervoso — 40 mil neurônios que pensam, sentem e decidem",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "coracao",
+        "neurociencia",
+        "inteligencia",
+        "heartmath",
+        "coerencia"
+      ],
+      "fonte": "HeartMath Institute + Neurocardiologia",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "O coração não é apenas uma bomba — é um centro de inteligência com seu próprio sistema nervoso (o 'cérebro cardíaco'). O nó sinoatrial atua como marca-passo natural, iniciando impulsos elétricos que coordenam cada batimento sem depender de comandos cerebrais. O coração envia mais sinais para o cérebro do que recebe — influenciando diretamente percepção, emoção e cognição.",
+        "dado": "O campo magnético do coração é de 100 a 5.000 vezes mais forte que o do cérebro. Pode ser detectado por magnetômetros super sensíveis a até 1 metro ou mais do corpo. Medido pelo ECG, é cerca de 60 vezes maior em amplitude que a atividade elétrica do cérebro (EEG).",
+        "insight": "Este campo envolve todo o corpo e se irradia para fora, como uma 'bolha' de energia rítmica. O campo magnético de uma pessoa pode ser detectado no cérebro de outra que esteja próxima — explicando a sensação de 'energia', empatia ou conexão ao ficar perto de alguém.",
+        "conexao_heartmath": {
+          "descricao": "O HeartMath Institute demonstrou que estados de coerência cardíaca (gratidão, compaixão, apreciação) geram um padrão rítmico ordenado no campo cardíaco, que pode ser detectado no campo magnético da Terra (Ressonância de Schumann).",
+          "pratica": "Emoções positivas coletivas podem influenciar o ambiente energético global — a Global Coherence Initiative (GCI) estuda cientificamente esta interconexão."
+        },
+        "citacoes": [
+          "O coração não é apenas um órgão vital — é um centro de inteligência que comunica diretamente com o cérebro.",
+          "A ciência do HeartMath Institute confirma o que as tradições antigas sempre souberam: o coração é a fonte da nossa verdadeira sabedoria.",
+          "O campo magnético de uma pessoa pode ser detectado no cérebro de outra — e isso pode explicar nossa intuição sobre as pessoas."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Coerência Rápida",
+          "instrucoes": "1. Coloque a mão sobre o centro do peito\n2. Imagine que você está respirando através do coração\n3. Lembre-se de um momento de amor, gratidão ou alegria\n4. Sinta essa emoção em todo o corpo, especialmente no peito\n5. Respire lentamente, 5s para inspirar e 5s para expirar (6 ciclos)\n6. Continue respirando e sentindo a emoção positiva",
+          "duracao": 3,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "coracao-1",
+        "coracao-2",
+        "ether-1",
+        "hermetismo-1",
+        "meditacao-1"
+      ]
+    },
+    {
+      "id": "icxmica-rede-1",
+      "categoria_id": 4,
+      "titulo": "iCosmica — A Rede Cósmica",
+      "slug": "icxmica-rede-cosmica",
+      "descricao": "O cosmos como rede celular viva — física quântica, neurociência e espiritualidade em convergência",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "icxmica",
+        "rede",
+        "cosmos",
+        "fisica-quantica",
+        "conexao",
+        "didache"
+      ],
+      "fonte": "Física Quântica + Neurociência + Didache + Sabedoria Perene",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "iCosmica é a exploração da interconexão fundamental entre todas as coisas — a teia que une o cosmos ao ser humano, a ciência à espiritualidade. A física quântica nos apresenta a Teoria de Rede: o Cosmos funciona como um organismo integrado. Somos 'células do Cosmos', e esta pertença implica responsabilidade radical. Não somos donos da criação — somos inquilinos.",
+        "conceitos": [
+          {
+            "termo": "Cosmos como Rede Celular",
+            "def": "Toda a natureza trabalha em sistemas de conexão. Conexão = comunicação, vida, energia. Desconexão = morte, tensão, patologia. O comportamento individual impacta o todo. Não há independência absoluta."
+          },
+          {
+            "termo": "DNA e Singularidade",
+            "def": "O Genoma Humano revelou que não existem duas pessoas iguais entre bilhões. Esta singularidade aponta para uma inteligência superior. 'A linguagem de Deus' (Francis Collins)."
+          },
+          {
+            "termo": "Autopoiese",
+            "def": "A capacidade da natureza de se autorrestaurar. Jesus aplicou esta mecânica quântica na convivência social através do perdão sistemático (70x7). O perdão não é sentimento — é injeção de energia para evitar necrose na rede social."
+          },
+          {
+            "termo": "Inquilino Cósmico",
+            "def": "No paradigma da criação, o ser humano é inquilino, não dono. Deve gerenciar o jardim (natureza e próximo) respeitando as prerrogativas do proprietário original."
+          }
+        ],
+        "convergencias": [
+          "Física Quântica: emaranhamento, teoria de rede, observador colapsa função de onda",
+          "Neurociência: neurônios-espelho, Default Mode Network, neuroplasticidade",
+          "Didache: os Dois Caminhos, ética como tecnologia de restauração",
+          "Jesus: parábolas do resgate (ovelha, dracma, filho pródigo) como matemática da restauração",
+          "HeartMath: campo cardíaco como transportador de informação emocional"
+        ],
+        "citacoes": [
+          "A conexão representa a vida, a energia e a comunicação. A desconexão é a tensão que gera a patologia e precede a morte.",
+          "O cosmos não é um amontoado de pedras — é uma Rede Celular Integrada.",
+          "Se a sua comunidade fosse uma rede de dados, o 'sinal' seria interrompido pelo excesso de dogmas ou pela falta de hospitalidade?"
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Meditação da Rede Cósmica",
+          "instrucoes": "1. Sente-se em silêncio\n2. Sinta-se como uma célula no corpo do cosmos\n3. Inspire: receba a energia da rede\n4. Expire: envie sua contribuição à rede\n5. Sinta a conexão com todos os seres\n6. Permaneça 5-10 minutos nesta sensação de pertencimento cósmico",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "icxmica-1",
+        "ether-1",
+        "coracao-1",
+        "cristianismo-didache-1",
+        "yeshua-historico-1",
+        "gnose-1"
+      ]
+    },
+    {
+      "id": "jornada-filtros-1",
+      "categoria_id": 5,
+      "titulo": "Os Filtros da Percepção — A Vida Sem Filtros",
+      "slug": "filtros-percepcao-vida-sem-filtros",
+      "descricao": "Três camadas de condicionamento que distorcem a realidade — e como transcender cada uma",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "filtros",
+        "percepcao",
+        "condicionamento",
+        "realidade",
+        "biologico",
+        "social",
+        "emocional"
+      ],
+      "fonte": "Camino Verdade + Filosofia Perene + Neurociência",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Ver a vida 'sem filtros' exige entender que nossa percepção é uma ferramenta construída para a sobrevivência, não necessariamente para a verdade absoluta. O que chamamos de 'véus' são camadas de condicionamento biológico, social e emocional que distorcem a realidade. A jornada do despertar envolve reconhecer e transcender cada filtro.",
+        "filtros_da_percepcao": [
+          {
+            "nome": "Biológico",
+            "mecanismo": "Nossos cérebros evoluíram para nos manter vivos, não para nos manter iluminados. Viés de confirmação, viés de negatividade, heurísticas de julgamento. O que você 'vê' não é a realidade — é um modelo útil de realidade.",
+            "transcendencia": "Auto-observação: 'Meu cérebro está me contando uma história agora. Qual é o dado bruto além da história?'"
+          },
+          {
+            "nome": "Social",
+            "mecanismo": "Desde o nascimento, somos moldados por sistemas de crenças, normas culturais e expectativas familiares. A linguagem que você fala, os valores que carrega, o que considera 'normal' — tudo herdado. Você não nasceu falando português — aprendeu. O mesmo vale para sua visão de mundo.",
+            "transcendencia": "Questionamento: 'Isto é meu ou foi herdado? Se eu tivesse nascido em outra cultura, pensaria diferente?'"
+          },
+          {
+            "nome": "Emocional",
+            "mecanismo": "Nossas emoções criam lentes coloridas que distorcem o presente com base em feridas não resolvidas. O ego usa as emoções para manter o controle. Reatividade emocional que distorce a percepção como lentes sujas.",
+            "transcendencia": "Acolhimento: 'Esta emoção é uma mensageira. O que ela está tentando me dizer?' Sem identificar-se com ela. Acolher, não suprimir."
+          }
+        ],
+        "citacoes": [
+          "Viver sem filtros não é ver sem lentes — é saber que você está usando lentes e poder escolher trocá-las.",
+          "A maior de todas as ilusões é a ilusão da separação.",
+          "O conhecimento que não se vive é apenas informação.",
+          "Não há um caminho para a verdade. O caminho É a verdade, momento a momento."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Observação dos Filtros (Diária)",
+          "instrucoes": "1. Durante o dia, pare 3x e pergunte:\n   - 'Biológico: que história meu cérebro está contando?'\n   - 'Social: isto é meu ou foi herdado?'\n   - 'Emocional: que emoção está colorindo minha percepção agora?'\n2. Apenas observe — não julgue, não tente mudar\n3. Anote os padrões que encontrar",
+          "duracao": 5,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "jornada-1",
+        "jornada-2",
+        "jornada-3",
+        "vida-verdadeira-6",
+        "vida-verdadeira-5",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "vida-verdadeira-filoxenia-1",
+      "categoria_id": 6,
+      "titulo": "Filoxenia — A Hospitalidade Radical",
+      "slug": "filoxenia-hospitalidade-radical",
+      "descricao": "O amor ao estranho como porta de entrada para a Vida Verdadeira",
+      "nivel": "intermediario",
+      "duracao": 20,
+      "tags": [
+        "filoxenia",
+        "hospitalidade",
+        "amor",
+        "estranho",
+        "didache",
+        "comunidade"
+      ],
+      "fonte": "Didache + Cristianismo Primitivo + Sabedoria Perene",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Filoxenia (φιλοξενία) — literalmente 'amor ao estranho/estrangeiro'. Na ética do cristianismo primitivo e da Didache, era o princípio fundamental de funcionamento comunitário: receber o outro não como ameaça, mas como manifestação do divino. A filoxenia não é caridade condescendente — é reconhecimento de que o 'outro' é você em uma frequência diferente.",
+        "principios": [
+          {
+            "nome": "Reconhecimento",
+            "desc": "O estranho não é um problema a ser resolvido — é um espelho a ser reconhecido. Nele, vemos o que ainda não integramos em nós."
+          },
+          {
+            "nome": "Reciprocidade",
+            "desc": "A hospitalidade não é mão única. Quem recebe também dá — porque a verdadeira troca não é de bens, mas de presença."
+          },
+          {
+            "nome": "Rede de Sustentação",
+            "desc": "Na Didache, a filoxenia era o 'sinal vital' da rede comunitária. Se uma célula é descartada (o estranho rejeitado), toda a rede enfraquece."
+          },
+          {
+            "nome": "Sem Filtros",
+            "desc": "Amar o estranho sem saber se ele 'merece'. Sem condicionalidades. Este é o teste da verdadeira transformação interior."
+          }
+        ],
+        "citacoes": [
+          "Recebe todo homem que vem em nome do Senhor — mas examinai-o para saber se é verdadeiro.",
+          "O amor não é um sentimento romântico, mas uma lei natural de unidade. O 'outro' é você em uma frequência diferente.",
+          "Onde estiverem dois, não estarão sem Deus."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Prática da Filoxenia",
+          "instrucoes": "1. Hoje, encontre UM estranho — no elevador, na fila, no transporte\n2. Olhe nos olhos e reconheça: 'este é um ser como eu'\n3. Ofereça algo genuíno: um sorriso, uma palavra, uma ajuda\n4. Não espere nada em troca\n5. Observe: o que sentiu ao se conectar sem barreiras?",
+          "duracao": 2,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "vida-verdadeira-4",
+        "cristianismo-didache-1",
+        "yeshua-historico-1",
+        "gnose-4"
+      ]
+    },
+    {
+      "id": "yeshua-historico-1",
+      "categoria_id": 7,
+      "titulo": "Yeshua: o Rabi Radical",
+      "slug": "yeshua-rabi-radical",
+      "descricao": "O Jesus histórico e seus ensinamentos originais sem filtro religioso nem institucional",
+      "nivel": "intermediario",
+      "duracao": 35,
+      "tags": [
+        "yeshua",
+        "jesus",
+        "historico",
+        "ensinamentos",
+        "reino-de-deus"
+      ],
+      "fonte": "Evangelhos Sinóticos + Pesquisa Histórica",
+      "licenca": "Domínio Público",
+      "conteudo": {
+        "definicao": "Jesus de Nazaré (Yeshua) foi a figura mais influente, polarizadora e incompreendida da história ocidental. Judeu apocalíptico, carismático, curador e pregador itinerante que transformou o curso da civilização em apenas 3 anos de ministério público. Seus ensinamentos originais — antes de qualquer institucionalização — são um chamado radical à transformação total do ser.",
+        "caracteristicas": [
+          {
+            "nome": "Amor Radical",
+            "desc": "'Amai vossos inimigos'. Isso não era bonitinho — era absurdo. Amar quem te oprime, te explora, te persegue. Uma bomba na mentalidade tribal da época."
+          },
+          {
+            "nome": "Regra de Ouro Elevada",
+            "desc": "Não só 'não faças aos outros o que não queres que te façam', mas 'faze aos outros o que queres que te façam' — incluindo samaritanos, cobradores de impostos, prostitutas."
+          },
+          {
+            "nome": "Contra a Hipocrisia Religiosa",
+            "desc": "Chamava os fariseus de 'sepulcros caiados', 'raça de víboras', 'guias cegos'. Expulsou comerciantes do Templo com violência física. Não era um hippie pacífico o tempo todo."
+          },
+          {
+            "nome": "Exigência Absoluta",
+            "desc": "'Se alguém quiser vir após mim, negue-se a si mesmo, tome a sua cruz e siga-me.' Não era autoajuda. Era entrega total."
+          },
+          {
+            "nome": "Dureza com Riqueza",
+            "desc": "'É mais fácil um camelo passar pelo fundo de uma agulha do que um rico entrar no Reino de Deus.' Ele mandou um jovem rico vender tudo e dar aos pobres."
+          }
+        ],
+        "ensinamentos_chave": [
+          {
+            "tema": "O Reino de Deus",
+            "ensino": "Jesus não falava principalmente sobre 'ir pro céu quando morrer'. O Reino de Deus era uma intervenção divina iminente que viraria o mundo de cabeça para baixo: os últimos seriam os primeiros, os pobres seriam abençoados, os poderosos seriam derrubados. Era espiritual e social ao mesmo tempo."
+          },
+          {
+            "tema": "Bem-Aventuranças",
+            "ensino": "'Bem-aventurados os pobres, os que choram, os mansos, os que têm fome e sede de justiça, os perseguidos.' Jesus abençoava exatamente quem a sociedade rejeitava. O oposto do evangelho da prosperidade."
+          },
+          {
+            "tema": "Não Resistir ao Mal com Mal",
+            "ensino": "'Se alguém te ferir na face direita, oferece-lhe também a outra.' Não era passividade covarde — era resistência moral que expunha a injustiça sem cair no mesmo nível do opressor."
+          },
+          {
+            "tema": "O Reino Interior",
+            "ensino": "O Reino de Deus está dentro de vós (Lucas 17:21). Não é algo externo, religioso, institucional. É uma transformação interna tão profunda que muda como você vê e trata todos os seres humanos."
+          },
+          {
+            "tema": "Perdão Ilimitado",
+            "ensino": "'Perdoai setenta vezes sete.' O perdão não é para o outro — é a limpeza do campo energético pessoal. O perdão é o anticorpo que impede que a necrose de um membro destrua o corpo inteiro."
+          }
+        ],
+        "aspectos_incômodos": [
+          "Jesus era extremamente duro com orgulho, riqueza e religiosidade vazia.",
+          "Afirmava ser o Filho de Deus de forma explícita o suficiente para ser condenado por blasfêmia. Ou era louco, mentiroso, ou quem ele dizia ser.",
+          "Seus milagres (segundo os relatos) eram reais e frequentes: curava doentes, expulsava demônios, multiplicava comida, ressuscitava mortos.",
+          "Morreu traído, abandonado pelos amigos, torturado e pregado numa cruz romana — a execução mais humilhante possível."
+        ],
+        "citacoes": [
+          "Amai os vossos inimigos e orai pelos que vos perseguem.",
+          "O Reino de Deus não vem com sinais exteriores — está dentro de vós.",
+          "Não vim trazer paz, mas espada — divisão entre verdade e mentira.",
+          "Eu e o Pai somos um — e vós também sois.",
+          "Conhece-te a ti mesmo e conhecerás o universo e os deuses."
+        ]
+      },
+      "praticas": [
+        {
+          "titulo": "Contemplação do Reino Interior",
+          "instrucoes": "1. Sente-se em silêncio\n2. Repita mentalmente: 'O Reino está dentro de mim'\n3. Feche os olhos e busque a centelha no peito\n4. Pergunte: 'O que, dentro de mim, é anterior a todo pensamento?'\n5. Permaneça 10 minutos neste espaço",
+          "duracao": 10,
+          "frequencia": "diaria"
+        }
+      ],
+      "conexoes": [
+        "gnose-4",
+        "gnose-1",
+        "cristianismo-1",
+        "vida-verdadeira-1",
+        "regra-ouro-1"
+      ]
+    },
+    {
+      "categoria_id": 6,
+      "titulo": "O Coração como Arquitetor da Realidade",
+      "slug": "coracao-arquiteto-realidade",
+      "descricao": "O coração como centro de inteligência e criador da realidade",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "coracao",
+        "inteligencia",
+        "realidade",
+        "criacao",
+        "consciencia"
+      ],
+      "fonte": "Módulo Vida Verdadeira",
+      "conteudo": {
+        "definicao": "O coração não é apenas uma bomba mecânica — é um centro de inteligência, coerência e criação. A pesquisa moderna do HeartMath Institute confirma o que tradições antigas sempre disseram: o coração gera o campo eletromagnético mais forte do corpo, e sua coerência influencia diretamente a realidade que percebemos e criamos.",
+        "conceitos": [
+          {
+            "nome": "Campo Eletromagnético do Coração",
+            "desc": "O coração gera um campo 60x mais forte que o cérebro — detectável a metros de distância do corpo."
+          },
+          {
+            "nome": "Coerência Cardíaca",
+            "desc": "Quando coração e cérebro entram em sincronia, o acesso à intuição e à criatividade se expande dramaticamente."
+          },
+          {
+            "nome": "Arquitetura da Realidade",
+            "desc": "O que você sente no coração literalmente constrói a realidade que você experiencia."
+          },
+          {
+            "nome": "Inteligência Cardíaca",
+            "desc": "O coração possui seu próprio sistema neural (o \"cérebro do coração\") — 40.000 neurônios."
+          }
+        ]
+      },
+      "citacoes": [
+        "\"O coração tem razões que a própria razão desconhece.\" — Blaise Pascal",
+        "\"O coração é o centro do Ser. Quem governa o coração governa a vida.\" — Hermetismo"
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "coracao-1",
+        "coracao-inteligencia-1",
+        "vida-verdadeira-3"
+      ],
+      "id": "vida-verdadeira-4"
+    },
+    {
+      "categoria_id": 6,
+      "titulo": "Eu Sou: O Poder Criador",
+      "slug": "eu-sou-poder-criador",
+      "descricao": "O Mantra primordial e a ativação da divindade imanente",
+      "nivel": "intermediario",
+      "duracao": 25,
+      "tags": [
+        "eu-sou",
+        "poder",
+        "criacao",
+        "presenca",
+        "identidade-divina"
+      ],
+      "fonte": "Módulo Vida Verdadeira + tradições místicas",
+      "conteudo": {
+        "definicao": "\"EU SOU\" (Ehyeh Asher Ehyeh — \"Eu Sou o Que Sou\") não é uma simples afirmação de autoajuda — é a ativação da divindade imanente em cada ser humano. É a frequência primordial que existe antes do nascimento e persiste após a morte. Quando você diz \"EU SOU\" com consciência, não está descrevendo quem é — está CRIANDO quem é.",
+        "conceitos": [
+          {
+            "nome": "A Frequência Primordial",
+            "desc": "EU SOU é a vibração que antecede toda criação — o nome de Deus revelado a Moisés na sarça ardente."
+          },
+          {
+            "nome": "Criação Consciente",
+            "desc": "Toda afirmação \"EU SOU\" é um ato criativo — você se torna aquilo que declara."
+          },
+          {
+            "nome": "Além do Ego",
+            "desc": "\"EU SOU\" não é o ego afirmando-se — é a Consciência Una reconhecendo-se através de você."
+          }
+        ]
+      },
+      "citacoes": [
+        "\"EU SOU o Caminho, a Verdade e a Vida.\" — Yeshua",
+        "\"Eu Sou o Que Sou\" — Ehyeh Asher Ehyeh (Êxodo 3:14)"
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "vida-verdadeira-2",
+        "vida-verdadeira-6",
+        "pratica-metodos-1"
+      ],
+      "id": "vida-verdadeira-5"
+    },
+    {
+      "categoria_id": 6,
+      "titulo": "Camino Verdad: A Vida Sem Filtros",
+      "slug": "camino-verdad-vida-sem-filtros",
+      "descricao": "Viver sem filtros — a verdade radical como caminho de libertação",
+      "nivel": "avancado",
+      "duracao": 30,
+      "tags": [
+        "verdade",
+        "sem-filtros",
+        "autenticidade",
+        "libertacao",
+        "presenca"
+      ],
+      "fonte": "Camino Verdad",
+      "conteudo": {
+        "definicao": "O Camino Verdad não é uma filosofia para ser compreendida — é um convite para ser vivida. Viver sem filtros significa abandonar as máscaras, as autodefesas e as mentiras que acreditamos serem necessárias para sobreviver. A verdade não precisa ser confortável — precisa ser real.",
+        "filtros_da_percepcao": [
+          {
+            "nome": "O Filtro do Medo",
+            "desc": "O medo distorce a realidade para nos proteger — mas nos aprisiona em uma versão segura e falsa da vida."
+          },
+          {
+            "nome": "O Filtro da Identidade",
+            "desc": "Quem você pensa que é — um conjunto de histórias que repete há tanto tempo que esqueceu que são apenas histórias."
+          },
+          {
+            "nome": "O Filtro do Tempo",
+            "desc": "Passado e futuro são construções mentais que roubam o presente — o único momento que realmente existe."
+          }
+        ]
+      },
+      "citacoes": [
+        "\"A verdade vos libertará.\" — Yeshua",
+        "\"Viver sem filtros é encontrar a paz na imperfeição e a força na vulnerabilidade.\""
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "jornada-1",
+        "jornada-filtros-1",
+        "vida-verdadeira-5"
+      ],
+      "id": "vida-verdadeira-6"
+    },
+    {
+      "categoria_id": 4,
+      "titulo": "iCosmica: Interconexão Cósmica",
+      "slug": "icosmica-interconexao-cosmica",
+      "descricao": "A rede cósmica que conecta tudo — a ciência da interconexão universal",
+      "nivel": "iniciante",
+      "duracao": 20,
+      "tags": [
+        "cosmica",
+        "rede",
+        "interconexao",
+        "unidade",
+        "cosmos"
+      ],
+      "fonte": "iCosmica",
+      "conteudo": {
+        "definicao": "iCosmica é o estudo da interconexão fundamental entre todos os aspectos da existência. Assim como a física quântica revelou que partículas subatômicas estão conectadas instantaneamente (entrelaçamento quântico), iCosmica explora como consciência, matéria, energia e espírito formam uma única teia cósmica.",
+        "conceitos": [
+          {
+            "nome": "Entrelaçamento Universal",
+            "desc": "Tudo está conectado além do tempo e do espaço — o que afeta um, afeta o Todo."
+          },
+          {
+            "nome": "Ressonância Cósmica",
+            "desc": "Frequências semelhantes ressoam entre si através do tecido do cosmos."
+          },
+          {
+            "nome": "Consciência como Tecido",
+            "desc": "A consciência não está confinada ao cérebro — é o próprio tecido do universo."
+          }
+        ]
+      },
+      "id": "icxmica-1",
+      "conexoes": [
+        "ether-1",
+        "conhecimento-1",
+        "icxmica-rede-1",
+        "gnose-1",
+        "vida-verdadeira-3"
+      ]
+    },
+    {
+      "categoria_id": 7,
+      "titulo": "A Regra de Ouro Universal",
+      "slug": "regra-de-ouro-universal",
+      "descricao": "O princípio ético fundamental que atravessa todas as tradições de sabedoria",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "regra-de-ouro",
+        "etica",
+        "universal",
+        "compaixao",
+        "reciprocidade"
+      ],
+      "fonte": "Todas as tradições",
+      "conteudo": {
+        "definicao": "A Regra de Ouro — \"Não faça aos outros o que não queres que te façam\" — é o princípio ético mais universal da humanidade. Aparece em praticamente todas as tradições espirituais e filosóficas: no Cristianismo (\"Tudo o que quereis que os homens vos façam, fazei-o vós a eles\"), no Judaísmo, no Islamismo, no Budismo, no Hinduísmo, no Taoísmo, na Filosofia Grega e nas tradições africanas.",
+        "conceitos": [
+          {
+            "nome": "Reciprocidade Consciente",
+            "desc": "A Regra de Ouro não é apenas sobre não prejudicar — é sobre agir ativamente para o bem do outro como agiria para si mesmo."
+          },
+          {
+            "nome": "Unidade Fundamental",
+            "desc": "A Regra de Ouro emerge naturalmente quando se reconhece que o outro não é separado de você."
+          }
+        ]
+      },
+      "id": "regra-ouro-1",
+      "conexoes": [
+        "cristianismo-1",
+        "cristianismo-didache-1",
+        "yeshua-historico-1",
+        "gnose-4",
+        "vida-verdadeira-1"
+      ]
+    },
+    {
+      "id": "pindorama-1",
+      "categoria_id": 7,
+      "titulo": "Pindorama: Terra das Palmeiras",
+      "slug": "pindorama-terra-palmeiras",
+      "descricao": "A verdade sem filtro sobre o Brasil pré-colonial — beleza, violência e complexidade",
+      "nivel": "intermediario",
+      "duracao": 30,
+      "tags": [
+        "pindorama",
+        "brasil",
+        "indigena",
+        "pre-colonial",
+        "historia",
+        "decolonizacao"
+      ],
+      "fonte": "Pindorama e Outros Quinhentos + pesquisa histórica",
+      "conteudo": {
+        "definicao": "Pindorama — 'região das palmeiras' em tupi-guarani — é o nome que os povos tupis davam à costa leste da América do Sul antes da invasão europeia. Não era um 'país' unificado, mas um território de centenas de etnias com línguas, culturas e conflitos próprios. A história real de Pindorama é muito mais complexa que o mito do paraíso perdido ou o slogan do ativismo romântico.",
+        "mitos_desmistificados": [
+          "Pindorama não era o nome 'oficial' do Brasil — era só o nome tupi para o litoral onde viviam.",
+          "Não existia uma nação unificada — havia centenas de etnias diferentes (jês, aruaques, karibs, tupis) em guerra constante entre si.",
+          "A vida pré-colombiana não era um Éden hippie — havia guerras tribais crônicas, canibalismo ritual (antropofagia entre tupinambás), escravidão de prisioneiros e chefias autoritárias.",
+          "A população estimada era de 2 a 8 milhões de habitantes — menos que o mito de 'milhões em harmonia' ou que o estereótipo de 'selva vazia'."
+        ],
+        "engenharia_ancestral": [
+          {
+            "nome": "Terra Preta",
+            "desc": "Solo fértil criado por compostagem orgânica antiga — usado até hoje. Prova de manejo ecológico sofisticado."
+          },
+          {
+            "nome": "Geoglifos Amazônicos",
+            "desc": "Até 24 mil estruturas monumentais de terra reveladas por LiDAR — uma paisagem intensamente humanizada."
+          },
+          {
+            "nome": "Monte Alegre (PA)",
+            "desc": "Possível metrópole de 300 mil habitantes há 11 mil anos."
+          }
+        ],
+        "saberes_apagados": [
+          "Medicina: Imhotep praticava assepsia e vacinação milênios antes de Hipócrates — conhecimento vindo da matriz africana que também formou Pindorama.",
+          "Metalurgia: O povo Haya (Tanzânia) produzia aço em fornos de alta temperatura 2 mil anos antes da Europa.",
+          "Astronomia: Os Dogon conheciam o sistema de Sírio e Sírio B séculos antes do telescópio."
+        ],
+        "reflexao_critica": {
+          "titulo": "O Duplo Pesadelo Histórico",
+          "reflexao": "A colonização europeia (1500+) causou um colapso demográfico brutal — 80-90% de mortes por doenças, guerras e escravidão no primeiro século. Mas ignorar a violência pré-existente entre os povos originários é romantismo hipócrita que os desumaniza ao tratá-los como 'vítimas puras sem agência'. A verdadeira maturidade histórica é reconhecer TUDO: a engenharia sofisticada, a cosmologia rica, a violência tribal, o canibalismo ritual, a resistência heroica aos invasores e o genocídio colonial. Sem filtro."
+        },
+        "citacoes": [
+          "'A formulação simbólica do evento basilar da história escrita deste país não é inocente — está diretamente ligada ao racismo, visando uma insidiosa desumanização daqueles que não reivindicarem essa origem.' — Celene Fonseca",
+          "'Não somos mais apenas o Pindorama tupi, nem apenas o Brasil europeu. Somos o rio que mudou de curso e tornou-se mais largo ao encontrar novas águas.'",
+          "'Pindorama é um nome bonito, poético e real dos tupis para a terra das palmeiras. Não era paraíso nem inferno — era vida humana normal, com suas grandezas e merdas.'"
+        ]
+      },
+      "conexoes": [
+        "gnose-1",
+        "vida-verdadeira-1",
+        "conhecimento-1",
+        "jornada-1"
+      ]
+    },
+    {
+      "id": "ikigai-1",
+      "categoria_id": 5,
+      "titulo": "Ikigai: Razão de Ser",
+      "slug": "ikigai-razao-de-ser",
+      "descricao": "O conceito japonês de propósito existencial — encontrar sentido no que já existe",
+      "nivel": "iniciante",
+      "duracao": 25,
+      "tags": [
+        "ikigai",
+        "japao",
+        "proposito",
+        "sentido",
+        "okiuama",
+        "longevidade"
+      ],
+      "fonte": "Filosofia Japonesa + Okinawa + pesquisa contemporânea",
+      "conteudo": {
+        "definicao": "Ikigai (生き甲斐) significa literalmente 'razão de ser' — aquilo que torna a vida digna de ser vivida. Vem de Okinawa (uma das Zonas Azuis do mundo), onde as pessoas não se aposentam: mantêm um ikigai que as mantém ativas até o fim. Diferente da versão ocidentalizada de autoajuda, o ikigai original japonês é mais humilde, comunitário e baseado em repetição e mestria, não em epifanias e paixões grandiosas.",
+        "conceitos": [
+          {
+            "nome": "Os Quatro Pilares",
+            "desc": "Paixão (o que você ama) + Vocação (no que você é bom) + Missão (o que o mundo precisa) + Profissão (pelo que pode ser pago). O ikigai está na interseção."
+          },
+          {
+            "nome": "Ganbaru",
+            "desc": "Persistir com esforço — mesmo quando é difícil. Ikigai não é sobre prazer constante, mas sobre sentido que sustenta."
+          },
+          {
+            "nome": "Kodawari",
+            "desc": "Busca pela excelência no detalhe — ikigai se fortalece com repetição e mestria, não com paixão inicial."
+          },
+          {
+            "nome": "Okinawa e as Zonas Azuis",
+            "desc": "Regiões com maior longevidade do mundo. Lá o ikigai é cotidiano: cuidar do jardim, preparar chá, ser útil na comunidade."
+          }
+        ],
+        "antidotos_contra_autoajuda": [
+          "A versão ocidental transformou Ikigai em produto: 'Descubra seu Ikigai e fique rico fazendo o que ama!' — isso distorce o original.",
+          "Nem todo mundo precisa de um Ikigai grandioso. Pequenos propósitos diários bastam.",
+          "O modelo dos 4 círculos pode gerar paralisia por análise ('nada encaixa perfeitamente').",
+          "Em sociedades capitalistas, o quadrante 'pelo que pode ser pago' frequentemente corrompe os outros três."
+        ],
+        "pratica_descoberta": [
+          {
+            "nome": "Diário de Energia",
+            "desc": "Por 2-4 semanas, anote: O que te fez perder a noção do tempo? O que te drenou? O que pareceu útil? Olhe os padrões."
+          },
+          {
+            "nome": "Os 4 Quadrantes Brutais",
+            "desc": "Liste sem filtro: Amo / Sou bom / Mundo precisa / Podem pagar. O centro perfeito é raro — comece com 2-3 quadrantes sobrepostos."
+          },
+          {
+            "nome": "Morte como Bússola",
+            "desc": "Se você tivesse 5 anos de vida saudável, o que ainda faria? O que pararia? Isso revela o que realmente importa."
+          },
+          {
+            "nome": "Experimentação Ativa",
+            "desc": "Escolha 1-2 atividades pequenas e faça por 30-90 dias. Ikigai se revela com repetição, não com epifania."
+          }
+        ],
+        "citacoes": [
+          "'Ikigai não é sobre encontrar algo que você ama fazer. É sobre se tornar alguém que ama o que faz, através da dedicação e da conexão com algo maior que si mesmo.'",
+          "'Oikigai não busca prazer constante — busca sentido, mesmo quando as coisas são difíceis.'",
+          "'Se você tem um ikigai, você nunca se aposenta. Você simplesmente continua.' — Provérbio de Okinawa"
+        ]
+      },
+      "conexoes": [
+        "vida-verdadeira-2",
+        "jornada-1",
+        "jornada-4",
+        "vida-verdadeira-3"
+      ]
+    },
+    {
+      "id": "jornada-ser-ter-1",
+      "categoria_id": 5,
+      "titulo": "SER vs TER: A Dicotomia Fundamental",
+      "slug": "ser-vs-ter-dicotomia",
+      "descricao": "Duas formas de existir — acumular ou experienciar — e como essa escolha define sua vida",
+      "nivel": "iniciante",
+      "duracao": 15,
+      "tags": [
+        "ser",
+        "ter",
+        "dicotomia",
+        "erich-fromm",
+        "existencia"
+      ],
+      "fonte": "Erich Fromm (Ter ou Ser?) + Sabedoria Perene",
+      "conteudo": {
+        "definicao": "A dicotomia entre SER e TER é a escolha fundamental da existência humana. TER é agarrar, possuir, acumular, controlar — a identidade baseada em objetos externos. SER é experienciar, conectar, fluir, ser presente — a identidade baseada na própria consciência. Como disse Erich Fromm, 'no modo TER, a relação com o mundo é de posse e consumo; no modo SER, é de amor e união.'",
+        "conceitos": [
+          {
+            "nome": "Modo TER",
+            "desc": "Identidade baseada em posses: 'EU SOU = o que EU TENHO'. Dinheiro, status, bens, relacionamentos como propriedade. Ansiedade constante de perder. O ego se agarra."
+          },
+          {
+            "nome": "Modo SER",
+            "desc": "Identidade baseada em experiência: 'EU SOU = o que EU EXPERIENCIO'. Presença, conexão, fluxo. Nada a perder porque nada se possui."
+          },
+          {
+            "nome": "A Armadilha Moderna",
+            "desc": "A sociedade de consumo é projetada para manter você no modo TER. A felicidade prometida nunca chega porque a satisfação é temporária — o próximo objeto sempre será 'a solução'."
+          },
+          {
+            "nome": "A Transição",
+            "desc": "Sair do TER para o SER não é sobre abandonar coisas — é sobre mudar sua relação com elas. Você pode TER coisas sem ser POSSESSIVO por elas."
+          }
+        ],
+        "exercicio_pratico": {
+          "titulo": "Inventário Interior",
+          "passos": "1. Escolha algo que você quer muito TER (objeto, conquista, relacionamento)\n2. Pergunte: 'O que eu realmente quero sentir quando tiver isso?'\n3. Perceba: o que você quer é a EXPERIÊNCIA (SER), não o objeto (TER)\n4. Pergunte: 'Posso acessar esse estado AGORA, sem o objeto?'\n5. Se sim, você liberta o SER do TER"
+        },
+        "citacoes": [
+          "'Ter e Ser são duas formas fundamentais de experiência. A força do modo TER é o medo; a força do modo SER é a coragem.' — Erich Fromm",
+          "'Quando você sabe quem É, nada precisa TER. Quando não sabe quem É, tudo precisa TER.'",
+          "'O modo TER produz ansiedade, insegurança e tédio. O modo SER produz liberdade, segurança e alegria.'"
+        ]
+      },
+      "conexoes": [
+        "jornada-1",
+        "vida-verdadeira-1",
+        "vida-verdadeira-5",
+        "gnose-1"
+      ]
+    },
+    {
+      "id": "viver-sem-filtros-1",
+      "categoria_id": 6,
+      "titulo": "Viver Sem Filtros",
+      "slug": "viver-sem-filtros",
+      "descricao": "A prática cotidiana de abandonar máscaras e viver na verdade radical",
+      "nivel": "intermediario",
+      "duracao": 20,
+      "tags": [
+        "verdade",
+        "autenticidade",
+        "sem-filtros",
+        "presenca",
+        "coragem"
+      ],
+      "fonte": "Camino Verdad",
+      "conteudo": {
+        "definicao": "Viver sem filtros não é sobre ser rude ou insensível — é sobre abandonar as máscaras sociais, as mentiras confortáveis e as histórias que contamos para nós mesmos para nos sentirmos seguros. É o compromisso diário de ser real, mesmo quando é desconfortável. A verdade não precisa ser confortável — precisa ser real.",
+        "conceitos": [
+          {
+            "nome": "Autenticidade Radical",
+            "desc": "Dizer o que realmente pensa e sentir o que realmente sente — começando consigo mesmo, antes de qualquer interação externa."
+          },
+          {
+            "nome": "Vulnerabilidade como Força",
+            "desc": "Mostrar-se como é, sem armaduras, é o ato de coragem mais transformador que existe. O medo de ser visto é o que nos aprisiona."
+          },
+          {
+            "nome": "Silêncio como Filtro",
+            "desc": "Às vezes, viver sem filtros também significa saber quando o silêncio é mais verdadeiro que a palavra. Nem toda verdade precisa ser dita — mas toda verdade precisa ser VISTA."
+          }
+        ],
+        "exercicio_diario": {
+          "titulo": "O Desafio das 24h Sem Filtro",
+          "passos": "1. Escolha UM dia na semana\n2. Durante todo o dia, comprometa-se a não mentir em NADA — nem 'bem, obrigado' quando não está bem\n3. Quando sentir vontade de esconder algo, pare e pergunte: 'O que estou protegendo?'\n4. Se for medo, fale mesmo assim\n5. Se for proteção do outro, pondere — mas não use isso como desculpa para covardia\n6. No fim do dia, observe: o que mudou? O que sentiu?"
+        }
+      },
+      "citacoes": [
+        "'Viver sem filtros é encontrar a paz na imperfeição e a força na vulnerabilidade.'",
+        "'O medo de ser quem você é mantém você preso na versão segura — mas falsa — de si mesmo.'",
+        "'Não é sobre dizer tudo o que pensa. É sobre não viver o que não sente.'"
+      ],
+      "conexoes": [
+        "vida-verdadeira-1",
+        "vida-verdadeira-6",
+        "jornada-filtros-1",
+        "vida-verdadeira-5"
+      ]
+    }
+  ],
+  "praticas": [
+    {
+      "id": "pratica-1",
+      "nome": "Respiração 4x4",
+      "saberes": [
+        "respiracao-1",
+        "epigenetica-3",
+        "coracao-2"
+      ],
+      "instrucoes": "Inspire 4s, segure 4s, exale 4s, segure 4s. Repita 5-10 vezes.",
+      "duracao": 4,
+      "frequencia": "diaria"
+    },
+    {
+      "id": "pratica-2",
+      "nome": "Meditação Chakras",
+      "saberes": [
+        "meditacao-1"
+      ],
+      "instrucoes": "Comece pelo topo (Coronário) e desça. A cada chakra, repita o mantra por 1-2 min.",
+      "duracao": 15,
+      "frequencia": "diaria"
+    },
+    {
+      "id": "pratica-3",
+      "nome": "Autoobservação",
+      "saberes": [
+        "gnose-1"
+      ],
+      "instrucoes": "Sente-se em silêncio 10 min. Observe pensamentos sem julgamento.",
+      "duracao": 10,
+      "frequencia": "diaria"
+    },
+    {
+      "id": "pratica-4",
+      "nome": "Respiração Coerente",
+      "saberes": [
+        "coracao-2",
+        "respiracao-1"
+      ],
+      "instrucoes": "1. Coloque uma mão no coração\n2. Respire pelo nariz contando 5 segundos (inspiração)\n3. Exale pelo nariz ou boca por 5 segundos\n4. Mantenha o foco na área do coração\n5. Pense em algo que faz sentir gratidão",
+      "duracao": 5,
+      "frequencia": "diaria"
+    },
+    {
+      "id": "pratica-5",
+      "nome": "Observação dos Estados",
+      "saberes": [
+        "jornada-2",
+        "meditacao-1"
+      ],
+      "instrucoes": "1. Ao acordar, note a transição sonho-vigília\n2. Durante o dia: 'quem está ciente?'\n3. Ao dormir, mantenha consciência enquanto o corpo adormece",
+      "duracao": 10,
+      "frequencia": "diaria"
+    },
+    {
+      "id": "pratica-6",
+      "nome": "Exame Diário",
+      "saberes": [
+        "vida-verdadeira-1"
+      ],
+      "instrucoes": "1. Reserve 5 min ao final do dia\n2. Pergunte: 'Hoje vivi de acordo com o que sei?'\n3. Onde agi no automático? Onde estive consciente?\n4. Decida UM ajuste para o dia seguinte",
+      "duracao": 5,
+      "frequencia": "diaria"
+    }
+  ],
+  "referencias": {
+    "obras": [
+      {
+        "titulo": "A Doutrina Secreta",
+        "autor": "Helena Blavatsky",
+        "ano": 1888
+      },
+      {
+        "titulo": "O Caibalion",
+        "autor": "Três Iniciados",
+        "ano": 1908
+      },
+      {
+        "titulo": "Pistis Sophia",
+        "autor": "Anônimo Gnóstico",
+        "ano": "séc. III"
+      },
+      {
+        "titulo": "Didache",
+        "autor": "Anônimo",
+        "ano": "séc. I"
+      },
+      {
+        "titulo": "Evangelho de Tomé",
+        "autor": "Anônimo",
+        "ano": "séc. I-II"
+      },
+      {
+        "titulo": "Tao Te Ching",
+        "autor": "Lao Zi",
+        "ano": "~séc. VI a.C."
+      },
+      {
+        "titulo": "Tratado de Psicologia Revolucionária",
+        "autor": "Samael Aun Weor",
+        "ano": 1975
+      },
+      {
+        "titulo": "A Voz do Silêncio",
+        "autor": "Helena Blavatsky",
+        "ano": 1889
+      },
+      {
+        "titulo": "Ísis sem Véu",
+        "autor": "Helena Blavatsky",
+        "ano": 1877
+      },
+      {
+        "titulo": "A Chave para a Teosofia",
+        "autor": "Helena Blavatsky",
+        "ano": 1889
+      },
+      {
+        "titulo": "O Poder do Agora",
+        "autor": "Eckhart Tolle",
+        "ano": 1997
+      },
+      {
+        "titulo": "Ikigai",
+        "autor": "Héctor García e Francesc Miralles",
+        "ano": 2016
+      },
+      {
+        "titulo": "A Linguagem de Deus",
+        "autor": "Francis Collins",
+        "ano": 2006
+      },
+      {
+        "titulo": "Ciência do Coração",
+        "autor": "HeartMath Institute",
+        "ano": 2015
+      },
+      {
+        "titulo": "1 Ano em 12 Semanas",
+        "autor": "Michael Lennington",
+        "ano": 2013
+      }
+    ],
+    "links": [
+      {
+        "nome": "Camino Verdade — Site Original",
+        "url": "https://lz-ntn.github.io/camino-verdade/"
+      },
+      {
+        "nome": "HeartMath Institute",
+        "url": "https://www.heartmath.org/"
+      },
+      {
+        "nome": "Global Coherence Initiative",
+        "url": "https://www.glcoherence.org/"
+      },
+      {
+        "nome": "Biblioteca de Nag Hammadi",
+        "url": "https://gnosis.org/naghamm.html"
+      }
+    ]
+  },
+  "midia": {
+    "audios": [
+      {
+        "id": "audio-001",
+        "titulo": "A Frequência Proibida de Thoth - Nikola Tesla",
+        "categoria": "gnose-esoterismo",
+        "tags": [
+          "thoth",
+          "tesla",
+          "energia",
+          "frequencia"
+        ],
+        "arquivo": "01_gnose-esoterismo/A Frequência Proibida de Thoth Revelada por Nikola Tesla： Manipule a Energia com esse MÉTODO!.mp3",
+        "saberes_relacionados": [
+          "hermetismo-1",
+          "gnose-1"
+        ]
+      },
+      {
+        "id": "audio-002",
+        "titulo": "Alan Watts - O Segredo Quântico da Mente",
+        "categoria": "gnose-esoterismo",
+        "tags": [
+          "alan-watts",
+          "consciencia",
+          "mente"
+        ],
+        "arquivo": "01_gnose-esoterismo/ATERRORIZANTE! Alan Watts Revela O SEGREDO QUÂNTICO Sobre QUEM Fala Na Sua Cabeça (Desative AGORA!).mp3",
+        "saberes_relacionados": [
+          "jornada-1"
+        ]
+      },
+      {
+        "id": "audio-003",
+        "titulo": "Jesus e as 4 Emoções dos Arcontes",
+        "categoria": "gnose-esoterismo",
+        "tags": [
+          "arcontes",
+          "gnose",
+          "emoções"
+        ],
+        "arquivo": "01_gnose-esoterismo/Jesus Revelou as 4 emoções criadas pelos Arcontes— os humanos nunca foram destinados a senti-las.mp3",
+        "saberes_relacionados": [
+          "gnose-1",
+          "gnose-3"
+        ]
+      },
+      {
+        "id": "audio-004",
+        "titulo": "O Segredo Proibido da Vibração",
+        "categoria": "gnose-esoterismo",
+        "tags": [
+          "vibracao",
+          "elevacao",
+          "consciencia"
+        ],
+        "arquivo": "01_gnose-esoterismo/O Segredo Proibido da VIBRAÇÃO_ É Assim que se ELEVA de Forma PERMANENTE (Audiolivro).mp3",
+        "saberes_relacionados": [
+          "hermetismo-1",
+          "mantras-1"
+        ]
+      },
+      {
+        "id": "audio-005",
+        "titulo": "Metafísica Cristã - Audiolivro Completo",
+        "categoria": "cristianismo-esoterico",
+        "tags": [
+          "cristianismo",
+          "metafisica",
+          "audiolivro"
+        ],
+        "arquivo": "02_cristianismo-esoterico/METAFÍSICA CRISTÃ que POUCAS IGREJAS CONHECEM AUDIOLIVRO COMPLETO em PORTUGUÊS.mp3",
+        "saberes_relacionados": [
+          "gnose-3"
+        ]
+      },
+      {
+        "id": "audio-006",
+        "titulo": "O Evangelho Perdido de Tomé",
+        "categoria": "cristianismo-esoterico",
+        "tags": [
+          "evangelho",
+          "tome",
+          "gnostico"
+        ],
+        "arquivo": "02_cristianismo-esoterico/O EVANGELHO Sem Cruz, Sem Pecado e Sem Igreja ｜ O Evangelho Perdido de Tomé.mp3",
+        "saberes_relacionados": [
+          "gnose-3"
+        ]
+      },
+      {
+        "id": "audio-007",
+        "titulo": "Helena Blavatsky - Quando Você Estiver Pronto",
+        "categoria": "hermetismo-teosofia",
+        "tags": [
+          "blavatsky",
+          "teosofia",
+          "verdade"
+        ],
+        "arquivo": "03_hermetismo-teosofia/Este vídeo só chegará até você quando você estiver pronto para a verdade - HELENA BLAVATSKY.mp3",
+        "saberes_relacionados": [
+          "teosofia-1"
+        ]
+      },
+      {
+        "id": "audio-008",
+        "titulo": "Carl Jung - Como o Universo Te Testa",
+        "categoria": "consciencia-meditacao",
+        "tags": [
+          "jung",
+          "transformacao",
+          "universo"
+        ],
+        "arquivo": "04_consciencia-meditacao/Como o Universo Te Testa Antes de Mudar Sua Realidade ｜ Carl Jung.mp3",
+        "saberes_relacionados": [
+          "jornada-1"
+        ]
+      },
+      {
+        "id": "audio-009",
+        "titulo": "Você É o Observador e o Observado",
+        "categoria": "consciencia-meditacao",
+        "tags": [
+          "observador",
+          "nao-dualidade",
+          "consciencia"
+        ],
+        "arquivo": "04_consciencia-meditacao/Você É o Observador... e o Observado (Explicação Completa).mp3",
+        "saberes_relacionados": [
+          "jornada-1",
+          "meditacao-1"
+        ]
+      },
+      {
+        "id": "audio-010",
+        "titulo": "Autofagia - Regeneração do Corpo",
+        "categoria": "corpo-regeneracao",
+        "tags": [
+          "autofagia",
+          "regeneracao",
+          "saude"
+        ],
+        "arquivo": "05_corpo-regeneracao/Autofagia_OCodigoProibidoDaRegeneracaoInstantâneaDoCorpo(Audiolivro).mp3",
+        "saberes_relacionados": [
+          "epigenetica-3"
+        ]
+      },
+      {
+        "id": "mapas-ancestrais",
+        "titulo": "Mapas Ancestrais Contra a Ansiedade Moderna",
+        "categoria": "Conhecimento Antigo",
+        "tags": [
+          "conhecimento",
+          "ancestral",
+          "ansiedade",
+          "mapas"
+        ],
+        "arquivo": "midia/audios/Mapas_ancestrais_contra_a_ansiedade_moderna.m4a",
+        "saberes_relacionados": [
+          "conhecimento-antigo-mapas-sabedoria"
+        ]
+      }
+    ],
+    "videos": [
+      {
+        "id": "video-001",
+        "titulo": "9 Frequências Solfeggio - Cura Completa",
+        "categoria": "frequencias-curacao",
+        "tags": [
+          "solfeggio",
+          "frequencia",
+          "cura",
+          "limpeza"
+        ],
+        "arquivo": "01_frequencias-curacao/All 9 Solfeggio Frequencies, Full Body Healing, Full Body Aura Cleanse, Healing Frequencies.mp4",
+        "saberes_relacionados": [
+          "mantras-1",
+          "coracao-2"
+        ]
+      },
+      {
+        "id": "video-002",
+        "titulo": "Blavatsky - O Que Fazer ao Acordar",
+        "categoria": "filosofia-consciencia",
+        "tags": [
+          "blavatsky",
+          "pratica-matinal",
+          "lucia-galvao"
+        ],
+        "arquivo": "02_filosofia-consciencia/O que fazer ao acordar?RecomendacaodeHelenaBlavatsky-Prof.LúciaHelenaGalvao.mp4",
+        "saberes_relacionados": [
+          "teosofia-1"
+        ]
+      },
+      {
+        "id": "video-003",
+        "titulo": "Carl Jung - Programação Mental (TikTok/Instagram)",
+        "categoria": "filosofia-consciencia",
+        "tags": [
+          "jung",
+          "programacao-mental",
+          "redes-sociais"
+        ],
+        "arquivo": "02_filosofia-consciencia/SeVoceUsaTikTokouInstagram-SuaMenteJa EstaSendoProgramada!Carl Jung.mp4",
+        "saberes_relacionados": [
+          "jornada-1"
+        ]
+      },
+      {
+        "id": "video-004",
+        "titulo": "O Brasil Antes de 1500",
+        "categoria": "historia-cultura",
+        "tags": [
+          "brasil",
+          "historia",
+          "pre-colonial"
+        ],
+        "arquivo": "03_historia-cultura/O BRASIL ANTES DE 1500：  A HISTÓRIA QUE VOCÊ NUNCA APRENDEU.mp4",
+        "saberes_relacionados": []
+      }
+    ]
+  }
+}
