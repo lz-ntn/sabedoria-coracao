@@ -52,6 +52,20 @@ if ($dev) {
         : ' --ssl';
 }
 
+function tabelaExiste(PDO $pdo, string $tabela): bool
+{
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = ?');
+    $stmt->execute([$tabela]);
+    return (bool)$stmt->fetchColumn();
+}
+
+function colunaExiste(PDO $pdo, string $tabela, string $coluna): bool
+{
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = ? AND column_name = ?');
+    $stmt->execute([$tabela, $coluna]);
+    return (bool)$stmt->fetchColumn();
+}
+
 echo "Migração: host=$host, port=$port, db=$name, user=$user, ssl=" . ($dev ? 'off (dev)' : 'on') . ", ca=" . ($caPath ?: 'NAO ENCONTRADO') . "\n";
 
 try {
@@ -84,7 +98,16 @@ try {
         executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-    // 3. Um batch para todas as migrations aplicadas nesta execução
+    // 3. Autocura: se o banco foi recriado e sobrou so a tabela migrations,
+    //    os registros estao mentindo — limpa para reaplicar 001/002/003.
+    $tabelas = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+    $reais = array_values(array_filter($tabelas, fn($t) => $t !== 'migrations'));
+    if (count($reais) === 0) {
+        $pdo->exec('DELETE FROM migrations');
+        echo "  Banco sem tabelas: limpando registros de migrations (reaplicando schema)\n";
+    }
+
+    // Um batch para todas as migrations aplicadas nesta execução
     $batch = (int)$pdo->query('SELECT COALESCE(MAX(batch), 0) + 1 FROM migrations')->fetchColumn();
 
     $files = glob(__DIR__ . '/*.sql');
@@ -93,12 +116,25 @@ try {
     foreach ($files as $file) {
         $filename = basename($file);
 
-        // 4. PULAR se já aplicada — ANTES de rodar o SQL (idempotência real)
+        // 4. Só confia no registro se o schema esperado realmente existir.
+        //    (Evita o caso classico: migrations diz "aplicada" mas o banco foi recriado)
         $stmt = $pdo->prepare('SELECT COUNT(*) FROM migrations WHERE migration = ?');
         $stmt->execute([$filename]);
-        if ($stmt->fetchColumn() > 0) {
+        $registrada = (int)$stmt->fetchColumn() > 0;
+
+        $schemaFaltando = false;
+        if ($filename === '001_core_schema.sql') {
+            $schemaFaltando = !tabelaExiste($pdo, 'licoes');
+        } elseif ($filename === '003_portal_merge.sql') {
+            $schemaFaltando = tabelaExiste($pdo, 'licoes') && !colunaExiste($pdo, 'licoes', 'tipo');
+        }
+
+        if ($registrada && !$schemaFaltando) {
             echo "  Já aplicada: {$filename}\n";
             continue;
+        }
+        if ($schemaFaltando) {
+            echo "  Schema ausente detectado: reaplicando {$filename}\n";
         }
 
         $out = []; // 5. reset: $out acumula entre chamadas de exec()
@@ -108,7 +144,7 @@ try {
             throw new Exception("Falha na migration [{$filename}]: " . implode("\n", $out));
         }
 
-        $stmt = $pdo->prepare('INSERT INTO migrations (migration, batch) VALUES (?, ?)');
+        $stmt = $pdo->prepare('INSERT INTO migrations (migration, batch) VALUES (?, ?) ON DUPLICATE KEY UPDATE batch = VALUES(batch)');
         $stmt->execute([$filename, $batch]);
         echo "  Migrada: {$filename} (batch {$batch})\n";
     }
