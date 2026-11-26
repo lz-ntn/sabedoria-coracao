@@ -1364,6 +1364,8 @@ footer {
     .progress-categories { grid-template-columns: repeat(3, 1fr); }
     .quiz-pergunta { font-size: 1rem; }
     .quiz-opcao { padding: 12px; font-size: 0.9rem; }
+    /* Selects empilhados: lado a lado o rótulo ("Mais Recentes") cortava. */
+    .biblioteca-filters select { flex: 1 1 100%; width: 100%; }
 }
 
 .lgpd-banner {
