@@ -663,9 +663,23 @@ foreach ($licoes as $l) {
     // url_api é SEMPRE relativo à origem: APP_URL absoluto (ex.: http://localhost:8081)
     // quebrava com CORS quando o site era aberto por 127.0.0.1 ou por outro domínio.
     // Mantém o prefixo apenas se APP_URL tiver caminho (deploy legado em subpasta).
+    // A busca do topo usa só título, categoria e um trecho do conteúdo.
+    // Embarcar o texto integral (com marcadores do wiki) deixava o HTML
+    // gigante e enchia a busca de "•" e "**". Cópia curta e limpa, sem
+    // alterar $licoes — que é usado para renderizar as lições no servidor.
+    <?php
+    $licoesParaBusca = array_map(function ($l) {
+        $limpo = strip_tags((string)$l['conteudo']);
+        $limpo = preg_replace('/#[0-9a-fA-F]{3,8}\b/', '', $limpo);
+        $limpo = str_replace(['•', '**', '---', '|'], ' ', $limpo);
+        $limpo = trim(preg_replace('/\s+/', ' ', $limpo));
+        $l['conteudo'] = mb_substr($limpo, 0, 180);
+        return $l;
+    }, $licoes);
+    ?>
     window.APP_DATA = {
         categorias: <?= json_encode($categorias, JSON_UNESCAPED_UNICODE) ?>,
-        licoes: <?= json_encode($licoes, JSON_UNESCAPED_UNICODE) ?>,
+        licoes: <?= json_encode($licoesParaBusca, JSON_UNESCAPED_UNICODE) ?>,
         url_api: '<?= rtrim((string)parse_url(APP_URL, PHP_URL_PATH), '/') ?>/api',
         csrf_token: '<?= \Core\Csrf::token() ?>'
     };
@@ -787,7 +801,10 @@ foreach ($licoes as $l) {
                         (data.autor_nome ? '<span class="meta-item"><i class="bi bi-person me-1"></i>' + escHtml(data.autor_nome) + '</span>' : '') +
                         (data.publicado_em ? '<span class="meta-item"><i class="bi bi-calendar me-1"></i>' + new Date(data.publicado_em).toLocaleDateString('pt-BR') + '</span>' : '') +
                         '<span class="meta-item"><i class="bi bi-eye me-1"></i>' + (data.views || 0) + ' visualizações</span>';
-                    document.getElementById('artigo-modal-body').innerHTML = renderizarConteudo(data.conteudo);
+                    // O servidor já formata e sanitiza (conteudo_html); o fallback
+                    // cobre caches antigas da API que ainda não têm o campo.
+                    document.getElementById('artigo-modal-body').innerHTML =
+                        data.conteudo_html || renderizarConteudo(data.conteudo);
                     
                     // Carregar discussões
                     carregarDiscussoes(data.id);

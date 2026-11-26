@@ -52,6 +52,10 @@ if ($id || $slug) {
     $db->update('licoes', ['views' => $artigo['views'] + 1], 'id = ?', [$artigo['id']]);
     $artigo['views']++;
 
+    // HTML formatado e sanitizado no servidor: o modal não precisa repetir
+    // a regra de markdown/HTML e todos os consumidores veem o mesmo padrão.
+    $artigo['conteudo_html'] = render_conteudo($artigo['conteudo']);
+
     json_response($artigo);
 }
 

@@ -82,30 +82,95 @@ function esc_html($texto) {
  */
 function render_conteudo($conteudo) {
     $conteudo = (string) ($conteudo ?? '');
-    if ($conteudo === '') return '';
+    if (trim($conteudo) === '') return '';
 
-    // Detecta se há tags HTML estruturais (h2/h3/p/ul/ol/li/blockquote)
-    $temHtml = (bool) preg_match('/<\s*(h[1-6]|p|ul|ol|li|blockquote|strong|em)\b/i', $conteudo);
+    // O JSON do wiki traz códigos de cor de chakra ("| #c084fc") que não
+    // são conteúdo: removidos antes de qualquer formatação.
+    $conteudo = str_replace(["\r\n", "\r"], "\n", $conteudo);
+    $conteudo = preg_replace('/[ \t]*\|\s*#[0-9a-fA-F]{3,8}\b/', '', $conteudo);
+    $conteudo = preg_replace('/[ \t]+\n/', "\n", $conteudo);
 
-    if (!$temHtml) {
-        return nl2br(esc_html($conteudo));
+    // "--- Prática ---" é título de seção; cabeçalhos Markdown soltos viram h.
+    $conteudo = preg_replace('/^---\s*(.+?)\s*---\s*$/m', '<h3>$1</h3>', $conteudo);
+    $conteudo = preg_replace('/^####\s+(.+)$/m', '<h5>$1</h5>', $conteudo);
+    $conteudo = preg_replace('/^###\s+(.+)$/m', '<h4>$1</h4>', $conteudo);
+    $conteudo = preg_replace('/^##\s+(.+)$/m', '<h3>$1</h3>', $conteudo);
+    $conteudo = preg_replace('/^#\s+(.+)$/m', '<h2>$1</h2>', $conteudo);
+
+    // Conteúdo MISTO é comum: a fusão das lições prepôs um <p> ao texto cru.
+    // Separa o bloco HTML do texto que vem logo depois, para que o texto
+    // também seja embrulhado em <p> em vez de virar uma única masa corrida.
+    $conteudo = preg_replace(
+        '/(<\/(?:p|h[1-6]|ul|ol|li|blockquote|hr|div|section|pre)>\s*)(?=[^<\s\n])/i',
+        "$1\n\n",
+        $conteudo
+    );
+
+    $html = '';
+    foreach (preg_split('/\n{2,}/', $conteudo) as $bloco) {
+        $bloco = trim($bloco);
+        if ($bloco === '') continue;
+
+        // Bloco já HTML: só converte negrito/itálico que sobraram do Markdown.
+        if (preg_match('/^<(h[1-6]|p|ul|ol|li|blockquote|hr|pre|div|section|table)\b/i', $bloco)) {
+            $bloco = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $bloco);
+            $bloco = preg_replace('/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/s', '<em>$1</em>', $bloco);
+            $html .= $bloco;
+            continue;
+        }
+
+        // Bloco cru: linha a linha, com listas reais para "•".
+        $itens = [];
+        foreach (preg_split('/\n/', $bloco) as $linha) {
+            $linha = trim($linha);
+            if ($linha === '') continue;
+
+            if (preg_match('/^•\s*(.+)$/u', $linha, $m)) {
+                // "I | Coronário | Conexão espiritual" fica mais legível com ·.
+                $itens[] = str_replace(' | ', ' · ', $m[1]);
+                continue;
+            }
+            if ($itens) {
+                $html .= '<ul>' . implode('', array_map(
+                    fn($item) => '<li>' . esc_html($item) . '</li>',
+                    $itens
+                )) . '</ul>';
+                $itens = [];
+            }
+
+            if (preg_match('/^---+$/', $linha)) {
+                $html .= '<hr>';
+                continue;
+            }
+
+            $linha = esc_html($linha);
+            $linha = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $linha);
+            $linha = preg_replace('/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/s', '<em>$1</em>', $linha);
+            $html .= '<p>' . nl2br($linha) . '</p>';
+        }
+        if ($itens) {
+            $html .= '<ul>' . implode('', array_map(
+                fn($item) => '<li>' . esc_html($item) . '</li>',
+                $itens
+            )) . '</ul>';
+        }
     }
 
-    // HTML detectado: sanitiza com allowlist e mantém estrutura
+    // Allowlist única para os dois caminhos. Nunca confiar no HTML importado.
     $permitidas = '<h2><h3><h4><h5><h6><p><br><hr>'
                 . '<ul><ol><li><blockquote><pre><code>'
                 . '<strong><b><em><i><u><s>'
                 . '<a><img>';
+    $html = strip_tags($html, $permitidas);
 
-    $html = strip_tags($conteudo, $permitidas);
-
-    // Segurança: remove handlers javascript: em links e atributos perigosos
+    // Segurança: remove handlers e URLs perigosas em atributos restantes.
     $html = preg_replace('/\s*on\w+\s*=\s*"[^"]*"/i', '', $html);
     $html = preg_replace('/\s*on\w+\s*=\s*\'[^\']*\'/i', '', $html);
-    $html = preg_replace('/href\s*=\s*"javascript:[^"]*"/i', 'href="#"', $html);
-    $html = preg_replace("/href\s*=\s*'javascript:[^']*'/i", "href='#'", $html);
+    $html = preg_replace('/(href|src)\s*=\s*"(?:javascript|data):[^"]*"/i', '$1="#"', $html);
+    $html = preg_replace("/(href|src)\s*=\s*'(?:javascript|data):[^']*'/i", "$1='#'", $html);
 
-    return $html;
+    // Remove <p> vazios deixados pelas conversões.
+    return preg_replace('#<p>\s*(?:</p>|<br\s*/?>\s*</p>)#i', '', $html);
 }
 
 /**

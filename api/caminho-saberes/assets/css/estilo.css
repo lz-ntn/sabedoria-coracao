@@ -409,7 +409,16 @@ h2 i { color: var(--cor-destaque-texto); }
     letter-spacing: 0.08em;
     color: var(--cor-destaque-texto);
 }
-.recente-titulo { font-size: 0.98rem; font-weight: 600; line-height: 1.35; }
+.recente-titulo {
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.7em;
+}
 .recente-resumo {
     font-size: 0.82rem;
     color: var(--texto-secundario);
@@ -1524,6 +1533,12 @@ footer {
     font-size: 1.1rem;
     margin-bottom: 12px;
     line-height: 1.4;
+    /* Títulos longos (150 caracteres) quebravam o alinhamento do grid. */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.8em;
 }
 .artigo-excerpt {
     font-size: 0.9rem;
