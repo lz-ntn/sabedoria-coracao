@@ -653,11 +653,14 @@ foreach ($licoes as $l) {
          SCRIPTS
          ============================================ -->
     <script>
-    // Dados PHP disponíveis para o JS
+    // Dados PHP disponíveis para o JS.
+    // url_api é SEMPRE relativo à origem: APP_URL absoluto (ex.: http://localhost:8081)
+    // quebrava com CORS quando o site era aberto por 127.0.0.1 ou por outro domínio.
+    // Mantém o prefixo apenas se APP_URL tiver caminho (deploy legado em subpasta).
     window.APP_DATA = {
         categorias: <?= json_encode($categorias, JSON_UNESCAPED_UNICODE) ?>,
         licoes: <?= json_encode($licoes, JSON_UNESCAPED_UNICODE) ?>,
-        url_api: '<?= APP_URL ?>/api',
+        url_api: '<?= rtrim((string)parse_url(APP_URL, PHP_URL_PATH), '/') ?>/api',
         csrf_token: '<?= \Core\Csrf::token() ?>'
     };
     </script>

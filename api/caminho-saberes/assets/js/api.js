@@ -3,7 +3,13 @@
    ========================================== */
 
 const API = {
-    baseURL: '/caminho-saberes/api',
+    // O prefixo NÃO pode ser fixo no JS: em produção o app serve na raiz (/api)
+    // e em desenvolvimento pode estar sob /caminho-saberes. O PHP injeta a URL
+    // correta em window.APP_DATA.url_api (APP_URL + '/api').
+    get baseURL() {
+        const url = (window.APP_DATA && window.APP_DATA.url_api) || '/api';
+        return String(url).replace(/\/+$/, '');
+    },
 
     // ══════════════════════════════════════
     // Requisição base
