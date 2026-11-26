@@ -14,12 +14,14 @@ $db = Database::getInstance();
 // Carregar categorias
 $categorias = $db->select('SELECT * FROM categorias ORDER BY ordem');
 
-// Carregar apenas lições (tipo='licao') para a jornada de conhecimento
+// Apenas lições publicadas (tipo='licao') para a jornada de conhecimento.
+// Sem o filtro, as 19 lições-semente arquivadas apareciam ao lado das versões
+// ricas do mesmo tema — conteúdo repetido e resumos de uma linha na jornada.
 $licoes = $db->select(
     'SELECT l.*, c.nome as categoria_nome, c.slug as categoria_slug, c.cor, c.icone
      FROM licoes l
      JOIN categorias c ON c.id = l.categoria_id
-     WHERE l.tipo = "licao"
+     WHERE l.tipo = "licao" AND l.publicado_em IS NOT NULL
      ORDER BY c.ordem, l.ordem'
 );
 

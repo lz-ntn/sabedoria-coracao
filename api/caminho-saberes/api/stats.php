@@ -60,9 +60,11 @@ $total_quiz = $total_quiz['total'];
 $progresso_categorias = $db->select(
     'SELECT c.nome, c.slug, 
             COUNT(DISTINCT p.id) as concluidas,
-            (SELECT COUNT(*) FROM licoes WHERE categoria_id = c.id) as total
+            (SELECT COUNT(*) FROM licoes WHERE categoria_id = c.id
+              AND tipo = "licao" AND publicado_em IS NOT NULL) as total
      FROM categorias c
      LEFT JOIN licoes l ON l.categoria_id = c.id
+        AND l.tipo = "licao" AND l.publicado_em IS NOT NULL
      LEFT JOIN progresso p ON p.licao_id = l.id
      GROUP BY c.id, c.nome, c.slug
      ORDER BY c.ordem'
