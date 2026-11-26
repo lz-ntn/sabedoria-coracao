@@ -12,8 +12,9 @@
     --fundo-card-hover: rgba(255,255,255,0.08);
     --texto: #e0e0e0;
     --texto-secundario: rgba(255,255,255,0.6);
-    --cor-destaque: #f39c12;
+    --cor-destaque: #f39c12;              /* fundo/borda de botões e acentos */
     --cor-destaque-hover: #e67e22;
+    --cor-destaque-texto: #f39c12;        /* texto/ícone sobre fundo escuro */
     --borda: rgba(255,255,255,0.08);
     --sombra: rgba(0,0,0,0.3);
     --transicao: all 0.3s ease;
@@ -26,9 +27,20 @@
     --fundo-card: rgba(0,0,0,0.03);
     --fundo-card-hover: rgba(0,0,0,0.06);
     --texto: #1a1a2e;
-    --texto-secundario: rgba(0,0,0,0.5);
+    /* 0.5 preto sobre #f5f0eb dava 3,9:1 — abaixo dos 4,5:1 para texto miúdo. */
+    --texto-secundario: rgba(0,0,0,0.65);
+    /* Âmbar cheio sobre creme dá 1,8:1. Texto/ícone usa âmbar escuro;
+       fundos, bordas e gradientes continuam com o âmbar vivo. */
+    --cor-destaque-texto: #945700;
     --borda: rgba(0,0,0,0.08);
     --sombra: rgba(0,0,0,0.1);
+}
+
+.modo-claro .introducao h1 {
+    background-image: linear-gradient(90deg, #8a5000, #b03a2e, #7d3c98);
+}
+.modo-claro .timer-display {
+    background-image: linear-gradient(90deg, #8a5000, #b03a2e);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,7 +79,7 @@ header {
 
 .logo-icon {
     font-size: 2rem;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     background: var(--fundo-card-hover);
     padding: 8px;
     border-radius: 50%;
@@ -125,7 +137,7 @@ header {
     opacity: 0.7;
 }
 
-.breadcrumb-item a { color: var(--cor-destaque); text-decoration: none; }
+.breadcrumb-item a { color: var(--cor-destaque-texto); text-decoration: none; }
 .breadcrumb-item a:hover { text-decoration: underline; }
 .breadcrumb-item::after { content: '/'; margin-left: 8px; opacity: 0.4; }
 .breadcrumb-item:last-child::after { content: ''; }
@@ -166,7 +178,7 @@ header {
 }
 
 .nav-link:hover { color: var(--texto); background: var(--fundo-card-hover); }
-.nav-link.active { color: var(--cor-destaque); border-bottom-color: var(--cor-destaque); }
+.nav-link.active { color: var(--cor-destaque-texto); border-bottom-color: var(--cor-destaque); }
 
 /* ══════════════════════════════════════════
    MAIN CONTENT
@@ -183,7 +195,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-h2 i { color: var(--cor-destaque); }
+h2 i { color: var(--cor-destaque-texto); }
 
 .section-subtitle {
     color: var(--texto-secundario);
@@ -254,7 +266,7 @@ h2 i { color: var(--cor-destaque); }
     border: 1px solid var(--borda);
     border-radius: 999px;
     background: var(--fundo-card);
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     font-size: 0.78rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -283,7 +295,7 @@ h2 i { color: var(--cor-destaque); }
     border-radius: 999px;
 }
 .hero-busca[hidden] { display: none; }
-.hero-busca i { color: var(--cor-destaque); }
+.hero-busca i { color: var(--cor-destaque-texto); }
 .hero-busca input {
     flex: 1;
     background: transparent;
@@ -317,7 +329,7 @@ h2 i { color: var(--cor-destaque); }
 .hero-stat-num {
     font-size: 1.7rem;
     font-weight: 700;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     line-height: 1.1;
 }
 .hero-stat-label { font-size: 0.74rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.07em; }
@@ -357,7 +369,7 @@ h2 i { color: var(--cor-destaque); }
     background: var(--fundo-card-hover);
     transform: translateY(-4px);
 }
-.atalho-card i { font-size: 1.8rem; color: var(--cor-destaque); }
+.atalho-card i { font-size: 1.8rem; color: var(--cor-destaque-texto); }
 .atalho-card strong { font-size: 1.02rem; }
 .atalho-card span { font-size: 0.84rem; color: var(--texto-secundario); }
 
@@ -368,7 +380,7 @@ h2 i { color: var(--cor-destaque); }
     gap: 12px;
     flex-wrap: wrap;
 }
-.recentes-header a { color: var(--cor-destaque); text-decoration: none; font-size: 0.86rem; }
+.recentes-header a { color: var(--cor-destaque-texto); text-decoration: none; font-size: 0.86rem; }
 .recentes-header a:hover { text-decoration: underline; }
 .recentes-grid {
     display: grid;
@@ -395,7 +407,7 @@ h2 i { color: var(--cor-destaque); }
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
 }
 .recente-titulo { font-size: 0.98rem; font-weight: 600; line-height: 1.35; }
 .recente-resumo {
@@ -474,7 +486,7 @@ h2 i { color: var(--cor-destaque); }
 }
 
 .tab-btn:hover { color: var(--texto); }
-.tab-btn.active { color: var(--cor-destaque); border-bottom-color: var(--cor-destaque); }
+.tab-btn.active { color: var(--cor-destaque-texto); border-bottom-color: var(--cor-destaque); }
 
 .tab-status {
     font-size: 0.75rem;
@@ -696,7 +708,7 @@ h2 i { color: var(--cor-destaque); }
 
 .path-week {
     font-size: 0.75rem;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -750,7 +762,7 @@ h2 i { color: var(--cor-destaque); }
     background: var(--fundo-card-hover);
     padding: 4px 12px;
     border-radius: 10px;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
 }
 
 /* ══════════════════════════════════════════
@@ -767,7 +779,7 @@ h2 i { color: var(--cor-destaque); }
     .meditacao-conteudo { grid-template-columns: 1fr; }
 }
 
-.meditacao-texto h3 { margin-bottom: 15px; color: var(--cor-destaque); }
+.meditacao-texto h3 { margin-bottom: 15px; color: var(--cor-destaque-texto); }
 .meditacao-texto ol { padding-left: 20px; }
 .meditacao-texto li { margin-bottom: 10px; line-height: 1.6; }
 
@@ -867,7 +879,7 @@ h2 i { color: var(--cor-destaque); }
     margin-top: 15px;
     font-style: italic;
     font-size: 0.85rem;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
 }
 
 /* ══════════════════════════════════════════
@@ -989,7 +1001,7 @@ h2 i { color: var(--cor-destaque); }
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
 }
 
 .stat-label { font-size: 0.8rem; opacity: 0.6; }
@@ -1066,7 +1078,11 @@ h2 i { color: var(--cor-destaque); }
     backdrop-filter: blur(5px);
 }
 
-.modal.open { display: flex; }
+/* Dois modais convivem: busca/favoritos usam .open (app.js) e o modal de
+   artigo usa .visible (script inline do index.php). Sem esta regra o modal
+   de artigo recebia a classe, travava o scroll do body e ficava display:none. */
+.modal.open,
+.modal.visible { display: flex; }
 
 .modal-content {
     background: var(--fundo);
@@ -1134,7 +1150,7 @@ h2 i { color: var(--cor-destaque); }
 .search-result-item p { font-size: 0.8rem; opacity: 0.6; }
 .search-result-item .search-categoria {
     font-size: 0.7rem;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
 }
 
 /* ══════════════════════════════════════════
@@ -1210,7 +1226,7 @@ h2 i { color: var(--cor-destaque); }
     font-size: 0.9rem;
 }
 
-.favorite-title:hover { color: var(--cor-destaque); }
+.favorite-title:hover { color: var(--cor-destaque-texto); }
 
 .favorite-remove {
     background: none;
@@ -1252,7 +1268,7 @@ footer {
     font-size: 0.85rem;
     transition: var(--transicao);
 }
-.footer-section a:hover { color: var(--cor-destaque); }
+.footer-section a:hover { color: var(--cor-destaque-texto); }
 
 .footer-bottom {
     border-top: 1px solid var(--borda);
@@ -1373,7 +1389,8 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+    /* Abaixo do modal (z-index 200): o aviso não pode cobrir o artigo aberto. */
+    z-index: 150;
     background: var(--fundo-card);
     backdrop-filter: blur(20px);
     border-top: 1px solid var(--borda);
@@ -1394,7 +1411,7 @@ footer {
 }
 .lgpd-icon {
     font-size: 1.5rem;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     flex-shrink: 0;
 }
 .lgpd-content > div {
@@ -1496,6 +1513,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 6px;
+    color: var(--cat-cor, var(--cor-destaque-texto));
+}
+/* A cor da categoria vem do banco. No tema claro, o âmbar/azul cheio não
+   atinge 4,5:1 sobre o cartão claro: escurece a cor antes de usar como texto. */
+.modo-claro .artigo-cat {
+    color: color-mix(in srgb, var(--cat-cor, var(--cor-destaque-texto)) 55%, #000);
 }
 .artigo-card h3 {
     font-size: 1.1rem;
@@ -1560,7 +1583,7 @@ footer {
     font-size: 1.05rem;
 }
 .artigo-body h2, .artigo-body h3, .artigo-body h4 {
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     margin: 1.5em 0 0.5em;
 }
 .artigo-body p { margin-bottom: 1em; }
@@ -1628,7 +1651,7 @@ footer {
 .btn-responder {
     background: none;
     border: none;
-    color: var(--cor-destaque);
+    color: var(--cor-destaque-texto);
     cursor: pointer;
     font-size: 0.8rem;
     font-family: var(--fonte);

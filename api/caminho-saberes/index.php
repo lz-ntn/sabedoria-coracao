@@ -758,7 +758,7 @@ foreach ($licoes as $l) {
             var dataPub = artigo.publicado_em ? new Date(artigo.publicado_em).toLocaleDateString('pt-BR') : '';
             
             card.innerHTML = 
-                '<div class="artigo-cat" style="color:' + catCor + '">' +
+                '<div class="artigo-cat" style="--cat-cor:' + catCor + '">' +
                     '<i class="' + catIcon + ' me-1"></i>' + escHtml(artigo.categoria_nome || 'Sem categoria') +
                 '</div>' +
                 '<h3>' + escHtml(artigo.titulo) + '</h3>' +
@@ -779,13 +779,13 @@ foreach ($licoes as $l) {
                 .then(function(data) {
                     document.getElementById('artigo-modal-title').textContent = data.titulo;
                     document.getElementById('artigo-modal-meta').innerHTML = 
-                        '<span class="artigo-cat" style="color:' + (data.categoria_cor || '#9b59b6') + '">' +
+                        '<span class="artigo-cat" style="--cat-cor:' + (data.categoria_cor || '#9b59b6') + '">' +
                             '<i class="' + (data.categoria_icone || 'bi bi-book') + ' me-1"></i>' + escHtml(data.categoria_nome || '') +
                         '</span>' +
                         (data.autor_nome ? '<span class="meta-item"><i class="bi bi-person me-1"></i>' + escHtml(data.autor_nome) + '</span>' : '') +
                         (data.publicado_em ? '<span class="meta-item"><i class="bi bi-calendar me-1"></i>' + new Date(data.publicado_em).toLocaleDateString('pt-BR') + '</span>' : '') +
                         '<span class="meta-item"><i class="bi bi-eye me-1"></i>' + (data.views || 0) + ' visualizações</span>';
-                    document.getElementById('artigo-modal-body').innerHTML = nl2brHtml(data.conteudo);
+                    document.getElementById('artigo-modal-body').innerHTML = renderizarConteudo(data.conteudo);
                     
                     // Carregar discussões
                     carregarDiscussoes(data.id);
@@ -1003,9 +1003,33 @@ foreach ($licoes as $l) {
                 .replace(/'/g, '&#039;');
         }
 
-        function nl2brHtml(str) {
+        // Artigos importados (Jesus/Blavatsky/wiki) já vêm em HTML; textos
+        // digitados no admin vêm crus. Renderizar tudo como texto mostrava
+        // "<p><strong>" na tela. Sanitiza o HTML antes de inserir: sem
+        // script/style/iframe e sem atributos on* ou URLs javascript:/data:.
+        function renderizarConteudo(str) {
             if (!str) return '';
-            return escHtml(str).replace(/\n/g, '<br>');
+            if (!/<[a-z][\s\S]*>/i.test(str)) {
+                return escHtml(str).replace(/\n/g, '<br>');
+            }
+            var temp = document.createElement('div');
+            temp.innerHTML = str;
+            temp.querySelectorAll('script,style,iframe,object,embed,link,meta').forEach(function(el) {
+                el.remove();
+            });
+            temp.querySelectorAll('*').forEach(function(el) {
+                Array.from(el.attributes).forEach(function(attr) {
+                    var nome = attr.name.toLowerCase();
+                    var valor = attr.value.trim().toLowerCase();
+                    if (nome.indexOf('on') === 0) {
+                        el.removeAttribute(attr.name);
+                    } else if ((nome === 'href' || nome === 'src') &&
+                               (valor.indexOf('javascript:') === 0 || valor.indexOf('data:') === 0)) {
+                        el.removeAttribute(attr.name);
+                    }
+                });
+            });
+            return temp.innerHTML;
         }
     })();
     </script>
