@@ -671,9 +671,15 @@ foreach ($licoes as $l) {
         var bibliotecaHasMore = true;
         var bibliotecaCurrentFilters = { q: '', categoria: '', ordenar: 'recente' };
 
-        function carregarBiblioteca(append) {
-            if (bibliotecaLoading || (!append && !bibliotecaHasMore)) return;
+        // opcoes.reset  → volta à página 1 (busca/filtro/entrada na seção)
+        // opcoes.append → acrescenta ao grid (não usado hoje, mas preservado)
+        // Sem opções      → troca de página, mantendo bibliotecaPage
+        function carregarBiblioteca(opcoes) {
+            opcoes = opcoes || {};
+            var append = !!opcoes.append;
+            if (bibliotecaLoading || (append && !bibliotecaHasMore)) return;
             bibliotecaLoading = true;
+            if (opcoes.reset) bibliotecaPage = 1;
             
             var params = new URLSearchParams();
             params.append('page', bibliotecaPage);
@@ -690,14 +696,14 @@ foreach ($licoes as $l) {
                     
                     if (!append) {
                         grid.innerHTML = '';
-                        bibliotecaPage = 1;
                     }
                     
                     if (data.artigos && data.artigos.length > 0) {
                         data.artigos.forEach(function(artigo) {
                             grid.appendChild(criarCardArtigo(artigo));
                         });
-                        bibliotecaPage = data.page + 1;
+                        // bibliotecaPage é sempre a página atualmente exibida.
+                        bibliotecaPage = data.page;
                         bibliotecaHasMore = data.page < data.total_pages;
                     } else if (!append) {
                         grid.innerHTML = '<p class="empty-message" style="grid-column:1/-1;text-align:center;padding:40px">Nenhum artigo encontrado.</p>';
@@ -821,35 +827,33 @@ foreach ($licoes as $l) {
                 clearTimeout(searchDebounce);
                 searchDebounce = setTimeout(function() {
                     bibliotecaCurrentFilters.q = searchInput.value.trim();
-                    bibliotecaPage = 1;
-                    carregarBiblioteca(false);
+                    carregarBiblioteca({ reset: true });
                 }, 300);
             });
 
             // Filtro categoria
             document.getElementById('biblioteca-categoria').addEventListener('change', function() {
                 bibliotecaCurrentFilters.categoria = this.value;
-                bibliotecaPage = 1;
-                carregarBiblioteca(false);
+                carregarBiblioteca({ reset: true });
             });
 
             // Ordenação
             document.getElementById('biblioteca-ordenar').addEventListener('change', function() {
                 bibliotecaCurrentFilters.ordenar = this.value;
-                bibliotecaPage = 1;
-                carregarBiblioteca(false);
+                carregarBiblioteca({ reset: true });
             });
 
             // Paginação
             document.getElementById('biblioteca-prev').addEventListener('click', function() {
                 if (bibliotecaPage > 1) {
                     bibliotecaPage--;
-                    carregarBiblioteca(false);
+                    carregarBiblioteca();
                 }
             });
             document.getElementById('biblioteca-next').addEventListener('click', function() {
                 if (bibliotecaHasMore) {
-                    carregarBiblioteca(false);
+                    bibliotecaPage++;
+                    carregarBiblioteca();
                 }
             });
 
@@ -938,7 +942,7 @@ foreach ($licoes as $l) {
             window.showSection = function(id) {
                 if (originalShowSection) originalShowSection(id);
                 if (id === 'biblioteca') {
-                    setTimeout(function() { carregarBiblioteca(false); }, 100);
+                    setTimeout(function() { carregarBiblioteca({ reset: true }); }, 100);
                 }
             };
         });
