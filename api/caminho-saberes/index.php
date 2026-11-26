@@ -423,7 +423,9 @@ foreach ($licoes as $l) {
         <!-- Biblioteca (Artigos) -->
         <section id="biblioteca">
             <h2><i class="bi bi-book-half"></i> Biblioteca</h2>
-            <p class="section-subtitle">Artigos aprofundados, pesquisas e reflexões sobre as tradições</p>
+            <p class="section-subtitle">Artigos aprofundados, pesquisas e reflexões sobre as tradições
+                <span id="biblioteca-contador" aria-live="polite"></span>
+            </p>
 
             <!-- Busca e Filtros -->
             <div class="biblioteca-toolbar">
@@ -448,7 +450,9 @@ foreach ($licoes as $l) {
 
             <!-- Grid de Artigos -->
             <div id="biblioteca-grid" class="biblioteca-grid">
-                <!-- Carregado via JS -->
+                <p class="empty-message" style="grid-column:1/-1;text-align:center;padding:40px;opacity:0.6">
+                    <i class="bi bi-hourglass-split"></i> Carregando artigos...
+                </p>
             </div>
 
             <!-- Paginação -->
@@ -696,7 +700,13 @@ foreach ($licoes as $l) {
                 .then(function(data) {
                     var grid = document.getElementById('biblioteca-grid');
                     var pagination = document.getElementById('biblioteca-pagination');
-                    
+                    var contador = document.getElementById('biblioteca-contador');
+                    if (contador) {
+                        var totalEncontrado = Number(data.total || 0);
+                        contador.textContent = '· ' + totalEncontrado +
+                            (totalEncontrado === 1 ? ' artigo' : ' artigos');
+                    }
+
                     if (!append) {
                         grid.innerHTML = '';
                     }
@@ -709,7 +719,17 @@ foreach ($licoes as $l) {
                         bibliotecaPage = data.page;
                         bibliotecaHasMore = data.page < data.total_pages;
                     } else if (!append) {
-                        grid.innerHTML = '<p class="empty-message" style="grid-column:1/-1;text-align:center;padding:40px">Nenhum artigo encontrado.</p>';
+                        grid.innerHTML = '<div class="empty-message" style="grid-column:1/-1;text-align:center;padding:40px">' +
+                            '<p style="margin-bottom:14px">Nenhum artigo encontrado.</p>' +
+                            '<button type="button" class="btn btn-secondary btn-sm" id="biblioteca-limpar">' +
+                            '<i class="bi bi-arrow-counterclockwise"></i> Limpar filtros</button></div>';
+                        document.getElementById('biblioteca-limpar').addEventListener('click', function() {
+                            document.getElementById('biblioteca-search').value = '';
+                            document.getElementById('biblioteca-categoria').value = '';
+                            document.getElementById('biblioteca-ordenar').value = 'recente';
+                            bibliotecaCurrentFilters = { q: '', categoria: '', ordenar: 'recente' };
+                            carregarBiblioteca({ reset: true });
+                        });
                         bibliotecaHasMore = false;
                     }
                     
@@ -940,14 +960,30 @@ foreach ($licoes as $l) {
                 }
             });
 
-            // Carregar ao abrir seção biblioteca
-            var originalShowSection = window.showSection;
-            window.showSection = function(id) {
-                if (originalShowSection) originalShowSection(id);
-                if (id === 'biblioteca') {
-                    setTimeout(function() { carregarBiblioteca({ reset: true }); }, 100);
-                }
-            };
+            // Carregar a Biblioteca quando ela entra em cena.
+            // Não existe window.showSection nesta página: os links do menu são
+            // âncoras comuns (#biblioteca). Envolver uma função inexistente
+            // deixava a grade vazia para quem clicava no menu. O observer cobre
+            // menu, atalhos da home, link "Ver biblioteca" e hash direto na URL.
+            var bibliotecaCarregada = false;
+            function garantirBiblioteca() {
+                if (bibliotecaCarregada) return;
+                bibliotecaCarregada = true;
+                carregarBiblioteca({ reset: true });
+            }
+
+            var secaoBiblioteca = document.getElementById('biblioteca');
+            if ('IntersectionObserver' in window && secaoBiblioteca) {
+                var obsBiblioteca = new IntersectionObserver(function(entradas) {
+                    if (entradas.some(function(e) { return e.isIntersecting; })) {
+                        garantirBiblioteca();
+                        obsBiblioteca.disconnect();
+                    }
+                }, { rootMargin: '200px' });
+                obsBiblioteca.observe(secaoBiblioteca);
+            } else {
+                garantirBiblioteca();
+            }
         });
 
         function fecharArtigoModal() {

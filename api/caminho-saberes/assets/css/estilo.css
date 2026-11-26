@@ -1346,6 +1346,18 @@ footer {
     .timer-display { font-size: 3rem; }
     .form-group { flex-direction: column; }
     .resultado-estatisticas { gap: 15px; }
+
+    /* Filtros da Biblioteca: dois selects lado a lado estouravam 8px na tela. */
+    .biblioteca-toolbar { padding: 14px; gap: 12px; }
+    .biblioteca-search { min-width: 0; width: 100%; flex: 1 1 100%; }
+    .biblioteca-filters { width: 100%; flex-wrap: wrap; }
+    .biblioteca-filters select { flex: 1 1 130px; min-width: 0; }
+
+    /* Aviso de privacidade ocupava boa parte da tela e escondia o hero. */
+    .lgpd-banner { padding: 0.7rem 1rem; }
+    .lgpd-content { gap: 0.6rem; }
+    .lgpd-icon { font-size: 1.15rem; }
+    .lgpd-content p { font-size: 0.78rem; line-height: 1.35; margin-top: 2px; }
 }
 
 @media (max-width: 480px) {

@@ -19,7 +19,9 @@ define('APP_NAME', env('APP_NAME', 'O Caminho — Saberes Ancestrais'));
 define('APP_DESC', 'Uma jornada através dos saberes que unem ciência, espiritualidade e sabedoria prática.');
 
 // 👷 URL base
-define('APP_URL', env('APP_URL', 'http://localhost/caminho-saberes'));
+// Padrão sem subpasta: o app serve na raiz (docker-compose :8081 / Render /api).
+// Um default com /caminho-saberes reaparecia como prefixo da API em deploy novo.
+define('APP_URL', env('APP_URL', 'http://localhost:8081'));
 
 // 👷 Versão do sistema
 define('APP_VERSION', '2.0.0');
