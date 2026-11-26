@@ -150,6 +150,24 @@ try {
         echo "  Migrada: {$filename} (batch {$batch})\n";
     }
 
+    // 6. Reparações de DADOS em PHP (não cabem num .sql). Rodam uma vez e
+    //    entram na mesma tabela `migrations`, com o mesmo batch.
+    $repairs = glob(__DIR__ . '/*.repair.php');
+    sort($repairs);
+    foreach ($repairs as $file) {
+        $nomeReparacao = basename($file);
+        $stmt = $pdo->prepare('SELECT COUNT(*) FROM migrations WHERE migration = ?');
+        $stmt->execute([$nomeReparacao]);
+        if ((int)$stmt->fetchColumn() > 0) {
+            echo "  Já aplicada: {$nomeReparacao}\n";
+            continue;
+        }
+        echo "  Reparação: {$nomeReparacao}\n";
+        require $file; // usa $pdo
+        $stmt = $pdo->prepare('INSERT INTO migrations (migration, batch) VALUES (?, ?)');
+        $stmt->execute([$nomeReparacao, $batch]);
+    }
+
     echo "Migrations concluídas com sucesso!\n";
 
 } catch (Throwable $e) {

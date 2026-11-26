@@ -1,9 +1,19 @@
 <?php
 /**
- * Importador: lições helena-blavatsky/estudo-web → Caminho Saberes
+ * DESATIVADO em 26/11/2026 — não usar.
  *
- * Uso: php database/import_blavatsky.php
+ * O diretório `estudo-web` é um CURSO DE DESENVOLVIMENTO WEB (HTML, CSS,
+ * JavaScript) com analogias teosóficas, não um estudo sobre Helena Blavatsky.
+ * Os cinco artigos que ele gerou foram despublicados pela reparação 004.
+ * O conteúdo real de Blavatsky vem de `import_saberes_wiki.php`.
+ *
+ * Para forçar (somente se o material for reconsiderado):
+ *   FORCAR_IMPORT_WEB=1 php database/import_blavatsky.php
  */
+if (getenv('FORCAR_IMPORT_WEB') !== '1') {
+    fwrite(STDERR, "import_blavatsky.php desativado: estudo-web é conteúdo de web dev, não Teosofia.\n");
+    exit(0);
+}
 
 require_once __DIR__ . '/../config/app.php';
 require_once __DIR__ . '/../includes/Database.php';

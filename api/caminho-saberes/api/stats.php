@@ -15,12 +15,14 @@ if ($method !== 'GET') {
     json_error('Método não permitido.', 405);
 }
 
-// Total de lições (tipo = 'licao')
-$total_licoes = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'licao'");
+// Conta só o que está publicado: a home exibe esses números como "Saberes"
+// e a Biblioteca lista apenas publicado_em IS NOT NULL. Incluir rascunhos
+// fazia o contador divergir da grade (ex.: 36 no hero, 31 na Biblioteca).
+$total_licoes = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'licao' AND publicado_em IS NOT NULL");
 $total_licoes = $total_licoes['total'];
 
 // Total de artigos (tipo = 'artigo' — Biblioteca; Portal absorvido no Caminho em 2026-09)
-$total_artigos = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'artigo'");
+$total_artigos = $db->fetch("SELECT COUNT(*) as total FROM licoes WHERE tipo = 'artigo' AND publicado_em IS NOT NULL");
 $total_artigos = $total_artigos['total'];
 
 // Total de conteúdo (lições + artigos)

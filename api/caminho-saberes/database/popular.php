@@ -9,11 +9,13 @@
 require_once __DIR__ . '/../config/app.php';
 require_once __DIR__ . '/../includes/Database.php';
 
+// import_blavatsky.php NÃO entra: o projeto estudo-web são aulas de HTML/CSS/JS
+// com analogias teosóficas, não conteúdo de Helena Blavatsky. Reparação 004
+// despublica as cinco que já tinham sido importadas.
 $scripts = [
     'seed_biblioteca.php',
     'import_saberes_wiki.php',
     'import_jesus_artigos.php',
-    'import_blavatsky.php',
 ];
 
 echo "=== Popular Caminho Saberes ===\n";
